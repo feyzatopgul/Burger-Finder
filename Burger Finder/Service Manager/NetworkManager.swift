@@ -1,0 +1,56 @@
+//
+//  NetworkManager.swift
+//  Burger Finder
+//
+//  Created by Feyza Topgul on 12/23/22.
+//
+
+import Foundation
+
+protocol NetworkManagerProtocol {
+    func createRequest(for url: String) -> URLRequest?
+    func executeRequest<T:Codable>(request: URLRequest, forType: T.Type, completion: @escaping (T?, Error?) -> Void)
+}
+
+class NetworkManager:NetworkManagerProtocol {
+    
+    static var shared = NetworkManager()
+    private init() { }
+    
+    func createRequest(for url: String) -> URLRequest? {
+        guard let url = URL(string: url) else {
+            return nil
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = NetworkConstants.httpMethod
+        request.allHTTPHeaderFields = NetworkConstants.headers
+        return request
+    }
+    
+    func executeRequest<T:Codable>(request: URLRequest, forType: T.Type, completion: @escaping (T?, Error?) -> Void) {
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(nil, NetworkError.badRequest(error))
+                return
+            }
+            guard let httpResponse = response as? HTTPURLResponse,
+                  (200...299).contains(httpResponse.statusCode) else {
+                completion(nil, NetworkError.badResponse(response))
+                return
+            }
+            guard let data = data else {
+                completion(nil, NetworkError.badData)
+                return
+            }
+            do {
+                let result = try JSONDecoder().decode(forType, from: data)
+                completion(result, nil)
+            }
+            catch {
+                completion(nil, error)
+            }
+        }
+        task.resume()
+    }
+}

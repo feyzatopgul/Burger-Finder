@@ -9,21 +9,41 @@
 /* Begin PBXBuildFile section */
 		62893C09295781A6009012A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C08295781A6009012A6 /* AppDelegate.swift */; };
 		62893C0B295781A6009012A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C0A295781A6009012A6 /* SceneDelegate.swift */; };
-		62893C0D295781A6009012A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C0C295781A6009012A6 /* ViewController.swift */; };
-		62893C10295781A6009012A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62893C0E295781A6009012A6 /* Main.storyboard */; };
 		62893C12295781A7009012A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62893C11295781A7009012A6 /* Assets.xcassets */; };
 		62893C15295781A7009012A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62893C13295781A7009012A6 /* LaunchScreen.storyboard */; };
+		62893C1F295781EE009012A6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C1E295781EE009012A6 /* NetworkManager.swift */; };
+		62893C21295781FB009012A6 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C20295781FB009012A6 /* NetworkError.swift */; };
+		62893C2329578205009012A6 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C2229578205009012A6 /* NetworkConstants.swift */; };
+		62893C282957825B009012A6 /* DownloadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C272957825B009012A6 /* DownloadViewModel.swift */; };
+		62893C2C295782A7009012A6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C2B295782A7009012A6 /* TabBarController.swift */; };
+		62893C2F295782BD009012A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C2E295782BD009012A6 /* HomeViewController.swift */; };
+		62893C31295782C3009012A6 /* HomeViewController+SearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C30295782C3009012A6 /* HomeViewController+SearchButton.swift */; };
+		62893C33295782C9009012A6 /* HomeViewController+PlacesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C32295782C9009012A6 /* HomeViewController+PlacesCollectionView.swift */; };
+		62893C35295782D0009012A6 /* PopularPlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C34295782D0009012A6 /* PopularPlaceCell.swift */; };
+		62893C38295782ED009012A6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C37295782ED009012A6 /* SearchViewController.swift */; };
+		62893C3B29578322009012A6 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C3A29578322009012A6 /* FavoritesViewController.swift */; };
+		62893C3E29578372009012A6 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C3D29578372009012A6 /* Places.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		62893C05295781A6009012A6 /* Burger Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Burger Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62893C08295781A6009012A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62893C0A295781A6009012A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		62893C0C295781A6009012A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		62893C0F295781A6009012A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		62893C11295781A7009012A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62893C14295781A7009012A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		62893C16295781A7009012A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62893C1E295781EE009012A6 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		62893C20295781FB009012A6 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		62893C2229578205009012A6 /* NetworkConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		62893C272957825B009012A6 /* DownloadViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadViewModel.swift; sourceTree = "<group>"; };
+		62893C2B295782A7009012A6 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		62893C2E295782BD009012A6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		62893C30295782C3009012A6 /* HomeViewController+SearchButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HomeViewController+SearchButton.swift"; sourceTree = "<group>"; };
+		62893C32295782C9009012A6 /* HomeViewController+PlacesCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HomeViewController+PlacesCollectionView.swift"; sourceTree = "<group>"; };
+		62893C34295782D0009012A6 /* PopularPlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularPlaceCell.swift; sourceTree = "<group>"; };
+		62893C37295782ED009012A6 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		62893C3A29578322009012A6 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		62893C3D29578372009012A6 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +76,97 @@
 		62893C07295781A6009012A6 /* Burger Finder */ = {
 			isa = PBXGroup;
 			children = (
-				62893C08295781A6009012A6 /* AppDelegate.swift */,
-				62893C0A295781A6009012A6 /* SceneDelegate.swift */,
-				62893C0C295781A6009012A6 /* ViewController.swift */,
-				62893C0E295781A6009012A6 /* Main.storyboard */,
+				62893C1C295781C0009012A6 /* AppInit */,
+				62893C1D295781D0009012A6 /* Service Manager */,
+				62893C3C29578354009012A6 /* Model */,
+				62893C2629578248009012A6 /* ViewModel */,
+				62893C2929578279009012A6 /* View */,
 				62893C11295781A7009012A6 /* Assets.xcassets */,
 				62893C13295781A7009012A6 /* LaunchScreen.storyboard */,
 				62893C16295781A7009012A6 /* Info.plist */,
 			);
 			path = "Burger Finder";
+			sourceTree = "<group>";
+		};
+		62893C1C295781C0009012A6 /* AppInit */ = {
+			isa = PBXGroup;
+			children = (
+				62893C0A295781A6009012A6 /* SceneDelegate.swift */,
+				62893C08295781A6009012A6 /* AppDelegate.swift */,
+			);
+			path = AppInit;
+			sourceTree = "<group>";
+		};
+		62893C1D295781D0009012A6 /* Service Manager */ = {
+			isa = PBXGroup;
+			children = (
+				62893C1E295781EE009012A6 /* NetworkManager.swift */,
+				62893C2229578205009012A6 /* NetworkConstants.swift */,
+				62893C20295781FB009012A6 /* NetworkError.swift */,
+			);
+			path = "Service Manager";
+			sourceTree = "<group>";
+		};
+		62893C2629578248009012A6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				62893C272957825B009012A6 /* DownloadViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		62893C2929578279009012A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				62893C2A29578294009012A6 /* TabBarView */,
+				62893C2D295782B2009012A6 /* HomeView */,
+				62893C36295782DC009012A6 /* SearchView */,
+				62893C39295782FD009012A6 /* FavoritesView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		62893C2A29578294009012A6 /* TabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				62893C2B295782A7009012A6 /* TabBarController.swift */,
+			);
+			path = TabBarView;
+			sourceTree = "<group>";
+		};
+		62893C2D295782B2009012A6 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				62893C2E295782BD009012A6 /* HomeViewController.swift */,
+				62893C30295782C3009012A6 /* HomeViewController+SearchButton.swift */,
+				62893C32295782C9009012A6 /* HomeViewController+PlacesCollectionView.swift */,
+				62893C34295782D0009012A6 /* PopularPlaceCell.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		62893C36295782DC009012A6 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				62893C37295782ED009012A6 /* SearchViewController.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		62893C39295782FD009012A6 /* FavoritesView */ = {
+			isa = PBXGroup;
+			children = (
+				62893C3A29578322009012A6 /* FavoritesViewController.swift */,
+			);
+			path = FavoritesView;
+			sourceTree = "<group>";
+		};
+		62893C3C29578354009012A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				62893C3D29578372009012A6 /* Places.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +229,6 @@
 			files = (
 				62893C15295781A7009012A6 /* LaunchScreen.storyboard in Resources */,
 				62893C12295781A7009012A6 /* Assets.xcassets in Resources */,
-				62893C10295781A6009012A6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +239,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62893C0D295781A6009012A6 /* ViewController.swift in Sources */,
+				62893C2329578205009012A6 /* NetworkConstants.swift in Sources */,
+				62893C31295782C3009012A6 /* HomeViewController+SearchButton.swift in Sources */,
+				62893C3B29578322009012A6 /* FavoritesViewController.swift in Sources */,
+				62893C3E29578372009012A6 /* Places.swift in Sources */,
+				62893C2C295782A7009012A6 /* TabBarController.swift in Sources */,
+				62893C1F295781EE009012A6 /* NetworkManager.swift in Sources */,
+				62893C282957825B009012A6 /* DownloadViewModel.swift in Sources */,
+				62893C35295782D0009012A6 /* PopularPlaceCell.swift in Sources */,
+				62893C33295782C9009012A6 /* HomeViewController+PlacesCollectionView.swift in Sources */,
+				62893C38295782ED009012A6 /* SearchViewController.swift in Sources */,
+				62893C2F295782BD009012A6 /* HomeViewController.swift in Sources */,
 				62893C09295781A6009012A6 /* AppDelegate.swift in Sources */,
 				62893C0B295781A6009012A6 /* SceneDelegate.swift in Sources */,
+				62893C21295781FB009012A6 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		62893C0E295781A6009012A6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				62893C0F295781A6009012A6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		62893C13295781A7009012A6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +396,6 @@
 				INFOPLIST_FILE = "Burger Finder/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +423,6 @@
 				INFOPLIST_FILE = "Burger Finder/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
