@@ -24,8 +24,8 @@ class TabBarController: UITabBarController {
         
         self.setViewControllers([homeVC, favVC], animated: true)
         
-        self.tabBar.tintColor = .orange
-        self.tabBar.backgroundColor = .white
+        self.tabBar.tintColor = UIColor(named: "primaryAppColor")
+        self.tabBar.backgroundColor = .tertiarySystemBackground
     }
 
 }

@@ -10,17 +10,27 @@ import UIKit
 class HomeViewController: UIViewController {
     
     var downloadViewModel = DownloadViewModel()
+    var imageLoadViewModel = ImageLoadViewModel()
     
     var places = [Place]()
     
     let searchButton = UIButton(configuration: .plain(), primaryAction: nil)
+    
+    let popularPlacesView = GradientView(colors: [UIColor.clear.cgColor, UIColor.white.cgColor])
     let placesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    let popularPlacesLabel = UILabel()
+    
+    let warningView = GradientView(colors: [UIColor.white.cgColor, UIColor.clear.cgColor])
+    let warningLabel = UILabel()
+    let refreshButton = UIButton()
+    let spinnerView = UIActivityIndicatorView()
     
     typealias DataSource = UICollectionViewDiffableDataSource<PopularPlacesSection,Place>
     typealias Snapshot = NSDiffableDataSourceSnapshot<PopularPlacesSection, Place>
     lazy var dataSource = createDataSource()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         //Set up background
         setBackground(imageName: "burgerBackground")
@@ -28,15 +38,41 @@ class HomeViewController: UIViewController {
         //Configure search field
         configureSearchButton()
         
+        //Configure popular places view
+        configurePopularPlacesView()
         //Set data source and configure collection view
         placesCollectionView.dataSource = dataSource
         configurePlacesCollectionView()
+        configurePopularPlacesLabel()
         
-        //Get places list and update collection view
-        getPlaces()
-        applySnapshot()
-        
-        
+        //Configure warning view
+        configureWarningView()
+        configureWarningLabel()
+        configureRefreshButton()
+        configureSpinner()
+    
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkLocationEnabled()
+    }
+    
+    func checkLocationEnabled() {
+        LocationManager.shared.isLocationEnabled { [weak self] isEnabled in
+            guard let self = self else { return }
+            if isEnabled {
+                self.popularPlacesView.isHidden = false
+                self.warningView.isHidden = true
+                
+                //Get places list and update collection view
+                self.getPlaces()
+                self.applySnapshot()
+            } else {
+                self.popularPlacesView.isHidden = true
+                self.warningView.isHidden = false
+            }
+        }
     }
     
     //Set background image
@@ -45,9 +81,10 @@ class HomeViewController: UIViewController {
         view.backgroundColor = UIColor(patternImage: backgroundImage)
     }
     
+    
     //Get default popular places according to the current location
     func getPlaces() {
-        downloadViewModel.fetchPlaces(search: "", location: "Cupertino", sort: "POPULARITY") { [weak self] result in
+        downloadViewModel.fetchPopularPlacesNearby { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let returnedPlaces):
@@ -60,6 +97,5 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    
 }
 

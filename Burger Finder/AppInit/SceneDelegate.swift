@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/24/22.
+//  Created by Feyza Topgul on 12/24/22.
 //
 
 import UIKit

@@ -57,6 +57,7 @@ class PopularPlaceCell: UICollectionViewCell {
         let constraints = [
             imageView.topAnchor.constraint(equalTo: backView.topAnchor),
             imageView.bottomAnchor.constraint(equalTo: nameLabel.topAnchor),
+            //imageView.heightAnchor.constraint(equalToConstant: backView.frame.height / 3),
             imageView.leftAnchor.constraint(equalTo: backView.leftAnchor, constant: 20),
             imageView.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: -20),
         ]

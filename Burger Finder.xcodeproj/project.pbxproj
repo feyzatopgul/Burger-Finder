@@ -23,6 +23,16 @@
 		62893C38295782ED009012A6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C37295782ED009012A6 /* SearchViewController.swift */; };
 		62893C3B29578322009012A6 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C3A29578322009012A6 /* FavoritesViewController.swift */; };
 		62893C3E29578372009012A6 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C3D29578372009012A6 /* Places.swift */; };
+		62893C4229578698009012A6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C4129578698009012A6 /* LocationManager.swift */; };
+		62893C442957B579009012A6 /* HomeViewController+PopularPlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C432957B579009012A6 /* HomeViewController+PopularPlacesView.swift */; };
+		62893C462957C148009012A6 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C452957C148009012A6 /* GradientView.swift */; };
+		62893C482957C657009012A6 /* HomeViewController+PopularPlacesLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C472957C657009012A6 /* HomeViewController+PopularPlacesLabel.swift */; };
+		62893C4A2957DF41009012A6 /* HomeViewController+WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C492957DF41009012A6 /* HomeViewController+WarningView.swift */; };
+		62893C4C29580426009012A6 /* HomeViewController+WarningLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C4B29580426009012A6 /* HomeViewController+WarningLabel.swift */; };
+		62893C4E29580BD3009012A6 /* HomeViewController+RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C4D29580BD3009012A6 /* HomeViewController+RefreshButton.swift */; };
+		62893C502958139A009012A6 /* HomeViewController+Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C4F2958139A009012A6 /* HomeViewController+Spinner.swift */; };
+		62893C5329581B18009012A6 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C5229581B18009012A6 /* ImageLoader.swift */; };
+		62893C5529581FD9009012A6 /* ImageLoadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C5429581FD9009012A6 /* ImageLoadViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +54,16 @@
 		62893C37295782ED009012A6 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		62893C3A29578322009012A6 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		62893C3D29578372009012A6 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
+		62893C4129578698009012A6 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		62893C432957B579009012A6 /* HomeViewController+PopularPlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+PopularPlacesView.swift"; sourceTree = "<group>"; };
+		62893C452957C148009012A6 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		62893C472957C657009012A6 /* HomeViewController+PopularPlacesLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+PopularPlacesLabel.swift"; sourceTree = "<group>"; };
+		62893C492957DF41009012A6 /* HomeViewController+WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+WarningView.swift"; sourceTree = "<group>"; };
+		62893C4B29580426009012A6 /* HomeViewController+WarningLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+WarningLabel.swift"; sourceTree = "<group>"; };
+		62893C4D29580BD3009012A6 /* HomeViewController+RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+RefreshButton.swift"; sourceTree = "<group>"; };
+		62893C4F2958139A009012A6 /* HomeViewController+Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Spinner.swift"; sourceTree = "<group>"; };
+		62893C5229581B18009012A6 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		62893C5429581FD9009012A6 /* ImageLoadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,9 +120,9 @@
 		62893C1D295781D0009012A6 /* Service Manager */ = {
 			isa = PBXGroup;
 			children = (
-				62893C1E295781EE009012A6 /* NetworkManager.swift */,
-				62893C2229578205009012A6 /* NetworkConstants.swift */,
-				62893C20295781FB009012A6 /* NetworkError.swift */,
+				62893C5129581A87009012A6 /* ImageLoader */,
+				62893C3F29578653009012A6 /* NetworkManager */,
+				62893C402957867D009012A6 /* LocationManager */,
 			);
 			path = "Service Manager";
 			sourceTree = "<group>";
@@ -111,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				62893C272957825B009012A6 /* DownloadViewModel.swift */,
+				62893C5429581FD9009012A6 /* ImageLoadViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -141,6 +162,13 @@
 				62893C30295782C3009012A6 /* HomeViewController+SearchButton.swift */,
 				62893C32295782C9009012A6 /* HomeViewController+PlacesCollectionView.swift */,
 				62893C34295782D0009012A6 /* PopularPlaceCell.swift */,
+				62893C432957B579009012A6 /* HomeViewController+PopularPlacesView.swift */,
+				62893C472957C657009012A6 /* HomeViewController+PopularPlacesLabel.swift */,
+				62893C492957DF41009012A6 /* HomeViewController+WarningView.swift */,
+				62893C4B29580426009012A6 /* HomeViewController+WarningLabel.swift */,
+				62893C4D29580BD3009012A6 /* HomeViewController+RefreshButton.swift */,
+				62893C4F2958139A009012A6 /* HomeViewController+Spinner.swift */,
+				62893C452957C148009012A6 /* GradientView.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -167,6 +195,32 @@
 				62893C3D29578372009012A6 /* Places.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		62893C3F29578653009012A6 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				62893C2229578205009012A6 /* NetworkConstants.swift */,
+				62893C20295781FB009012A6 /* NetworkError.swift */,
+				62893C1E295781EE009012A6 /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		62893C402957867D009012A6 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				62893C4129578698009012A6 /* LocationManager.swift */,
+			);
+			path = LocationManager;
+			sourceTree = "<group>";
+		};
+		62893C5129581A87009012A6 /* ImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				62893C5229581B18009012A6 /* ImageLoader.swift */,
+			);
+			path = ImageLoader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,18 +294,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				62893C2329578205009012A6 /* NetworkConstants.swift in Sources */,
+				62893C4C29580426009012A6 /* HomeViewController+WarningLabel.swift in Sources */,
 				62893C31295782C3009012A6 /* HomeViewController+SearchButton.swift in Sources */,
+				62893C4229578698009012A6 /* LocationManager.swift in Sources */,
 				62893C3B29578322009012A6 /* FavoritesViewController.swift in Sources */,
+				62893C462957C148009012A6 /* GradientView.swift in Sources */,
 				62893C3E29578372009012A6 /* Places.swift in Sources */,
 				62893C2C295782A7009012A6 /* TabBarController.swift in Sources */,
 				62893C1F295781EE009012A6 /* NetworkManager.swift in Sources */,
 				62893C282957825B009012A6 /* DownloadViewModel.swift in Sources */,
 				62893C35295782D0009012A6 /* PopularPlaceCell.swift in Sources */,
+				62893C4E29580BD3009012A6 /* HomeViewController+RefreshButton.swift in Sources */,
 				62893C33295782C9009012A6 /* HomeViewController+PlacesCollectionView.swift in Sources */,
 				62893C38295782ED009012A6 /* SearchViewController.swift in Sources */,
 				62893C2F295782BD009012A6 /* HomeViewController.swift in Sources */,
+				62893C5329581B18009012A6 /* ImageLoader.swift in Sources */,
 				62893C09295781A6009012A6 /* AppDelegate.swift in Sources */,
+				62893C502958139A009012A6 /* HomeViewController+Spinner.swift in Sources */,
+				62893C5529581FD9009012A6 /* ImageLoadViewModel.swift in Sources */,
+				62893C482957C657009012A6 /* HomeViewController+PopularPlacesLabel.swift in Sources */,
+				62893C4A2957DF41009012A6 /* HomeViewController+WarningView.swift in Sources */,
 				62893C0B295781A6009012A6 /* SceneDelegate.swift in Sources */,
+				62893C442957B579009012A6 /* HomeViewController+PopularPlacesView.swift in Sources */,
 				62893C21295781FB009012A6 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

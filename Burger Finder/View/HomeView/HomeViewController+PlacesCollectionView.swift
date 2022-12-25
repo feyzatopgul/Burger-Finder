@@ -13,7 +13,7 @@ extension HomeViewController:UICollectionViewDelegateFlowLayout {
 //MARK: - CollectionView Layouts
     
     func configurePlacesCollectionView() {
-        view.addSubview(placesCollectionView)
+        //popularPlacesView.addSubview(placesCollectionView)
         placesCollectionView.backgroundColor = .clear
         placesCollectionView.delegate = self
         
@@ -27,6 +27,7 @@ extension HomeViewController:UICollectionViewDelegateFlowLayout {
         placesCollectionView.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             placesCollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            //placesCollectionView.topAnchor.constraint(equalTo: popularPlacesLabel.bottomAnchor),
             placesCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height / 2),
             placesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
             placesCollectionView.widthAnchor.constraint(equalToConstant: view.frame.width)
@@ -45,20 +46,45 @@ extension HomeViewController:UICollectionViewDelegateFlowLayout {
 //MARK: - Data Source and Snapshot
     //Create data source
     func createDataSource() -> DataSource {
-        let dataSource = DataSource(collectionView: placesCollectionView) { collectionView, indexPath, place in
-            guard let popularPlaceCell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularPlaceCell.identifier, for: indexPath) as? PopularPlaceCell else { return UICollectionViewCell() }
+        let dataSource = DataSource(collectionView: placesCollectionView) {[weak self] collectionView, indexPath, place in
+            guard let self = self,
+                  let popularPlaceCell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularPlaceCell.identifier, for: indexPath) as? PopularPlaceCell else { return UICollectionViewCell() }
             
-            popularPlaceCell.imageView.image = UIImage(named: "placeholderBurger")
-            popularPlaceCell.nameLabel.text = place.name
-            if let rating = place.rating {
-                popularPlaceCell.ratingLabel.text = "\(rating)"
-            } else {
-                popularPlaceCell.ratingLabel.text = "0.0"
-            }
+            self.populateCell(popularPlaceCell: popularPlaceCell, place: place)
            
             return popularPlaceCell
         }
         return dataSource
+    }
+    
+    //Populate popularPlaceCell with data
+    func populateCell(popularPlaceCell: PopularPlaceCell, place: Place) {
+        //Set nameLabel
+        popularPlaceCell.nameLabel.text = place.name
+        //Set ratingLabel
+        if let rating = place.rating {
+            popularPlaceCell.ratingLabel.text = "\(rating)"
+        } else {
+            popularPlaceCell.ratingLabel.text = "0.0"
+        }
+        //Set imageView with a placeholder
+        popularPlaceCell.imageView.image = UIImage(named: "placeholderBurger")
+        if let photos = place.photos {
+            if !photos.isEmpty {
+                let photo = photos.first!
+                imageLoadViewModel.fetchImage(prefix: photo.prefix,
+                                              suffix: photo.suffix) { result in
+                    switch result {
+                    case .failure(let error):
+                        print("Error loading image: \(error)")
+                    case .success(let imageData):
+                        DispatchQueue.main.async {
+                            popularPlaceCell.imageView.image = UIImage(data: imageData)
+                        }
+                    }
+                }
+            }
+        }
     }
     
     //Apply snapshot for update
