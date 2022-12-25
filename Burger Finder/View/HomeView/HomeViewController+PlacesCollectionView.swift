@@ -29,7 +29,7 @@ extension HomeViewController:UICollectionViewDelegateFlowLayout {
             placesCollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             //placesCollectionView.topAnchor.constraint(equalTo: popularPlacesLabel.bottomAnchor),
             placesCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height / 2),
-            placesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+            placesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.height / 8),
             placesCollectionView.widthAnchor.constraint(equalToConstant: view.frame.width)
         ]
         NSLayoutConstraint.activate(constraints)

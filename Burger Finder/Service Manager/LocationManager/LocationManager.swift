@@ -69,10 +69,34 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
                 if let adminRegion = place.administrativeArea {
                     resolvedLocation += ", \(adminRegion)"
                 }
-                print(resolvedLocation)
+                print("Resolved Location: \(resolvedLocation)")
                 completion(resolvedLocation)
             }
         }
-        
+    }
+    //Find a valid location with a given string query
+    func findLocation(query: String, completion: @escaping (String?)->Void) {
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(query) { placemarks, error in
+            guard let place = placemarks?.first, error == nil else {
+                completion(nil)
+                return
+            }
+            var validAddress = ""
+            if let name = place.name {
+                validAddress += name
+            }
+            if let locality = place.locality{
+                validAddress += ", \(locality)"
+            }
+            if let adminRegion = place.administrativeArea {
+                validAddress += ", \(adminRegion)"
+            }
+            if let country = place.country {
+                validAddress += ", \(country)"
+            }
+            print("Valid address: \(validAddress)")
+            completion(validAddress)
+        }
     }
 }

@@ -55,11 +55,14 @@ class PopularPlaceCell: UICollectionViewCell {
         imageView.clipsToBounds = true
 
         let constraints = [
-            imageView.topAnchor.constraint(equalTo: backView.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: nameLabel.topAnchor),
+            imageView.topAnchor.constraint(equalTo: backView.topAnchor, constant: 10),
+            imageView.heightAnchor.constraint(equalToConstant: 200),
+            imageView.widthAnchor.constraint(equalToConstant: 150),
+            imageView.centerXAnchor.constraint(equalTo: backView.centerXAnchor)
+            //imageView.bottomAnchor.constraint(equalTo: nameLabel.topAnchor),
             //imageView.heightAnchor.constraint(equalToConstant: backView.frame.height / 3),
-            imageView.leftAnchor.constraint(equalTo: backView.leftAnchor, constant: 20),
-            imageView.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: -20),
+            //imageView.leftAnchor.constraint(equalTo: backView.leftAnchor, constant: 20),
+            //imageView.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: -20),
         ]
         NSLayoutConstraint.activate(constraints)
     }
@@ -67,12 +70,13 @@ class PopularPlaceCell: UICollectionViewCell {
     //Name label configuration
     func configureNameLabel() {
         nameLabel.numberOfLines = 3
+        nameLabel.textAlignment = .center
         nameLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         nameLabel.textColor = .darkGray
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
-            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor),
-            nameLabel.bottomAnchor.constraint(equalTo: ratingLabel.topAnchor),
+            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
+            nameLabel.heightAnchor.constraint(equalToConstant: 60),
             nameLabel.leftAnchor.constraint(equalTo: backView.leftAnchor, constant: 30),
             nameLabel.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: -20)
         ]
@@ -82,10 +86,11 @@ class PopularPlaceCell: UICollectionViewCell {
     //Rating label configuration
     func configureRatingLabel() {
         ratingLabel.textColor = .orange
+        ratingLabel.textAlignment = .center
         ratingLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         ratingLabel.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
-            ratingLabel.bottomAnchor.constraint(equalTo: backView.bottomAnchor),
+            ratingLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
             ratingLabel.leftAnchor.constraint(equalTo: backView.leftAnchor, constant: 30),
             ratingLabel.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: -20),
         ]

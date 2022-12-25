@@ -43,6 +43,8 @@ class DownloadViewModel {
     //Fetch nearby places based on search terms
     func fetchSearchedPlaces(search: String, location: String, completion: @escaping (Result<[Place], Error>) -> Void) {
         
+        
+        
         let urlString = NetworkConstants.createUrlString(search: search, location: location, sort: "DISTANCE")
         
         guard let request = networkManager.createRequest(for: urlString) else { return }
