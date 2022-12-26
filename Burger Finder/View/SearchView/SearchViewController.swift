@@ -7,76 +7,57 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UISearchBarDelegate, UISearchResultsUpdating {
+class SearchViewController: UIViewController {
 
     var downloadViewModel = DownloadViewModel()
+    var imageLoadViewModel = ImageLoadViewModel()
+    var places = [Place]()
     
-    let placeSearchController = UISearchController()
+    let placeSearchBar = UISearchBar()
     let locationSearchBar = UISearchBar()
+    var placeText = ""
+    var locationText = ""
     
-    private var location: String = ""
-    private var searchTerm: String = ""
+    let placesTableView = UITableView()
+    typealias DataSource = UITableViewDiffableDataSource<PlacesSection, Place>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<PlacesSection, Place>
+    lazy var dataSource = createDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        navigationItem.searchController = placeSearchController
-        navigationItem.hidesBackButton = true
-        placeSearchController.searchBar.showsCancelButton = false
-        placeSearchController.searchResultsUpdater = self
-        
-        view.addSubview(locationSearchBar)
-        locationSearchBar.delegate = self
-        locationSearchBar.placeholder = "Current location..."
-        locationSearchBar.setImage(UIImage(systemName: "location"), for: .search, state: .normal)
 
-        locationSearchBar.translatesAutoresizingMaskIntoConstraints = false
-        let guide = self.view.safeAreaLayoutGuide
-        let constraints = [
-            locationSearchBar.topAnchor.constraint(equalTo: guide.topAnchor),
-            locationSearchBar.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 10),
-            locationSearchBar.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -10)
-        ]
-        NSLayoutConstraint.activate(constraints)
+        //Configure placeSearchBar
+        configurePlaceSearchBar()
         
+        //Configure locationSearchBar
+        configureLocationSearchBar()
+        
+        //Configure placesTableView
+        configurePlacesTableView()
+        
+        getPlaces(search: "", location: "")
+        
+        //Update placesTableView
+        applySnapshot()
+        
+        //Dismiss keyboard when anywhere is tapped
+        dismissKeyboardWhenViewIsTapped()
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        location = searchText
-        LocationManager.shared.findLocation(query: location) { result in
-            if let result = result {
-                print("valid location: \(result)")
-            } else {
-                print("Location is not valid")
+    //Fetch place data when user search something
+    func getPlaces(search: String, location: String) {
+        downloadViewModel.fetchSearchedPlaces(search: search, location: location) {[weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let returnedPlaces):
+                self.places = returnedPlaces
+                DispatchQueue.main.async {
+                    self.applySnapshot()
+                }
+            case .failure(let error):
+                print(error)
             }
         }
-//        downloadViewModel.fetchSearchedPlaces(search: "", location: searchText) { result in
-//            switch result {
-//            case .success(let returnedPlaces):
-//                print(returnedPlaces)
-//            case.failure(let error):
-//                print(error)
-//            }
-//        }
-
     }
-    func updateSearchResults(for searchController: UISearchController) {
-        
-        guard let text = searchController.searchBar.text else { return }
-        searchTerm = text
-        print(searchTerm)
-
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

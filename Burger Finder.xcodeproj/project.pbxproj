@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6274DA9029590EB0006ADFC4 /* SearchViewController+PlaceSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274DA8F29590EB0006ADFC4 /* SearchViewController+PlaceSearchBar.swift */; };
+		6274DA9229590F36006ADFC4 /* SearchViewController+LocationSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274DA9129590F36006ADFC4 /* SearchViewController+LocationSearchBar.swift */; };
+		6274DA94295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274DA93295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift */; };
+		6274DA972959260A006ADFC4 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274DA962959260A006ADFC4 /* PlaceCell.swift */; };
+		6274DA9929596BBA006ADFC4 /* SearchViewController+SearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274DA9829596BBA006ADFC4 /* SearchViewController+SearchBarDelegate.swift */; };
 		62893C09295781A6009012A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C08295781A6009012A6 /* AppDelegate.swift */; };
 		62893C0B295781A6009012A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C0A295781A6009012A6 /* SceneDelegate.swift */; };
 		62893C12295781A7009012A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62893C11295781A7009012A6 /* Assets.xcassets */; };
@@ -36,6 +41,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6274DA8F29590EB0006ADFC4 /* SearchViewController+PlaceSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+PlaceSearchBar.swift"; sourceTree = "<group>"; };
+		6274DA9129590F36006ADFC4 /* SearchViewController+LocationSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+LocationSearchBar.swift"; sourceTree = "<group>"; };
+		6274DA93295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+PlacesTableView.swift"; sourceTree = "<group>"; };
+		6274DA962959260A006ADFC4 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
+		6274DA9829596BBA006ADFC4 /* SearchViewController+SearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+SearchBarDelegate.swift"; sourceTree = "<group>"; };
 		62893C05295781A6009012A6 /* Burger Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Burger Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62893C08295781A6009012A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62893C0A295781A6009012A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +187,11 @@
 			isa = PBXGroup;
 			children = (
 				62893C37295782ED009012A6 /* SearchViewController.swift */,
+				6274DA8F29590EB0006ADFC4 /* SearchViewController+PlaceSearchBar.swift */,
+				6274DA9129590F36006ADFC4 /* SearchViewController+LocationSearchBar.swift */,
+				6274DA9829596BBA006ADFC4 /* SearchViewController+SearchBarDelegate.swift */,
+				6274DA93295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift */,
+				6274DA962959260A006ADFC4 /* PlaceCell.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -298,6 +313,7 @@
 				62893C31295782C3009012A6 /* HomeViewController+SearchButton.swift in Sources */,
 				62893C4229578698009012A6 /* LocationManager.swift in Sources */,
 				62893C3B29578322009012A6 /* FavoritesViewController.swift in Sources */,
+				6274DA9229590F36006ADFC4 /* SearchViewController+LocationSearchBar.swift in Sources */,
 				62893C462957C148009012A6 /* GradientView.swift in Sources */,
 				62893C3E29578372009012A6 /* Places.swift in Sources */,
 				62893C2C295782A7009012A6 /* TabBarController.swift in Sources */,
@@ -315,8 +331,12 @@
 				62893C482957C657009012A6 /* HomeViewController+PopularPlacesLabel.swift in Sources */,
 				62893C4A2957DF41009012A6 /* HomeViewController+WarningView.swift in Sources */,
 				62893C0B295781A6009012A6 /* SceneDelegate.swift in Sources */,
+				6274DA972959260A006ADFC4 /* PlaceCell.swift in Sources */,
+				6274DA9029590EB0006ADFC4 /* SearchViewController+PlaceSearchBar.swift in Sources */,
 				62893C442957B579009012A6 /* HomeViewController+PopularPlacesView.swift in Sources */,
 				62893C21295781FB009012A6 /* NetworkError.swift in Sources */,
+				6274DA94295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift in Sources */,
+				6274DA9929596BBA006ADFC4 /* SearchViewController+SearchBarDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,10 +478,12 @@
 				DEVELOPMENT_TEAM = 9RX5VUTPWS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Burger Finder/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow location access to use our app";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -485,10 +507,12 @@
 				DEVELOPMENT_TEAM = 9RX5VUTPWS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Burger Finder/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow location access to use our app";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

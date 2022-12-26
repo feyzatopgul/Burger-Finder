@@ -19,7 +19,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Please allow location access to use our app</string>
 </dict>
 </plist>

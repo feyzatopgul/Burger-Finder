@@ -57,14 +57,14 @@ class HomeViewController: UIViewController {
         super.viewDidAppear(animated)
         checkLocationEnabled()
     }
-    
+
     func checkLocationEnabled() {
         LocationManager.shared.isLocationEnabled { [weak self] isEnabled in
             guard let self = self else { return }
             if isEnabled {
                 self.popularPlacesView.isHidden = false
                 self.warningView.isHidden = true
-                
+
                 //Get places list and update collection view
                 self.getPlaces()
                 self.applySnapshot()

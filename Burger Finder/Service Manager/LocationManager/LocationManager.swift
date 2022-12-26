@@ -11,6 +11,7 @@ import CoreLocation
 protocol LocationManagerProtocol {
     func getCurrentLocation(completion: @escaping ((CLLocation) -> Void))
     func resolvedCurrentLocation(completion: @escaping ((String?) -> Void))
+    func findLocation(query: String, completion: @escaping (String?)->Void)
 }
 
 class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProtocol {
@@ -21,7 +22,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
     
     private var locationCompletion: ((CLLocation) -> Void)?
     
-    private var locationServiceDisabled: Bool = false
     
     private func setUpLocationManager() {
         locationManager.delegate = self
@@ -29,20 +29,24 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
         locationManager.requestWhenInUseAuthorization()
     }
     
+    func getAuthorizationStatus(completion: @escaping (CLAuthorizationStatus) -> Void) {
+        completion(locationManager.authorizationStatus)
+    }
+    
     //Check if location is enabled or not
     func isLocationEnabled(completion: @escaping ((Bool) -> Void)){
-        if locationManager.authorizationStatus == .denied ||
-            locationManager.authorizationStatus == .restricted {
-            completion(false)
-        } else {
+        if locationManager.authorizationStatus == .notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+        } else if locationManager.authorizationStatus == .authorizedWhenInUse {
             completion(true)
+        } else {
+            completion(false)
         }
     }
     
     //Get current location as CLLocation
     func getCurrentLocation(completion: @escaping ((CLLocation) -> Void)) {
         self.locationCompletion = completion
-        //checkLocationServices()
         setUpLocationManager()
         locationManager.startUpdatingLocation()
         
@@ -69,7 +73,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
                 if let adminRegion = place.administrativeArea {
                     resolvedLocation += ", \(adminRegion)"
                 }
-                print("Resolved Location: \(resolvedLocation)")
+                //print("Resolved Location: \(resolvedLocation)")
                 completion(resolvedLocation)
             }
         }
@@ -95,8 +99,9 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
             if let country = place.country {
                 validAddress += ", \(country)"
             }
-            print("Valid address: \(validAddress)")
+            //print("Valid address: \(validAddress)")
             completion(validAddress)
         }
     }
+    
 }

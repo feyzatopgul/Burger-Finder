@@ -16,7 +16,7 @@ struct Place: Codable,Hashable {
     var distance: Int
     var geocodes:Geocode
     var hours: Hours
-    var location:Location
+    var location:Location?
     var name: String
     var rating: Double?
     var phoneNumber: String?
@@ -66,11 +66,11 @@ struct Hours: Codable, Hashable {
 }
 
 struct Location: Codable, Hashable {
-    var formattedAddress: String
-    var locality: String
-    var country: String
-    var postcode: String
-    var region: String
+    var formattedAddress: String?
+    var locality: String?
+    var country: String?
+    var postcode: String?
+    var region: String?
     
     enum CodingKeys: String, CodingKey {
         case formattedAddress = "formatted_address"

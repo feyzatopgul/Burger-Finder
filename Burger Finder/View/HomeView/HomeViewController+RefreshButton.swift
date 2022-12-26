@@ -41,6 +41,7 @@ extension HomeViewController {
             guard let self = self else { return }
             self.hideSpinner()
             self.checkLocationEnabled()
+
         }
         
     }

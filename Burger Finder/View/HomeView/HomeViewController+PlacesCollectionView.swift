@@ -13,7 +13,6 @@ extension HomeViewController:UICollectionViewDelegateFlowLayout {
 //MARK: - CollectionView Layouts
     
     func configurePlacesCollectionView() {
-        //popularPlacesView.addSubview(placesCollectionView)
         placesCollectionView.backgroundColor = .clear
         placesCollectionView.delegate = self
         
@@ -44,7 +43,7 @@ extension HomeViewController:UICollectionViewDelegateFlowLayout {
     }
 
 //MARK: - Data Source and Snapshot
-    //Create data source
+    //Create data source for collectionView
     func createDataSource() -> DataSource {
         let dataSource = DataSource(collectionView: placesCollectionView) {[weak self] collectionView, indexPath, place in
             guard let self = self,
@@ -87,7 +86,7 @@ extension HomeViewController:UICollectionViewDelegateFlowLayout {
         }
     }
     
-    //Apply snapshot for update
+    //Apply snapshot for update collectionView
     func applySnapshot() {
         var snapshot = Snapshot()
         snapshot.appendSections([.main])
