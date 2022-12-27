@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UINavigationBar.appearance().tintColor = UIColor(named: "primaryAppColor")
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(named: "textColor") ?? .systemBackground]
         return true
     }
 

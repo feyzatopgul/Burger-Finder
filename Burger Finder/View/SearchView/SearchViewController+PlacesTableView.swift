@@ -12,8 +12,8 @@ extension SearchViewController {
     
     func configurePlacesTableView() {
         view.addSubview(placesTableView)
-        //placesTableView.backgroundColor = .blue
         
+        placesTableView.delegate = self
         //Set row height
         placesTableView.rowHeight = 150
         
@@ -53,14 +53,20 @@ extension SearchViewController {
         } else {
             placeCell.ratingLabel.text = "0.0"
         }
+        
+        //Set price for priceView
+        placeCell.priceView.price = place.price
+        
+        placeCell.isOpenLabel.text = place.hours.openNow ? "Open" : "Closed"
 
         //Set imageView with a placeholder
         placeCell.placeImage.image = UIImage(named: "placeholderBurger")
+        //Set imageView with the first photo if available
         if let photos = place.photos {
             if !photos.isEmpty {
                 let photo = photos.first!
                 imageLoadViewModel.fetchImage(prefix: photo.prefix,
-                                              suffix: photo.suffix) { result in
+                                              suffix: photo.suffix, size: "600x600") { result in
                     switch result {
                     case .failure(let error):
                         print("Error loading image: \(error)")

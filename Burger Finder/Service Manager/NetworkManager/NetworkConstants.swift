@@ -11,7 +11,7 @@ class NetworkConstants {
     
     static let headers = [
       "Accept": "application/json",
-      //"Authorization": "YOUR_KEY!"
+      "Authorization": "YOUR_KEY!"
     ]
     
     static let httpMethod = "GET"

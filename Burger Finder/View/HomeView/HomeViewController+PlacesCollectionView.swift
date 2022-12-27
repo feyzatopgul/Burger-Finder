@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension HomeViewController:UICollectionViewDelegateFlowLayout {
+extension HomeViewController {
     
 //MARK: - CollectionView Layouts
     
@@ -36,11 +36,6 @@ extension HomeViewController:UICollectionViewDelegateFlowLayout {
         //Register a cell
         placesCollectionView.register(PopularPlaceCell.self, forCellWithReuseIdentifier: PopularPlaceCell.identifier)
     }
-    
-    // Adjust item size
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: placesCollectionView.frame.width/2, height: placesCollectionView.frame.height)
-    }
 
 //MARK: - Data Source and Snapshot
     //Create data source for collectionView
@@ -60,19 +55,18 @@ extension HomeViewController:UICollectionViewDelegateFlowLayout {
     func populateCell(popularPlaceCell: PopularPlaceCell, place: Place) {
         //Set nameLabel
         popularPlaceCell.nameLabel.text = place.name
-        //Set ratingLabel
-        if let rating = place.rating {
-            popularPlaceCell.ratingLabel.text = "\(rating)"
-        } else {
-            popularPlaceCell.ratingLabel.text = "0.0"
-        }
+        
+        //Set rating for ratingView
+        popularPlaceCell.ratingView.rating = place.rating
+        
         //Set imageView with a placeholder
         popularPlaceCell.imageView.image = UIImage(named: "placeholderBurger")
+        //Set imageView with the first photo if available
         if let photos = place.photos {
             if !photos.isEmpty {
                 let photo = photos.first!
                 imageLoadViewModel.fetchImage(prefix: photo.prefix,
-                                              suffix: photo.suffix) { result in
+                                              suffix: photo.suffix, size: "600x800") { result in
                     switch result {
                     case .failure(let error):
                         print("Error loading image: \(error)")

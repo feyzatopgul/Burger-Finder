@@ -14,8 +14,7 @@ class ImageLoadViewModel {
         self.imageLoader = imageLoader
     }
     
-    func fetchImage(prefix: String, suffix: String, completion: @escaping (Result<Data, Error>) -> Void) {
-        let size = "600x800"
+    func fetchImage(prefix: String, suffix: String, size: String, completion: @escaping (Result<Data, Error>) -> Void) {
         let imageUrl = prefix + size + suffix
         imageLoader.loadImage(imageUrl: imageUrl){ data, error in
             if let error = error {

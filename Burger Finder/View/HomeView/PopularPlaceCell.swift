@@ -13,19 +13,19 @@ class PopularPlaceCell: UICollectionViewCell {
     var backView = UIView()
     var imageView = UIImageView()
     var nameLabel = UILabel()
-    var ratingLabel = UILabel()
+    var ratingView = RatingView()
 
     override init(frame: CGRect){
         super.init(frame: frame)
         contentView.addSubview(backView)
         backView.addSubview(nameLabel)
         backView.addSubview(imageView)
-        backView.addSubview(ratingLabel)
+        backView.addSubview(ratingView)
         
         configureBackgroundView()
         configureNameLabel()
         configureImageView()
-        configureRatingLabel()
+        configureRatingView()
     }
     
     required init?(coder: NSCoder) {
@@ -40,8 +40,8 @@ class PopularPlaceCell: UICollectionViewCell {
         let constraints = [
             backView.topAnchor.constraint(equalTo: contentView.topAnchor),
             backView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            backView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            backView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            backView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            backView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
         ]
         NSLayoutConstraint.activate(constraints)
     }
@@ -59,10 +59,6 @@ class PopularPlaceCell: UICollectionViewCell {
             imageView.heightAnchor.constraint(equalToConstant: 200),
             imageView.widthAnchor.constraint(equalToConstant: 150),
             imageView.centerXAnchor.constraint(equalTo: backView.centerXAnchor)
-            //imageView.bottomAnchor.constraint(equalTo: nameLabel.topAnchor),
-            //imageView.heightAnchor.constraint(equalToConstant: backView.frame.height / 3),
-            //imageView.leftAnchor.constraint(equalTo: backView.leftAnchor, constant: 20),
-            //imageView.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: -20),
         ]
         NSLayoutConstraint.activate(constraints)
     }
@@ -70,30 +66,37 @@ class PopularPlaceCell: UICollectionViewCell {
     //Name label configuration
     func configureNameLabel() {
         nameLabel.numberOfLines = 3
-        nameLabel.textAlignment = .center
+        nameLabel.textAlignment = .left
         nameLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-        nameLabel.textColor = .darkGray
+        nameLabel.textColor = UIColor(named: "textColor")
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
-            nameLabel.heightAnchor.constraint(equalToConstant: 60),
-            nameLabel.leftAnchor.constraint(equalTo: backView.leftAnchor, constant: 30),
-            nameLabel.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: -20)
+            nameLabel.heightAnchor.constraint(equalToConstant: 40),
+            nameLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
+            nameLabel.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -20)
         ]
         NSLayoutConstraint.activate(constraints)
     }
     
     //Rating label configuration
-    func configureRatingLabel() {
-        ratingLabel.textColor = .orange
-        ratingLabel.textAlignment = .center
-        ratingLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        ratingLabel.translatesAutoresizingMaskIntoConstraints = false
+    func configureRatingView() {
+        
+        ratingView.axis = .horizontal
+        ratingView.translatesAutoresizingMaskIntoConstraints = false
+        
         let constraints = [
-            ratingLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
-            ratingLabel.leftAnchor.constraint(equalTo: backView.leftAnchor, constant: 30),
-            ratingLabel.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: -20),
+            ratingView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
+            ratingView.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
         ]
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        //Reset priceView for preventing adding more subviews when the cell is reused
+        for view in ratingView.subviews {
+            view.removeFromSuperview()
+        }
     }
 }
