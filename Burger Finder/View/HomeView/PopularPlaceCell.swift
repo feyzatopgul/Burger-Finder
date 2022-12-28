@@ -51,13 +51,13 @@ class PopularPlaceCell: UICollectionViewCell {
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 20
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
 
         let constraints = [
-            imageView.topAnchor.constraint(equalTo: backView.topAnchor, constant: 10),
-            imageView.heightAnchor.constraint(equalToConstant: 200),
-            imageView.widthAnchor.constraint(equalToConstant: 150),
+            imageView.topAnchor.constraint(equalTo: backView.topAnchor, constant: 20),
+            imageView.heightAnchor.constraint(equalToConstant: contentView.frame.height * 0.6),
+            imageView.widthAnchor.constraint(equalToConstant: contentView.frame.width * 0.8),
             imageView.centerXAnchor.constraint(equalTo: backView.centerXAnchor)
         ]
         NSLayoutConstraint.activate(constraints)
@@ -71,8 +71,8 @@ class PopularPlaceCell: UICollectionViewCell {
         nameLabel.textColor = UIColor(named: "textColor")
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
-            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
-            nameLabel.heightAnchor.constraint(equalToConstant: 40),
+            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor),
+            nameLabel.heightAnchor.constraint(equalToConstant: 60),
             nameLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -20)
         ]

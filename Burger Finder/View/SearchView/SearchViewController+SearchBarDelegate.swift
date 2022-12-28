@@ -29,7 +29,7 @@ extension SearchViewController: UISearchBarDelegate {
         }
     }
     
-    //Reset search bar text when cancel button clicked to update the tableview
+    //Reset search bar text when cancel button is clicked to update the tableview
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar){
         if searchBar == placeSearchBar {
             placeSearchBar.text = ""

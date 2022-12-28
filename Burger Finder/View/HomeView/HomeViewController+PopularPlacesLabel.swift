@@ -13,15 +13,14 @@ extension HomeViewController {
     func configurePopularPlacesLabel() {
         
         popularPlacesLabel.text = "Popular burger places around you..."
-        popularPlacesLabel.textColor = .tertiarySystemBackground
-        popularPlacesLabel.font = UIFont.systemFont(ofSize: 22, weight: .medium)
+        popularPlacesLabel.textColor = UIColor(named: "textColor")
+        popularPlacesLabel.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         
         popularPlacesLabel.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             popularPlacesLabel.leadingAnchor.constraint(equalTo: popularPlacesView.leadingAnchor, constant: 10),
             popularPlacesLabel.trailingAnchor.constraint(equalTo: popularPlacesView.trailingAnchor),
-            popularPlacesLabel.topAnchor.constraint(equalTo: popularPlacesView.topAnchor),
-            popularPlacesLabel.bottomAnchor.constraint(equalTo: placesCollectionView.topAnchor),
+            popularPlacesLabel.topAnchor.constraint(equalTo: popularPlacesView.topAnchor, constant: 20),
         ]
         NSLayoutConstraint.activate(constraints)
         

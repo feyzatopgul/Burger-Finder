@@ -8,27 +8,45 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-
+    
     var place: Place?
-    //var photosCollectionView = UICollectionView()
-    var infoView = InfoView()
+    var photos = [Photo]()
+    var imageViewModel = ImageLoadViewModel()
+    
+    let detailsScrollView = UIScrollView()
+    let photosCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    var detailInfoView = DetailInfoView()
+    var getDirectionsButton = UIButton()
+    
+    typealias DataSource = UICollectionViewDiffableDataSource<PhotosSection,Photo>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<PhotosSection, Photo>
+    lazy var dataSource = createDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .tertiarySystemBackground
         title = place?.name
-        view.addSubview(infoView)
-        infoView.place = place
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveTapped))
+        view.addSubview(detailsScrollView)
+        view.addSubview(photosCollectionView)
         
-        infoView.translatesAutoresizingMaskIntoConstraints = false
+        configureDetailsScrollView()
         
-        let constraints = [
-            infoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            infoView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height / 2),
-            infoView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-        ]
-        NSLayoutConstraint.activate(constraints)
+        //Configure detailInfoView
+        configureDetailInfoView()
+        
+        //Configure getDirectionsButton
+        configureGetDirectionsButton()
+        
+        configurePhotosCollectionView()
+        
+        guard let placePhotos = place?.photos else { return }
+        photos = placePhotos
+        
+        applySnapshot()
+    }
+    
+    @objc func saveTapped() {
         
     }
-
 }

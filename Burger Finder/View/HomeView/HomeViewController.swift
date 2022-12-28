@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
     
     let searchButton = UIButton(configuration: .plain(), primaryAction: nil)
     
-    let popularPlacesView = GradientView(colors: [UIColor.clear.cgColor, UIColor.white.cgColor])
+    let popularPlacesView = GradientView(colors: [UIColor.white.withAlphaComponent(0.8).cgColor, UIColor.clear.cgColor])
     let placesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     let popularPlacesLabel = UILabel()
     
@@ -50,6 +50,9 @@ class HomeViewController: UIViewController {
         configureWarningLabel()
         configureRefreshButton()
         configureSpinner()
+        
+        //Check location services
+        //LocationManager.shared.checkLocationService()
     
     }
     

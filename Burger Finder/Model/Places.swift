@@ -21,7 +21,6 @@ struct Place: Codable,Hashable {
     var rating: Double?
     var phoneNumber: String?
     var website: String?
-    var description: String?
     var photos:[Photo]?
     var price: Int?
     
@@ -35,15 +34,9 @@ struct Place: Codable,Hashable {
         case rating
         case phoneNumber = "tel"
         case website
-        case description
         case photos
         case price
     }
-}
-
-struct Icon: Codable, Hashable {
-    var prefix: String
-    var suffix: String
 }
 
 struct Geocode: Codable, Hashable {

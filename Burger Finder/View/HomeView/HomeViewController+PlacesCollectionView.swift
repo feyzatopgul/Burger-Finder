@@ -28,7 +28,7 @@ extension HomeViewController {
             placesCollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             //placesCollectionView.topAnchor.constraint(equalTo: popularPlacesLabel.bottomAnchor),
             placesCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height / 2),
-            placesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.height / 8),
+            placesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.height / 9),
             placesCollectionView.widthAnchor.constraint(equalToConstant: view.frame.width)
         ]
         NSLayoutConstraint.activate(constraints)
@@ -66,7 +66,7 @@ extension HomeViewController {
             if !photos.isEmpty {
                 let photo = photos.first!
                 imageLoadViewModel.fetchImage(prefix: photo.prefix,
-                                              suffix: photo.suffix, size: "600x800") { result in
+                                              suffix: photo.suffix, size: "150x200") { result in
                     switch result {
                     case .failure(let error):
                         print("Error loading image: \(error)")

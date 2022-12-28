@@ -26,7 +26,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-
+        
         //Configure placeSearchBar
         configurePlaceSearchBar()
         
@@ -36,6 +36,7 @@ class SearchViewController: UIViewController {
         //Configure placesTableView
         configurePlacesTableView()
         
+        //Fetch places data
         getPlaces(search: "", location: "")
         
         //Update placesTableView
@@ -43,9 +44,12 @@ class SearchViewController: UIViewController {
         
         //Dismiss keyboard when anywhere is tapped
         dismissKeyboardWhenViewIsTapped()
+        
+        //Check location services
+        //LocationManager.shared.checkLocationService()
     }
-    
-    //Fetch place data when user search something
+
+    //Fetch place data when user searches something
     func getPlaces(search: String, location: String) {
         downloadViewModel.fetchSearchedPlaces(search: search, location: location) {[weak self] result in
             guard let self = self else { return }

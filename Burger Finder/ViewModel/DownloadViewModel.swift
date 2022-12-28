@@ -17,6 +17,7 @@ class DownloadViewModel {
     init(networkManager: NetworkManagerProtocol = NetworkManager.shared, locationManager:LocationManagerProtocol = LocationManager.shared) {
         self.networkManager = networkManager
         self.locationManager = locationManager
+        locationManager.checkLocationService()
     }
     
     private func fetchPlaces(search: String, location: String, limit: Int, sort: String, completion: @escaping (Result<[Place], Error>) -> Void) {
@@ -58,6 +59,7 @@ class DownloadViewModel {
         locationManager.findLocation(query: location) { [weak self] returnedLocation in
             guard let self = self else { return }
             if let validLocation = returnedLocation {
+                //Fetch places data
                 self.fetchPlaces(search: search, location: validLocation, limit: 50, sort: "DISTANCE") { result in
                     switch result {
                     case .failure(let error):
@@ -82,7 +84,5 @@ class DownloadViewModel {
                 }
             }
         }
-        
-       
     }
 }

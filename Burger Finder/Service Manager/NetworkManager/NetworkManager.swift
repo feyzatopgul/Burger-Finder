@@ -21,14 +21,14 @@ class NetworkManager:NetworkManagerProtocol {
         guard let url = URL(string: url) else {
             return nil
         }
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
         request.httpMethod = NetworkConstants.httpMethod
         request.allHTTPHeaderFields = NetworkConstants.headers
         return request
     }
     
     func executeRequest<T:Codable>(request: URLRequest, forType: T.Type, completion: @escaping (T?, Error?) -> Void) {
-        let session = URLSession(configuration: .default)
+        let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
             if let error = error {
                 completion(nil, NetworkError.badRequest(error))

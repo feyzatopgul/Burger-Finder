@@ -9,6 +9,7 @@ import Foundation
 import CoreLocation
 
 protocol LocationManagerProtocol {
+    func checkLocationService()
     func getCurrentLocation(completion: @escaping ((CLLocation) -> Void))
     func resolvedCurrentLocation(completion: @escaping ((String?) -> Void))
     func findLocation(query: String, completion: @escaping (String?)->Void)
@@ -17,39 +18,51 @@ protocol LocationManagerProtocol {
 class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProtocol {
     
     static let shared = LocationManager()
-    
-    private let locationManager = CLLocationManager()
-    
+    private var locationManager = CLLocationManager()
     private var locationCompletion: ((CLLocation) -> Void)?
-    
-    
-    private func setUpLocationManager() {
+
+    func checkLocationService() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
+        checkLocationAuthorization()
     }
     
-    func getAuthorizationStatus(completion: @escaping (CLAuthorizationStatus) -> Void) {
-        completion(locationManager.authorizationStatus)
+    func checkLocationAuthorization() {
+        switch locationManager.authorizationStatus {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted:
+            print("Location is restricted")
+        case .denied:
+            print("Denied")
+        case .authorizedAlways, .authorizedWhenInUse:
+            print("Authorized")
+        @unknown default:
+            break
+        }
     }
     
     //Check if location is enabled or not
     func isLocationEnabled(completion: @escaping ((Bool) -> Void)){
-        if locationManager.authorizationStatus == .notDetermined {
-            locationManager.requestWhenInUseAuthorization()
-        } else if locationManager.authorizationStatus == .authorizedWhenInUse {
+        if locationManager.authorizationStatus == .authorizedWhenInUse {
             completion(true)
         } else {
             completion(false)
         }
     }
     
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkLocationAuthorization()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        locationManager.stopUpdatingLocation()
+    }
+    
     //Get current location as CLLocation
     func getCurrentLocation(completion: @escaping ((CLLocation) -> Void)) {
         self.locationCompletion = completion
-        setUpLocationManager()
         locationManager.startUpdatingLocation()
-        
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }

@@ -57,7 +57,16 @@ extension SearchViewController {
         //Set price for priceView
         placeCell.priceView.price = place.price
         
-        placeCell.isOpenLabel.text = place.hours.openNow ? "Open" : "Closed"
+        //
+        if place.hours.openNow {
+            placeCell.isOpenLabel.textColor = UIColor(named: "primaryAppColor")
+            placeCell.isOpenLabel.font = .systemFont(ofSize: 16, weight: .medium)
+            placeCell.isOpenLabel.text = "Open"
+        } else {
+            placeCell.isOpenLabel.textColor = UIColor(named: "textColor")
+            placeCell.isOpenLabel.font = .systemFont(ofSize: 16, weight: .regular)
+            placeCell.isOpenLabel.text = "Closed"
+        }
 
         //Set imageView with a placeholder
         placeCell.placeImage.image = UIImage(named: "placeholderBurger")

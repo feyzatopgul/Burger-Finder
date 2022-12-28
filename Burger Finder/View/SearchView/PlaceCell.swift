@@ -11,7 +11,6 @@ class PlaceCell: UITableViewCell {
     
     static let identifier = "PlaceCell"
     
-    //var placeCellStack = UIStackView()
     var placeImage = UIImageView()
     var nameLabel = UILabel()
     var ratingLabel = UILabel()
@@ -20,15 +19,13 @@ class PlaceCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        //contentView.addSubview(placeCellStack)
+    
         contentView.addSubview(placeImage)
         contentView.addSubview(nameLabel)
         contentView.addSubview(ratingLabel)
         contentView.addSubview(priceView)
         contentView.addSubview(isOpenLabel)
         
-        //configurePlaceCellStack()
         configurePlaceImage()
         configureNameLabel()
         configureRatingLabel()
@@ -39,33 +36,6 @@ class PlaceCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//    private func configurePlaceCellStack(){
-//        placeCellStack.axis = .horizontal
-//
-//        let infoStack = UIStackView()
-//        infoStack.axis = .vertical
-//        infoStack.alignment = .leading
-//        infoStack.spacing = 15
-//        infoStack.addArrangedSubview(nameLabel)
-//        infoStack.addArrangedSubview(priceView)
-//
-//        placeCellStack.alignment = .leading
-//        placeCellStack.spacing = 5
-//        placeCellStack.addArrangedSubview(placeImage)
-//        placeCellStack.addArrangedSubview(infoStack)
-//        placeCellStack.addArrangedSubview(ratingLabel)
-//
-//        placeCellStack.translatesAutoresizingMaskIntoConstraints = false
-//        let constraints = [
-//            placeCellStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-//            placeCellStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-//            placeCellStack.topAnchor.constraint(equalTo: contentView.topAnchor),
-//            placeCellStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-//        ]
-//        NSLayoutConstraint.activate(constraints)
-//
-//    }
     
     //placeImage configuration
     private func configurePlaceImage() {
@@ -100,18 +70,19 @@ class PlaceCell: UITableViewCell {
     
     //ratingLabel configuration
     private func configureRatingLabel(){
-        ratingLabel.font = .systemFont(ofSize: 18, weight: .semibold)
+        ratingLabel.font = .systemFont(ofSize: 16, weight: .semibold)
         ratingLabel.textColor = .white
         ratingLabel.textAlignment = .center
         ratingLabel.backgroundColor = UIColor(named: "primaryAppColor")
         ratingLabel.layer.masksToBounds = true
-        ratingLabel.layer.cornerRadius = 10
+        ratingLabel.layer.cornerRadius = 15
         
         ratingLabel.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             ratingLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             ratingLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30),
-            ratingLabel.widthAnchor.constraint(equalToConstant: 40)
+            ratingLabel.widthAnchor.constraint(equalToConstant: 40),
+            ratingLabel.heightAnchor.constraint(equalToConstant: 30)
         ]
         NSLayoutConstraint.activate(constraints)
     }
@@ -129,10 +100,9 @@ class PlaceCell: UITableViewCell {
         NSLayoutConstraint.activate(constraints)
     }
    
-    
+    //Reset priceView for preventing adding more subviews when the cell is reused
     override func prepareForReuse() {
         super.prepareForReuse()
-        //Reset priceView for preventing adding more subviews when the cell is reused
         for view in priceView.subviews {
             view.removeFromSuperview()
         }
@@ -141,7 +111,7 @@ class PlaceCell: UITableViewCell {
     private func configureIsOpenLabel() {
         
         isOpenLabel.textColor = UIColor(named: "textColor")
-        isOpenLabel.font = .systemFont(ofSize: 16, weight: .regular)
+        //isOpenLabel.font = .systemFont(ofSize: 16, weight: .regular)
         
         isOpenLabel.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
