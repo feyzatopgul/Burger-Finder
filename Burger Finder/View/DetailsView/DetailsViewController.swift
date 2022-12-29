@@ -17,6 +17,8 @@ class DetailsViewController: UIViewController {
     let photosCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     var detailInfoView = DetailInfoView()
     var getDirectionsButton = UIButton()
+    var saveBarButton = UIBarButtonItem()
+    var saveButtonTapped = false
     
     typealias DataSource = UICollectionViewDiffableDataSource<PhotosSection,Photo>
     typealias Snapshot = NSDiffableDataSourceSnapshot<PhotosSection, Photo>
@@ -26,10 +28,13 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .tertiarySystemBackground
         title = place?.name
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveTapped))
         view.addSubview(detailsScrollView)
         view.addSubview(photosCollectionView)
         
+        //Configure saveBarButton
+        configureSaveButton()
+        
+        //Configure detailsScrollView
         configureDetailsScrollView()
         
         //Configure detailInfoView
@@ -40,13 +45,11 @@ class DetailsViewController: UIViewController {
         
         configurePhotosCollectionView()
         
+        //Assing photos data to photos
         guard let placePhotos = place?.photos else { return }
         photos = placePhotos
         
         applySnapshot()
     }
     
-    @objc func saveTapped() {
-        
-    }
 }

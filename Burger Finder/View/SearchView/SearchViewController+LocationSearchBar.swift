@@ -19,9 +19,9 @@ extension SearchViewController {
         locationSearchBar.translatesAutoresizingMaskIntoConstraints = false
         
         let constraints = [
-            locationSearchBar.topAnchor.constraint(equalTo: placeSearchBar.bottomAnchor),
-            locationSearchBar.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 10),
-            locationSearchBar.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -10)
+            locationSearchBar.topAnchor.constraint(equalTo: guide.topAnchor),
+            locationSearchBar.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 45),
+            locationSearchBar.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -5)
         ]
         NSLayoutConstraint.activate(constraints)
     }

@@ -32,6 +32,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        navigationItem.backButtonDisplayMode = .minimal
+        
         //Set up background
         setBackground(imageName: "burgerBackground")
         

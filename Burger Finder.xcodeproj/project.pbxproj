@@ -22,6 +22,10 @@
 		627C2C34295BE237006513C3 /* DetailsViewController+DetailsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627C2C33295BE237006513C3 /* DetailsViewController+DetailsScrollView.swift */; };
 		627C2C36295BE2BA006513C3 /* DetailsViewController+DetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627C2C35295BE2BA006513C3 /* DetailsViewController+DetailInfoView.swift */; };
 		627C2C38295BE2F8006513C3 /* DetailsViewController+GetDirectionsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627C2C37295BE2F8006513C3 /* DetailsViewController+GetDirectionsButton.swift */; };
+		627C2C3D295CDDDD006513C3 /* DetailsViewController+SaveBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627C2C3C295CDDDD006513C3 /* DetailsViewController+SaveBarButton.swift */; };
+		627C2C3F295CE275006513C3 /* FavoritesViewController+FavoritesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627C2C3E295CE275006513C3 /* FavoritesViewController+FavoritesCollectionView.swift */; };
+		627C2C41295CE66A006513C3 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627C2C40295CE66A006513C3 /* FavoritesCell.swift */; };
+		627C2C43295CE803006513C3 /* FavoritesViewController+CollectionViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627C2C42295CE803006513C3 /* FavoritesViewController+CollectionViewDelegates.swift */; };
 		62893C09295781A6009012A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C08295781A6009012A6 /* AppDelegate.swift */; };
 		62893C0B295781A6009012A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C0A295781A6009012A6 /* SceneDelegate.swift */; };
 		62893C12295781A7009012A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62893C11295781A7009012A6 /* Assets.xcassets */; };
@@ -67,6 +71,10 @@
 		627C2C33295BE237006513C3 /* DetailsViewController+DetailsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsViewController+DetailsScrollView.swift"; sourceTree = "<group>"; };
 		627C2C35295BE2BA006513C3 /* DetailsViewController+DetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsViewController+DetailInfoView.swift"; sourceTree = "<group>"; };
 		627C2C37295BE2F8006513C3 /* DetailsViewController+GetDirectionsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsViewController+GetDirectionsButton.swift"; sourceTree = "<group>"; };
+		627C2C3C295CDDDD006513C3 /* DetailsViewController+SaveBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsViewController+SaveBarButton.swift"; sourceTree = "<group>"; };
+		627C2C3E295CE275006513C3 /* FavoritesViewController+FavoritesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesViewController+FavoritesCollectionView.swift"; sourceTree = "<group>"; };
+		627C2C40295CE66A006513C3 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
+		627C2C42295CE803006513C3 /* FavoritesViewController+CollectionViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesViewController+CollectionViewDelegates.swift"; sourceTree = "<group>"; };
 		62893C05295781A6009012A6 /* Burger Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Burger Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62893C08295781A6009012A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62893C0A295781A6009012A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				6274DA9E295A1B51006ADFC4 /* DetailsViewController.swift */,
+				627C2C3C295CDDDD006513C3 /* DetailsViewController+SaveBarButton.swift */,
 				627C2C35295BE2BA006513C3 /* DetailsViewController+DetailInfoView.swift */,
 				627C2C37295BE2F8006513C3 /* DetailsViewController+GetDirectionsButton.swift */,
 				627C2C33295BE237006513C3 /* DetailsViewController+DetailsScrollView.swift */,
@@ -241,6 +250,9 @@
 			isa = PBXGroup;
 			children = (
 				62893C3A29578322009012A6 /* FavoritesViewController.swift */,
+				627C2C3E295CE275006513C3 /* FavoritesViewController+FavoritesCollectionView.swift */,
+				627C2C42295CE803006513C3 /* FavoritesViewController+CollectionViewDelegates.swift */,
+				627C2C40295CE66A006513C3 /* FavoritesCell.swift */,
 			);
 			path = FavoritesView;
 			sourceTree = "<group>";
@@ -353,6 +365,7 @@
 				62893C4C29580426009012A6 /* HomeViewController+WarningLabel.swift in Sources */,
 				62893C31295782C3009012A6 /* HomeViewController+SearchButton.swift in Sources */,
 				62893C4229578698009012A6 /* LocationManager.swift in Sources */,
+				627C2C41295CE66A006513C3 /* FavoritesCell.swift in Sources */,
 				62893C3B29578322009012A6 /* FavoritesViewController.swift in Sources */,
 				6274DA9B295A1AD2006ADFC4 /* SearchViewController+TableViewDelegate.swift in Sources */,
 				6274DA9229590F36006ADFC4 /* SearchViewController+LocationSearchBar.swift in Sources */,
@@ -380,12 +393,15 @@
 				62893C5529581FD9009012A6 /* ImageLoadViewModel.swift in Sources */,
 				62893C482957C657009012A6 /* HomeViewController+PopularPlacesLabel.swift in Sources */,
 				6274DA9F295A1B51006ADFC4 /* DetailsViewController.swift in Sources */,
+				627C2C3F295CE275006513C3 /* FavoritesViewController+FavoritesCollectionView.swift in Sources */,
 				62893C4A2957DF41009012A6 /* HomeViewController+WarningView.swift in Sources */,
+				627C2C43295CE803006513C3 /* FavoritesViewController+CollectionViewDelegates.swift in Sources */,
 				62893C0B295781A6009012A6 /* SceneDelegate.swift in Sources */,
 				627C2C32295BA37D006513C3 /* PhotoCell.swift in Sources */,
 				6274DA972959260A006ADFC4 /* PlaceCell.swift in Sources */,
 				6274DA9029590EB0006ADFC4 /* SearchViewController+PlaceSearchBar.swift in Sources */,
 				62893C442957B579009012A6 /* HomeViewController+PopularPlacesView.swift in Sources */,
+				627C2C3D295CDDDD006513C3 /* DetailsViewController+SaveBarButton.swift in Sources */,
 				62893C21295781FB009012A6 /* NetworkError.swift in Sources */,
 				6274DA94295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift in Sources */,
 				6274DA9929596BBA006ADFC4 /* SearchViewController+SearchBarDelegate.swift in Sources */,

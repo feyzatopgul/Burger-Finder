@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Configure navigation bar
         UINavigationBar.appearance().tintColor = UIColor(named: "primaryAppColor")
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(named: "textColor") ?? .systemBackground]
-                                                                      
         return true
     }
 

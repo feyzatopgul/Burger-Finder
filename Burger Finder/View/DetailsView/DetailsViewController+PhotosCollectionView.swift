@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension DetailsViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+extension DetailsViewController: UICollectionViewDelegateFlowLayout {
     
     func configurePhotosCollectionView() {
         //view.addSubview(photosCollectionView)
