@@ -36,8 +36,6 @@ extension DetailsViewController {
                        initialSpringVelocity: 10,
                        options: .curveLinear) { [weak self] in
             guard let self = self else { return }
-            self.saveButtonTapped.toggle()
-            //let buttonImage = self.saveButtonTapped ? heartFilled : heart
             if let button = self.saveBarButton.customView as? UIButton {
                 button.setImage(self.setButtonImage(), for: .normal)
             }
@@ -48,9 +46,19 @@ extension DetailsViewController {
     
     //Action for saveBarButton tapped
     @objc func saveTapped() {
+        saveButtonTapped.toggle()
         if let button = saveBarButton.customView {
             animateSaveButton(button)
         }
-        
+        if let place = place {
+            if saveButtonTapped {
+                // place is saved if saveButtonTapped is true
+                coreDataManager.savePlace(place: place)
+            } else {
+                // place is deleted if saveButtonTapped is false
+                coreDataManager.deletePlace(place: place)
+            }
+        }
+        //coreDataManager.deleteAllItems()
     }
 }

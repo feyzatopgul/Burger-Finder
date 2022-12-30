@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6240062B295DFD6000F536F3 /* PlaceDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62400629295DFD6000F536F3 /* PlaceDataModel.xcdatamodeld */; };
+		6240062D295E14FB00F536F3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6240062C295E14FB00F536F3 /* CoreDataManager.swift */; };
+		6240062F295E157B00F536F3 /* PlaceItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6240062E295E157B00F536F3 /* PlaceItem+CoreDataProperties.swift */; };
+		62400633295E188400F536F3 /* CoordinateItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62400632295E188400F536F3 /* CoordinateItem+CoreDataProperties.swift */; };
+		62400635295E1AD100F536F3 /* HoursItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62400634295E1AD100F536F3 /* HoursItem+CoreDataProperties.swift */; };
+		62400637295E1B1C00F536F3 /* LocationItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62400636295E1B1C00F536F3 /* LocationItem+CoreDataProperties.swift */; };
+		62400639295E1B8100F536F3 /* PhotoItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62400638295E1B8100F536F3 /* PhotoItem+CoreDataProperties.swift */; };
 		6274DA9029590EB0006ADFC4 /* SearchViewController+PlaceSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274DA8F29590EB0006ADFC4 /* SearchViewController+PlaceSearchBar.swift */; };
 		6274DA9229590F36006ADFC4 /* SearchViewController+LocationSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274DA9129590F36006ADFC4 /* SearchViewController+LocationSearchBar.swift */; };
 		6274DA94295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274DA93295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift */; };
@@ -56,6 +63,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6240062A295DFD6000F536F3 /* PlaceDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlaceDataModel.xcdatamodel; sourceTree = "<group>"; };
+		6240062C295E14FB00F536F3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		6240062E295E157B00F536F3 /* PlaceItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		62400632295E188400F536F3 /* CoordinateItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoordinateItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		62400634295E1AD100F536F3 /* HoursItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HoursItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		62400636295E1B1C00F536F3 /* LocationItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		62400638295E1B8100F536F3 /* PhotoItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6274DA8F29590EB0006ADFC4 /* SearchViewController+PlaceSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+PlaceSearchBar.swift"; sourceTree = "<group>"; };
 		6274DA9129590F36006ADFC4 /* SearchViewController+LocationSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+LocationSearchBar.swift"; sourceTree = "<group>"; };
 		6274DA93295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+PlacesTableView.swift"; sourceTree = "<group>"; };
@@ -132,6 +146,20 @@
 			path = DetailsView;
 			sourceTree = "<group>";
 		};
+		627C2C44295DF613006513C3 /* Persistency */ = {
+			isa = PBXGroup;
+			children = (
+				62400629295DFD6000F536F3 /* PlaceDataModel.xcdatamodeld */,
+				6240062C295E14FB00F536F3 /* CoreDataManager.swift */,
+				62400632295E188400F536F3 /* CoordinateItem+CoreDataProperties.swift */,
+				62400634295E1AD100F536F3 /* HoursItem+CoreDataProperties.swift */,
+				62400636295E1B1C00F536F3 /* LocationItem+CoreDataProperties.swift */,
+				62400638295E1B8100F536F3 /* PhotoItem+CoreDataProperties.swift */,
+				6240062E295E157B00F536F3 /* PlaceItem+CoreDataProperties.swift */,
+			);
+			path = Persistency;
+			sourceTree = "<group>";
+		};
 		62893BFC295781A6009012A6 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +181,7 @@
 			children = (
 				62893C1C295781C0009012A6 /* AppInit */,
 				62893C1D295781D0009012A6 /* Service Manager */,
+				627C2C44295DF613006513C3 /* Persistency */,
 				62893C3C29578354009012A6 /* Model */,
 				62893C2629578248009012A6 /* ViewModel */,
 				62893C2929578279009012A6 /* View */,
@@ -369,6 +398,9 @@
 				62893C3B29578322009012A6 /* FavoritesViewController.swift in Sources */,
 				6274DA9B295A1AD2006ADFC4 /* SearchViewController+TableViewDelegate.swift in Sources */,
 				6274DA9229590F36006ADFC4 /* SearchViewController+LocationSearchBar.swift in Sources */,
+				62400635295E1AD100F536F3 /* HoursItem+CoreDataProperties.swift in Sources */,
+				62400639295E1B8100F536F3 /* PhotoItem+CoreDataProperties.swift in Sources */,
+				6240062D295E14FB00F536F3 /* CoreDataManager.swift in Sources */,
 				627C2C36295BE2BA006513C3 /* DetailsViewController+DetailInfoView.swift in Sources */,
 				627C2C30295BA2BB006513C3 /* DetailsViewController+PhotosCollectionView.swift in Sources */,
 				62893C462957C148009012A6 /* GradientView.swift in Sources */,
@@ -376,6 +408,7 @@
 				62893C2C295782A7009012A6 /* TabBarController.swift in Sources */,
 				6274DAA9295A5D6B006ADFC4 /* HomeViewController+CollectionViewDelegates.swift in Sources */,
 				62893C1F295781EE009012A6 /* NetworkManager.swift in Sources */,
+				62400637295E1B1C00F536F3 /* LocationItem+CoreDataProperties.swift in Sources */,
 				627C2C38295BE2F8006513C3 /* DetailsViewController+GetDirectionsButton.swift in Sources */,
 				6274DAA7295A5049006ADFC4 /* RatingView.swift in Sources */,
 				62893C282957825B009012A6 /* DownloadViewModel.swift in Sources */,
@@ -383,6 +416,7 @@
 				62893C4E29580BD3009012A6 /* HomeViewController+RefreshButton.swift in Sources */,
 				62E1220B295A646000586B9A /* DetailInfoView.swift in Sources */,
 				6274DAA5295A4B69006ADFC4 /* PriceView.swift in Sources */,
+				6240062B295DFD6000F536F3 /* PlaceDataModel.xcdatamodeld in Sources */,
 				627C2C34295BE237006513C3 /* DetailsViewController+DetailsScrollView.swift in Sources */,
 				62893C33295782C9009012A6 /* HomeViewController+PlacesCollectionView.swift in Sources */,
 				62893C38295782ED009012A6 /* SearchViewController.swift in Sources */,
@@ -395,6 +429,7 @@
 				6274DA9F295A1B51006ADFC4 /* DetailsViewController.swift in Sources */,
 				627C2C3F295CE275006513C3 /* FavoritesViewController+FavoritesCollectionView.swift in Sources */,
 				62893C4A2957DF41009012A6 /* HomeViewController+WarningView.swift in Sources */,
+				62400633295E188400F536F3 /* CoordinateItem+CoreDataProperties.swift in Sources */,
 				627C2C43295CE803006513C3 /* FavoritesViewController+CollectionViewDelegates.swift in Sources */,
 				62893C0B295781A6009012A6 /* SceneDelegate.swift in Sources */,
 				627C2C32295BA37D006513C3 /* PhotoCell.swift in Sources */,
@@ -405,6 +440,7 @@
 				62893C21295781FB009012A6 /* NetworkError.swift in Sources */,
 				6274DA94295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift in Sources */,
 				6274DA9929596BBA006ADFC4 /* SearchViewController+SearchBarDelegate.swift in Sources */,
+				6240062F295E157B00F536F3 /* PlaceItem+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +654,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		62400629295DFD6000F536F3 /* PlaceDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6240062A295DFD6000F536F3 /* PlaceDataModel.xcdatamodel */,
+			);
+			currentVersion = 6240062A295DFD6000F536F3 /* PlaceDataModel.xcdatamodel */;
+			path = PlaceDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 62893BFD295781A6009012A6 /* Project object */;
 }

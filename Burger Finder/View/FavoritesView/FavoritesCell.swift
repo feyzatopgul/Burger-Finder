@@ -121,6 +121,12 @@ class FavoritesCell: UICollectionViewCell {
         NSLayoutConstraint.activate(constraints)
     }
     
-   
+    //Reset ratingView for preventing adding more subviews when the cell is reused
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        for view in ratingView.subviews {
+            view.removeFromSuperview()
+        }
+    }
     
 }

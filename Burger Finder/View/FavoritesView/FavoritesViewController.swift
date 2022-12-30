@@ -10,6 +10,7 @@ import UIKit
 class FavoritesViewController: UIViewController {
     
     var favoritePlaces = [Place]()
+    let coreDataManager = CoreDataManager.shared
    
 //Dummy data
 //    var favoritePlaces:[Place] = [ Place(id: "123", distance: 234,
@@ -81,10 +82,12 @@ class FavoritesViewController: UIViewController {
         
         //configure favoritesCollectionView
         configureFavoritesCollectionView()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        favoritePlaces = coreDataManager.fetchPlaces()
         applySnapshot()
-        
-        
     }
 
 }

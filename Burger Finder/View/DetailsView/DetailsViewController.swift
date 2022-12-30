@@ -12,6 +12,7 @@ class DetailsViewController: UIViewController {
     var place: Place?
     var photos = [Photo]()
     var imageViewModel = ImageLoadViewModel()
+    let coreDataManager = CoreDataManager.shared
     
     let detailsScrollView = UIScrollView()
     let photosCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
