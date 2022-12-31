@@ -14,6 +14,7 @@
 		62400635295E1AD100F536F3 /* HoursItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62400634295E1AD100F536F3 /* HoursItem+CoreDataProperties.swift */; };
 		62400637295E1B1C00F536F3 /* LocationItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62400636295E1B1C00F536F3 /* LocationItem+CoreDataProperties.swift */; };
 		62400639295E1B8100F536F3 /* PhotoItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62400638295E1B8100F536F3 /* PhotoItem+CoreDataProperties.swift */; };
+		6240063E295F7C6300F536F3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6240063D295F7C6300F536F3 /* HomeViewModel.swift */; };
 		6274DA9029590EB0006ADFC4 /* SearchViewController+PlaceSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274DA8F29590EB0006ADFC4 /* SearchViewController+PlaceSearchBar.swift */; };
 		6274DA9229590F36006ADFC4 /* SearchViewController+LocationSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274DA9129590F36006ADFC4 /* SearchViewController+LocationSearchBar.swift */; };
 		6274DA94295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274DA93295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift */; };
@@ -40,7 +41,6 @@
 		62893C1F295781EE009012A6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C1E295781EE009012A6 /* NetworkManager.swift */; };
 		62893C21295781FB009012A6 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C20295781FB009012A6 /* NetworkError.swift */; };
 		62893C2329578205009012A6 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C2229578205009012A6 /* NetworkConstants.swift */; };
-		62893C282957825B009012A6 /* DownloadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C272957825B009012A6 /* DownloadViewModel.swift */; };
 		62893C2C295782A7009012A6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C2B295782A7009012A6 /* TabBarController.swift */; };
 		62893C2F295782BD009012A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C2E295782BD009012A6 /* HomeViewController.swift */; };
 		62893C31295782C3009012A6 /* HomeViewController+SearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C30295782C3009012A6 /* HomeViewController+SearchButton.swift */; };
@@ -58,7 +58,12 @@
 		62893C4E29580BD3009012A6 /* HomeViewController+RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C4D29580BD3009012A6 /* HomeViewController+RefreshButton.swift */; };
 		62893C502958139A009012A6 /* HomeViewController+Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C4F2958139A009012A6 /* HomeViewController+Spinner.swift */; };
 		62893C5329581B18009012A6 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C5229581B18009012A6 /* ImageLoader.swift */; };
-		62893C5529581FD9009012A6 /* ImageLoadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C5429581FD9009012A6 /* ImageLoadViewModel.swift */; };
+		62CABDEC295F854E00DD0815 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABDEB295F854E00DD0815 /* SearchViewModel.swift */; };
+		62CABDEE295F916B00DD0815 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABDED295F916B00DD0815 /* DetailsViewModel.swift */; };
+		62CABDF0295F986700DD0815 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABDEF295F986700DD0815 /* FavoritesViewModel.swift */; };
+		62CABDF3295FACAB00DD0815 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABDF2295FACAB00DD0815 /* MapViewController.swift */; };
+		62CABDF5295FB44B00DD0815 /* SearchViewController+MapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABDF4295FB44B00DD0815 /* SearchViewController+MapButton.swift */; };
+		62CABDF7295FB51700DD0815 /* MapViewController+ListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABDF6295FB51700DD0815 /* MapViewController+ListButton.swift */; };
 		62E1220B295A646000586B9A /* DetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E1220A295A646000586B9A /* DetailInfoView.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +75,7 @@
 		62400634295E1AD100F536F3 /* HoursItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HoursItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		62400636295E1B1C00F536F3 /* LocationItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		62400638295E1B8100F536F3 /* PhotoItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6240063D295F7C6300F536F3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		6274DA8F29590EB0006ADFC4 /* SearchViewController+PlaceSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+PlaceSearchBar.swift"; sourceTree = "<group>"; };
 		6274DA9129590F36006ADFC4 /* SearchViewController+LocationSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+LocationSearchBar.swift"; sourceTree = "<group>"; };
 		6274DA93295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+PlacesTableView.swift"; sourceTree = "<group>"; };
@@ -98,7 +104,6 @@
 		62893C1E295781EE009012A6 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		62893C20295781FB009012A6 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		62893C2229578205009012A6 /* NetworkConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
-		62893C272957825B009012A6 /* DownloadViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadViewModel.swift; sourceTree = "<group>"; };
 		62893C2B295782A7009012A6 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		62893C2E295782BD009012A6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		62893C30295782C3009012A6 /* HomeViewController+SearchButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HomeViewController+SearchButton.swift"; sourceTree = "<group>"; };
@@ -116,7 +121,12 @@
 		62893C4D29580BD3009012A6 /* HomeViewController+RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+RefreshButton.swift"; sourceTree = "<group>"; };
 		62893C4F2958139A009012A6 /* HomeViewController+Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Spinner.swift"; sourceTree = "<group>"; };
 		62893C5229581B18009012A6 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
-		62893C5429581FD9009012A6 /* ImageLoadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadViewModel.swift; sourceTree = "<group>"; };
+		62CABDEB295F854E00DD0815 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		62CABDED295F916B00DD0815 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		62CABDEF295F986700DD0815 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		62CABDF2295FACAB00DD0815 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		62CABDF4295FB44B00DD0815 /* SearchViewController+MapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+MapButton.swift"; sourceTree = "<group>"; };
+		62CABDF6295FB51700DD0815 /* MapViewController+ListButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+ListButton.swift"; sourceTree = "<group>"; };
 		62E1220A295A646000586B9A /* DetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,8 +224,10 @@
 		62893C2629578248009012A6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				62893C272957825B009012A6 /* DownloadViewModel.swift */,
-				62893C5429581FD9009012A6 /* ImageLoadViewModel.swift */,
+				6240063D295F7C6300F536F3 /* HomeViewModel.swift */,
+				62CABDEB295F854E00DD0815 /* SearchViewModel.swift */,
+				62CABDED295F916B00DD0815 /* DetailsViewModel.swift */,
+				62CABDEF295F986700DD0815 /* FavoritesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -226,6 +238,7 @@
 				62893C2A29578294009012A6 /* TabBarView */,
 				62893C2D295782B2009012A6 /* HomeView */,
 				62893C36295782DC009012A6 /* SearchView */,
+				62CABDF1295FAC9300DD0815 /* MapView */,
 				6274DA9C295A1B1C006ADFC4 /* DetailsView */,
 				62893C39295782FD009012A6 /* FavoritesView */,
 			);
@@ -264,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				62893C37295782ED009012A6 /* SearchViewController.swift */,
+				62CABDF4295FB44B00DD0815 /* SearchViewController+MapButton.swift */,
 				6274DA8F29590EB0006ADFC4 /* SearchViewController+PlaceSearchBar.swift */,
 				6274DA9129590F36006ADFC4 /* SearchViewController+LocationSearchBar.swift */,
 				6274DA9829596BBA006ADFC4 /* SearchViewController+SearchBarDelegate.swift */,
@@ -318,6 +332,15 @@
 				62893C5229581B18009012A6 /* ImageLoader.swift */,
 			);
 			path = ImageLoader;
+			sourceTree = "<group>";
+		};
+		62CABDF1295FAC9300DD0815 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				62CABDF2295FACAB00DD0815 /* MapViewController.swift */,
+				62CABDF6295FB51700DD0815 /* MapViewController+ListButton.swift */,
+			);
+			path = MapView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,12 +414,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				62893C2329578205009012A6 /* NetworkConstants.swift in Sources */,
+				62CABDF5295FB44B00DD0815 /* SearchViewController+MapButton.swift in Sources */,
 				62893C4C29580426009012A6 /* HomeViewController+WarningLabel.swift in Sources */,
 				62893C31295782C3009012A6 /* HomeViewController+SearchButton.swift in Sources */,
 				62893C4229578698009012A6 /* LocationManager.swift in Sources */,
 				627C2C41295CE66A006513C3 /* FavoritesCell.swift in Sources */,
 				62893C3B29578322009012A6 /* FavoritesViewController.swift in Sources */,
 				6274DA9B295A1AD2006ADFC4 /* SearchViewController+TableViewDelegate.swift in Sources */,
+				62CABDEE295F916B00DD0815 /* DetailsViewModel.swift in Sources */,
 				6274DA9229590F36006ADFC4 /* SearchViewController+LocationSearchBar.swift in Sources */,
 				62400635295E1AD100F536F3 /* HoursItem+CoreDataProperties.swift in Sources */,
 				62400639295E1B8100F536F3 /* PhotoItem+CoreDataProperties.swift in Sources */,
@@ -410,8 +435,9 @@
 				62893C1F295781EE009012A6 /* NetworkManager.swift in Sources */,
 				62400637295E1B1C00F536F3 /* LocationItem+CoreDataProperties.swift in Sources */,
 				627C2C38295BE2F8006513C3 /* DetailsViewController+GetDirectionsButton.swift in Sources */,
+				6240063E295F7C6300F536F3 /* HomeViewModel.swift in Sources */,
 				6274DAA7295A5049006ADFC4 /* RatingView.swift in Sources */,
-				62893C282957825B009012A6 /* DownloadViewModel.swift in Sources */,
+				62CABDEC295F854E00DD0815 /* SearchViewModel.swift in Sources */,
 				62893C35295782D0009012A6 /* PopularPlaceCell.swift in Sources */,
 				62893C4E29580BD3009012A6 /* HomeViewController+RefreshButton.swift in Sources */,
 				62E1220B295A646000586B9A /* DetailInfoView.swift in Sources */,
@@ -424,11 +450,11 @@
 				62893C5329581B18009012A6 /* ImageLoader.swift in Sources */,
 				62893C09295781A6009012A6 /* AppDelegate.swift in Sources */,
 				62893C502958139A009012A6 /* HomeViewController+Spinner.swift in Sources */,
-				62893C5529581FD9009012A6 /* ImageLoadViewModel.swift in Sources */,
 				62893C482957C657009012A6 /* HomeViewController+PopularPlacesLabel.swift in Sources */,
 				6274DA9F295A1B51006ADFC4 /* DetailsViewController.swift in Sources */,
 				627C2C3F295CE275006513C3 /* FavoritesViewController+FavoritesCollectionView.swift in Sources */,
 				62893C4A2957DF41009012A6 /* HomeViewController+WarningView.swift in Sources */,
+				62CABDF7295FB51700DD0815 /* MapViewController+ListButton.swift in Sources */,
 				62400633295E188400F536F3 /* CoordinateItem+CoreDataProperties.swift in Sources */,
 				627C2C43295CE803006513C3 /* FavoritesViewController+CollectionViewDelegates.swift in Sources */,
 				62893C0B295781A6009012A6 /* SceneDelegate.swift in Sources */,
@@ -436,7 +462,9 @@
 				6274DA972959260A006ADFC4 /* PlaceCell.swift in Sources */,
 				6274DA9029590EB0006ADFC4 /* SearchViewController+PlaceSearchBar.swift in Sources */,
 				62893C442957B579009012A6 /* HomeViewController+PopularPlacesView.swift in Sources */,
+				62CABDF0295F986700DD0815 /* FavoritesViewModel.swift in Sources */,
 				627C2C3D295CDDDD006513C3 /* DetailsViewController+SaveBarButton.swift in Sources */,
+				62CABDF3295FACAB00DD0815 /* MapViewController.swift in Sources */,
 				62893C21295781FB009012A6 /* NetworkError.swift in Sources */,
 				6274DA94295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift in Sources */,
 				6274DA9929596BBA006ADFC4 /* SearchViewController+SearchBarDelegate.swift in Sources */,

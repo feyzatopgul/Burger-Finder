@@ -65,7 +65,7 @@ extension HomeViewController {
         if let photos = place.photos {
             if !photos.isEmpty {
                 let photo = photos.first!
-                imageLoadViewModel.fetchImage(prefix: photo.prefix,
+                homeViewModel.fetchImage(prefix: photo.prefix,
                                               suffix: photo.suffix, size: "150x200") { result in
                     switch result {
                     case .failure(let error):

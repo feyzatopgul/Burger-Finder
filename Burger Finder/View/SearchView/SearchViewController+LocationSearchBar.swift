@@ -21,7 +21,7 @@ extension SearchViewController {
         let constraints = [
             locationSearchBar.topAnchor.constraint(equalTo: guide.topAnchor),
             locationSearchBar.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 45),
-            locationSearchBar.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -5)
+            locationSearchBar.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -55)
         ]
         NSLayoutConstraint.activate(constraints)
     }

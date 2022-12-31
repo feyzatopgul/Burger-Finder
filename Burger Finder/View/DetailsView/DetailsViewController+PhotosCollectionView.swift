@@ -58,7 +58,7 @@ extension DetailsViewController: UICollectionViewDelegateFlowLayout {
         //Set imageView with a placeholder
         photoCell.placeImageView.image = UIImage(named: "placeholderBurger")
         //Set imageView with place photos
-        imageViewModel.fetchImage(prefix: photo.prefix, suffix: photo.suffix, size: "150x200") { result in
+        detailsViewModel.fetchImage(prefix: photo.prefix, suffix: photo.suffix, size: "150x200") { result in
             switch result {
             case .failure(let error):
                 print("Error loading image: \(error)")

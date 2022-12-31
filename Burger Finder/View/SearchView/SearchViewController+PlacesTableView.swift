@@ -74,7 +74,7 @@ extension SearchViewController {
         if let photos = place.photos {
             if !photos.isEmpty {
                 let photo = photos.first!
-                imageLoadViewModel.fetchImage(prefix: photo.prefix,
+                searchViewModel.fetchImage(prefix: photo.prefix,
                                               suffix: photo.suffix, size: "600x600") { result in
                     switch result {
                     case .failure(let error):

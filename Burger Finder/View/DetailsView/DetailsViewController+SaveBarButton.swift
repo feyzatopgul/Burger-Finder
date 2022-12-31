@@ -9,20 +9,24 @@ import Foundation
 import UIKit
 
 extension DetailsViewController {
-    
-    func setButtonImage() -> UIImage {
+    //Set button image filled when tapped and change with it non-filled when tapped again
+    func setButtonImage() {
         let configuration = UIImage.SymbolConfiguration(scale: .large)
         let heart = UIImage(systemName: "heart", withConfiguration: configuration)!
         let heartFilled = UIImage(systemName: "heart.fill", withConfiguration: configuration)!
-        return saveButtonTapped ? heartFilled : heart
+        
+        let buttonImage = saveButtonTapped ? heartFilled : heart
+        if let button = self.saveBarButton.customView as? UIButton {
+            button.setImage(buttonImage, for: .normal)
+        }
     }
     
     //Configure saveBarButton
     func configureSaveButton() {
         let saveButton = UIButton()
-        saveButton.setImage(setButtonImage(), for: .normal)
         saveButton.addTarget(self, action: #selector(saveTapped), for: .touchUpInside)
         saveBarButton.customView = saveButton
+        setButtonImage()
         navigationItem.rightBarButtonItem = saveBarButton
     }
     
@@ -36,9 +40,7 @@ extension DetailsViewController {
                        initialSpringVelocity: 10,
                        options: .curveLinear) { [weak self] in
             guard let self = self else { return }
-            if let button = self.saveBarButton.customView as? UIButton {
-                button.setImage(self.setButtonImage(), for: .normal)
-            }
+            self.setButtonImage()
             //button gets back to original size
             button.transform = .identity
         }
@@ -47,18 +49,24 @@ extension DetailsViewController {
     //Action for saveBarButton tapped
     @objc func saveTapped() {
         saveButtonTapped.toggle()
+        //Save button state to userdefaults
+        if let place = place {
+            detailsViewModel.setSavedState(placeId: place.id, isSaved: saveButtonTapped)
+        }
+        
+        //Animate button when it is tapped
         if let button = saveBarButton.customView {
             animateSaveButton(button)
         }
+        //Save or delete place
         if let place = place {
             if saveButtonTapped {
                 // place is saved if saveButtonTapped is true
-                coreDataManager.savePlace(place: place)
+                detailsViewModel.savePlace(place: place)
             } else {
                 // place is deleted if saveButtonTapped is false
-                coreDataManager.deletePlace(place: place)
+                detailsViewModel.deletePlace(place: place)
             }
         }
-        //coreDataManager.deleteAllItems()
     }
 }

@@ -9,8 +9,9 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
-    var downloadViewModel = DownloadViewModel()
-    var imageLoadViewModel = ImageLoadViewModel()
+//    var downloadViewModel = DownloadViewModel()
+//    var imageLoadViewModel = ImageLoadViewModel()
+    var searchViewModel = SearchViewModel()
     var places = [Place]()
     
     let placeSearchBar = UISearchBar()
@@ -26,6 +27,10 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        navigationItem.backButtonDisplayMode = .minimal
+        
+        //Configure right bar button as mapButton
+        configureMapButton()
         
         //Configure placeSearchBar
         configurePlaceSearchBar()
@@ -51,7 +56,7 @@ class SearchViewController: UIViewController {
 
     //Fetch place data when user searches something
     func getPlaces(search: String, location: String) {
-        downloadViewModel.fetchSearchedPlaces(search: search, location: location) {[weak self] result in
+        searchViewModel.fetchSearchedPlaces(search: search, location: location) {[weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let returnedPlaces):

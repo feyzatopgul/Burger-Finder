@@ -9,9 +9,10 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    var downloadViewModel = DownloadViewModel()
-    var imageLoadViewModel = ImageLoadViewModel()
+//    var downloadViewModel = DownloadViewModel()
+//    var imageLoadViewModel = ImageLoadViewModel()
     
+    var homeViewModel = HomeViewModel()
     var places = [Place]()
     
     let searchButton = UIButton(configuration: .plain(), primaryAction: nil)
@@ -30,8 +31,8 @@ class HomeViewController: UIViewController {
     lazy var dataSource = createDataSource()
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
         navigationItem.backButtonDisplayMode = .minimal
         
         //Set up background
@@ -53,8 +54,7 @@ class HomeViewController: UIViewController {
         configureRefreshButton()
         configureSpinner()
         
-        //Check location services
-        //LocationManager.shared.checkLocationService()
+        LocationManager.shared.locationDelegate = self
     
     }
     
@@ -64,7 +64,7 @@ class HomeViewController: UIViewController {
     }
 
     func checkLocationEnabled() {
-        LocationManager.shared.isLocationEnabled { [weak self] isEnabled in
+        homeViewModel.isLocationEnabled { [weak self] isEnabled in
             guard let self = self else { return }
             if isEnabled {
                 self.popularPlacesView.isHidden = false
@@ -89,7 +89,7 @@ class HomeViewController: UIViewController {
     
     //Get default popular places according to the current location
     func getPlaces() {
-        downloadViewModel.fetchPopularPlacesNearby { [weak self] result in
+        homeViewModel.fetchPopularPlacesNearby { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let returnedPlaces):
@@ -104,3 +104,8 @@ class HomeViewController: UIViewController {
     }
 }
 
+extension HomeViewController: LocationUpdateDelegate {
+    func didLocationUpdated(){
+        checkLocationEnabled() 
+    }
+}

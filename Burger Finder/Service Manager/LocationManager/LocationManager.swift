@@ -13,6 +13,11 @@ protocol LocationManagerProtocol {
     func getCurrentLocation(completion: @escaping ((CLLocation) -> Void))
     func resolvedCurrentLocation(completion: @escaping ((String?) -> Void))
     func findLocation(query: String, completion: @escaping (String?)->Void)
+    var isLocationEnabled: Bool { get set }
+}
+
+protocol LocationUpdateDelegate: NSObject {
+    func didLocationUpdated()
 }
 
 class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProtocol {
@@ -20,7 +25,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
     static let shared = LocationManager()
     private var locationManager = CLLocationManager()
     private var locationCompletion: ((CLLocation) -> Void)?
-
+    var isLocationEnabled = false
+    
+    //delegate for updating HomeViewController when location authorization changes
+    weak var locationDelegate: LocationUpdateDelegate? = nil
+    
     func checkLocationService() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -36,23 +45,24 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
         case .denied:
             print("Denied")
         case .authorizedAlways, .authorizedWhenInUse:
+            isLocationEnabled = true
             print("Authorized")
         @unknown default:
             break
         }
     }
-    
-    //Check if location is enabled or not
-    func isLocationEnabled(completion: @escaping ((Bool) -> Void)){
-        if locationManager.authorizationStatus == .authorizedWhenInUse {
-            completion(true)
-        } else {
-            completion(false)
-        }
-    }
+//    //Check if location is enabled or not
+//    func isLocationEnabled(completion: @escaping ((Bool) -> Void)){
+//        if locationManager.authorizationStatus == .authorizedWhenInUse {
+//            completion(true)
+//        } else {
+//            completion(false)
+//        }
+//    }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationAuthorization()
+        locationDelegate?.didLocationUpdated()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

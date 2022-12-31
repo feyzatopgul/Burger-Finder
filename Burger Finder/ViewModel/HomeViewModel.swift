@@ -1,0 +1,67 @@
+//
+//  HomeViewControllerViewModel.swift
+//  Burger Finder
+//
+//  Created by fyz on 12/30/22.
+//
+
+import Foundation
+
+class HomeViewModel {
+    
+    private let networkManager: NetworkManagerProtocol
+    private let locationManager: LocationManagerProtocol
+    private let imageLoader: ImageLoaderProtocol
+    
+    init(networkManager: NetworkManagerProtocol = NetworkManager.shared,
+         locationManager:LocationManagerProtocol = LocationManager.shared,
+         imageLoader: ImageLoaderProtocol = ImageLoader.shared) {
+        self.networkManager = networkManager
+        self.locationManager = locationManager
+        self.imageLoader = imageLoader
+        locationManager.checkLocationService()
+    }
+    
+    //Fetch popular places based on current location
+    func fetchPopularPlacesNearby(completion: @escaping (Result<[Place], Error>) -> Void) {
+        
+        locationManager.resolvedCurrentLocation { [weak self] location in
+            guard let self = self else { return }
+            guard let currentLocation = location else { return }
+            let urlString = NetworkConstants.createUrlString(search: "", location: currentLocation, sort: "POPULARITY", limit: 10)
+            guard let request = self.networkManager.createRequest(for: urlString) else { return }
+            
+            self.networkManager.executeRequest(request: request, forType: Places.self) { places, error in
+                if let error = error {
+                    completion(.failure(error))
+                }
+                if let places = places {
+                    completion(.success(places.results))
+                }
+            }
+        }
+    }
+    
+    //Check if location is enabled or not
+    func isLocationEnabled(completion: @escaping ((Bool) -> Void)){
+        if locationManager.isLocationEnabled {
+            completion(true)
+        } else {
+            completion(false)
+        }
+    }
+    
+    //Fetch image using prefix suffix properties of Photo model and size
+    func fetchImage(prefix: String, suffix: String, size: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        let imageUrl = prefix + size + suffix
+        imageLoader.loadImage(imageUrl: imageUrl){ data, error in
+            if let error = error {
+                completion(.failure(error))
+            }
+            if let imageData = data {
+                completion(.success(imageData))
+            }
+        }
+    }
+    
+}

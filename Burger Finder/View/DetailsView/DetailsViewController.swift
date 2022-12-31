@@ -11,15 +11,14 @@ class DetailsViewController: UIViewController {
     
     var place: Place?
     var photos = [Photo]()
-    var imageViewModel = ImageLoadViewModel()
-    let coreDataManager = CoreDataManager.shared
+    var detailsViewModel = DetailsViewModel()
     
     let detailsScrollView = UIScrollView()
     let photosCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     var detailInfoView = DetailInfoView()
     var getDirectionsButton = UIButton()
     var saveBarButton = UIBarButtonItem()
-    var saveButtonTapped = false
+    var saveButtonTapped: Bool = false
     
     typealias DataSource = UICollectionViewDiffableDataSource<PhotosSection,Photo>
     typealias Snapshot = NSDiffableDataSourceSnapshot<PhotosSection, Photo>
@@ -53,4 +52,12 @@ class DetailsViewController: UIViewController {
         applySnapshot()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let place = place {
+            saveButtonTapped = detailsViewModel.getSavedState(placeId: place.id)
+        }
+        setButtonImage()
+    }
 }
+

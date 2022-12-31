@@ -144,7 +144,7 @@ class CoreDataManager:CoreDataManagerProtocol {
         
     }
     
-    //Deletes all objects in CoreData
+    //Deletes all places in CoreData
     func deleteAllPlaces() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "PlaceItem")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
