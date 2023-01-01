@@ -23,10 +23,14 @@ extension SearchViewController: UISearchBarDelegate {
             }
         }
         // ???
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2 ) { [weak self] in
-            guard let self = self else { return }
-            self.getPlaces(search: self.placeText, location: self.locationText)
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2 ) { [weak self] in
+//            guard let self = self else { return }
+//            self.getPlaces(search: self.placeText, location: self.locationText)
+//            self.createAnnotations(places: self.places)
+//        }
+        print("Search: \(placeText)")
+        print("Location: \(locationText)")
+        getPlaces(search: placeText, location: locationText)
     }
     
     //Reset search bar text when cancel button is clicked to update the tableview
@@ -42,13 +46,6 @@ extension SearchViewController: UISearchBarDelegate {
     //Dismiss keyboard when editing is done
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
-    }
-    
-    //Dismiss keyboard when anywhere is tapped
-    func dismissKeyboardWhenViewIsTapped() {
-        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
     }
     
 }

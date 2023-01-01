@@ -24,7 +24,6 @@ class ImageLoader: ImageLoaderProtocol {
         let request = URLRequest(url: url)
         
         if let imageData = images.object(forKey: url.absoluteString as NSString){
-            print("Using cached image")
             completion(imageData as Data, nil)
             return
         }

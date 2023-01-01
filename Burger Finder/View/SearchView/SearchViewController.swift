@@ -6,11 +6,10 @@
 //
 
 import UIKit
+import MapKit
 
 class SearchViewController: UIViewController {
-
-//    var downloadViewModel = DownloadViewModel()
-//    var imageLoadViewModel = ImageLoadViewModel()
+    
     var searchViewModel = SearchViewModel()
     var places = [Place]()
     
@@ -24,13 +23,17 @@ class SearchViewController: UIViewController {
     typealias Snapshot = NSDiffableDataSourceSnapshot<PlacesSection, Place>
     lazy var dataSource = createDataSource()
     
+    let mapView = MKMapView()
+    var mapListBarButton = UIBarButtonItem()
+    var mapViewHidden = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationItem.backButtonDisplayMode = .minimal
         
         //Configure right bar button as mapButton
-        configureMapButton()
+        configureMapListButton()
         
         //Configure placeSearchBar
         configurePlaceSearchBar()
@@ -41,17 +44,15 @@ class SearchViewController: UIViewController {
         //Configure placesTableView
         configurePlacesTableView()
         
+        //Configure mapView
+        configureMapView()
+        
         //Fetch places data
         getPlaces(search: "", location: "")
         
         //Update placesTableView
         applySnapshot()
-        
-        //Dismiss keyboard when anywhere is tapped
-        dismissKeyboardWhenViewIsTapped()
-        
-        //Check location services
-        //LocationManager.shared.checkLocationService()
+            
     }
 
     //Fetch place data when user searches something
@@ -62,7 +63,10 @@ class SearchViewController: UIViewController {
             case .success(let returnedPlaces):
                 self.places = returnedPlaces
                 DispatchQueue.main.async {
+                    //Update tableView
                     self.applySnapshot()
+                    //Update mapView
+                    self.createAnnotations(places: returnedPlaces)
                 }
             case .failure(let error):
                 print(error)

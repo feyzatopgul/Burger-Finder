@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class HomeViewModel {
     
@@ -25,10 +26,11 @@ class HomeViewModel {
     //Fetch popular places based on current location
     func fetchPopularPlacesNearby(completion: @escaping (Result<[Place], Error>) -> Void) {
         
-        locationManager.resolvedCurrentLocation { [weak self] location in
+        locationManager.resolvedCurrentLocation { [weak self] returnedCoordinate in
             guard let self = self else { return }
-            guard let currentLocation = location else { return }
-            let urlString = NetworkConstants.createUrlString(search: "", location: currentLocation, sort: "POPULARITY", limit: 10)
+            guard let currentCoordinate = returnedCoordinate else { return }
+            let formattedCoordinate = String(currentCoordinate.latitude) + "," + String(currentCoordinate.longitude)
+            let urlString = NetworkConstants.createUrlString(search: "", location: formattedCoordinate, sort: "POPULARITY", limit: 10)
             guard let request = self.networkManager.createRequest(for: urlString) else { return }
             
             self.networkManager.executeRequest(request: request, forType: Places.self) { places, error in

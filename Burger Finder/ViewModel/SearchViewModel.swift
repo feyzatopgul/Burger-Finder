@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class SearchViewModel {
     
@@ -23,29 +24,14 @@ class SearchViewModel {
     
     //Fetch nearby places based on search terms
     func fetchSearchedPlaces(search: String, location: String, completion: @escaping (Result<[Place], Error>) -> Void) {
-        //Search if the location is valid
-        locationManager.findLocation(query: location) { [weak self] returnedLocation in
-            guard let self = self else { return }
-            if let validLocation = returnedLocation {
-                let urlString = NetworkConstants.createUrlString(search: search, location: validLocation, sort: "DISTANCE", limit: 50)
-                guard let request = self.networkManager.createRequest(for: urlString) else { return }
-                
-                self.networkManager.executeRequest(request: request, forType: Places.self) { places, error in
-                    if let error = error {
-                        completion(.failure(error))
-                    }
-                    if let places = places {
-                        completion(.success(places.results))
-                    }
-
-                }
-            }
-            else {
-                //If the location is not valid search for the current location
-                self.locationManager.resolvedCurrentLocation { resolvedLocation in
-                    guard let currentLocation = resolvedLocation else { return }
-                    let urlString = NetworkConstants.createUrlString(search: "", location: currentLocation, sort: "DISTANCE", limit: 50)
+        if !location.isEmpty {
+            locationManager.findLocation(query: location) { [weak self] returnedCoordinate in
+                guard let self = self else { return }
+                if let validCoordinate = returnedCoordinate {
+                    let formattedCoordinate = String(validCoordinate.latitude) + "," + String(validCoordinate.longitude)
+                    let urlString = NetworkConstants.createUrlString(search: search, location: formattedCoordinate, sort: "DISTANCE", limit: 50)
                     guard let request = self.networkManager.createRequest(for: urlString) else { return }
+                    
                     self.networkManager.executeRequest(request: request, forType: Places.self) { places, error in
                         if let error = error {
                             completion(.failure(error))
@@ -54,6 +40,38 @@ class SearchViewModel {
                             completion(.success(places.results))
                         }
                     }
+                }
+            }
+        } else {
+            locationManager.resolvedCurrentLocation { resolvedCoordinate in
+                guard let currentCoordinate = resolvedCoordinate else { return }
+                let formattedCoordinate = String(currentCoordinate.latitude) + "," + String(currentCoordinate.longitude)
+                let urlString = NetworkConstants.createUrlString(search: search, location: formattedCoordinate, sort: "DISTANCE", limit: 50)
+                guard let request = self.networkManager.createRequest(for: urlString) else { return }
+                self.networkManager.executeRequest(request: request, forType: Places.self) { places, error in
+                    if let error = error {
+                        completion(.failure(error))
+                    }
+                    if let places = places {
+                        completion(.success(places.results))
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    func getCoordinate(location: String, completion: @escaping (CLLocationCoordinate2D) -> Void) {
+        if !location.isEmpty {
+            locationManager.findLocation(query: location) { returnedCoordinate in
+                if let coordinate = returnedCoordinate {
+                    completion(coordinate)
+                }
+            }
+        } else {
+            locationManager.resolvedCurrentLocation { returnedCoordinate in
+                if let coordinate = returnedCoordinate {
+                    completion(coordinate)
                 }
             }
         }

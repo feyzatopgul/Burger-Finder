@@ -11,8 +11,8 @@ import CoreLocation
 protocol LocationManagerProtocol {
     func checkLocationService()
     func getCurrentLocation(completion: @escaping ((CLLocation) -> Void))
-    func resolvedCurrentLocation(completion: @escaping ((String?) -> Void))
-    func findLocation(query: String, completion: @escaping (String?)->Void)
+    func resolvedCurrentLocation(completion: @escaping ((CLLocationCoordinate2D?) -> Void))
+    func findLocation(query: String, completion: @escaping (CLLocationCoordinate2D?)->Void)
     var isLocationEnabled: Bool { get set }
 }
 
@@ -51,14 +51,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
             break
         }
     }
-//    //Check if location is enabled or not
-//    func isLocationEnabled(completion: @escaping ((Bool) -> Void)){
-//        if locationManager.authorizationStatus == .authorizedWhenInUse {
-//            completion(true)
-//        } else {
-//            completion(false)
-//        }
-//    }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationAuthorization()
@@ -81,7 +73,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
     }
     
     //Get current location as locality and administrativeArea in a string
-    func resolvedCurrentLocation(completion: @escaping ((String?) -> Void)){
+    func resolvedCurrentLocation(completion: @escaping ((CLLocationCoordinate2D?) -> Void)){
         let geocoder = CLGeocoder()
         getCurrentLocation { location in
             geocoder.reverseGeocodeLocation(location, preferredLocale: .current){ placemarks, error in
@@ -89,41 +81,23 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
                     completion(nil)
                     return
                 }
-                var resolvedLocation = ""
-                if let locality = place.locality{
-                    resolvedLocation += locality
+                if let coordinate = place.location?.coordinate {
+                    completion(coordinate)
                 }
-                if let adminRegion = place.administrativeArea {
-                    resolvedLocation += ", \(adminRegion)"
-                }
-                //print("Resolved Location: \(resolvedLocation)")
-                completion(resolvedLocation)
             }
         }
     }
     //Find a valid location with a given string query
-    func findLocation(query: String, completion: @escaping (String?)->Void) {
+    func findLocation(query: String, completion: @escaping (CLLocationCoordinate2D?)->Void) {
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(query) { placemarks, error in
             guard let place = placemarks?.first, error == nil else {
                 completion(nil)
                 return
             }
-            var validAddress = ""
-            if let name = place.name {
-                validAddress += name
+            if let coordinate = place.location?.coordinate {
+                completion(coordinate)
             }
-            if let locality = place.locality{
-                validAddress += ", \(locality)"
-            }
-            if let adminRegion = place.administrativeArea {
-                validAddress += ", \(adminRegion)"
-            }
-            if let country = place.country {
-                validAddress += ", \(country)"
-            }
-            //print("Valid address: \(validAddress)")
-            completion(validAddress)
         }
     }
     

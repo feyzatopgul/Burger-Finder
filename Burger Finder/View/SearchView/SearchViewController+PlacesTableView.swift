@@ -16,7 +16,7 @@ extension SearchViewController {
         placesTableView.delegate = self
         //Set row height
         placesTableView.rowHeight = 150
-        
+      
         //Adjust constraints
         placesTableView.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
@@ -26,6 +26,9 @@ extension SearchViewController {
             placesTableView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ]
         NSLayoutConstraint.activate(constraints)
+        
+        //Dismiss keyboard when tableView is dragged
+        placesTableView.keyboardDismissMode = .onDrag
         
         //Register a cell
         placesTableView.register(PlaceCell.self, forCellReuseIdentifier: PlaceCell.identifier)
