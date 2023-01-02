@@ -43,13 +43,11 @@ class DetailsViewController: UIViewController {
         //Configure getDirectionsButton
         configureGetDirectionsButton()
         
+        //Configure photosCollectionView
         configurePhotosCollectionView()
         
-        //Assing photos data to photos
-        guard let placePhotos = place?.photos else { return }
-        photos = placePhotos
+        getPhotos()
         
-        applySnapshot()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,6 +56,26 @@ class DetailsViewController: UIViewController {
             saveButtonTapped = detailsViewModel.getSavedState(placeId: place.id)
         }
         setButtonImage()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        getPhotos()
+    }
+    
+    //Fetch photos of the place
+    func getPhotos() {
+        guard let place = place else { return }
+        detailsViewModel.getPhotos(placeId: place.id) {[weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .failure(let error):
+                print("Error while fetching photos: \(error)")
+            case .success(let returnedPhotos):
+                self.photos = returnedPhotos
+            }
+        }
+        applySnapshot()
     }
 }
 

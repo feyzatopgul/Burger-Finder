@@ -12,7 +12,6 @@ extension SearchViewController {
     
     func configurePlaceSearchBar() {
         view.addSubview(placeSearchBar)
-        //let guide = self.view.safeAreaLayoutGuide
         placeSearchBar.delegate = self
         placeSearchBar.sizeToFit()
         navigationItem.titleView = placeSearchBar

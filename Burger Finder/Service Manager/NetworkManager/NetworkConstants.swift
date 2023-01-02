@@ -16,11 +16,16 @@ class NetworkConstants {
     
     static let httpMethod = "GET"
     
-    static func createUrlString(search: String, location: String, sort: String, limit: Int) -> String {
+    static func createUrlStringForSearch(search: String, location: String, sort: String, limit: Int) -> String {
         
         guard let encodedSearch = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {return "" }
         guard let encodedLocation = location.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {return ""}
         
         return "https://api.foursquare.com/v3/places/search?query=\(encodedSearch)&ll=\(encodedLocation)&categories=13031&fields=fsq_id%2Cname%2Cgeocodes%2Clocation%2Cdistance%2Ctel%2Cwebsite%2Chours%2Crating%2Cprice%2Cphotos&sort=\(sort)&limit=\(limit)"
+    }
+    
+    static func createUrlStringForPhotos(placeId: String) -> String {
+        guard let encodedId = placeId.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return ""}
+        return "https://api.foursquare.com/v3/places/\(encodedId)/photos?limit=20"
     }
 }

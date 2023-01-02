@@ -30,7 +30,7 @@ class HomeViewModel {
             guard let self = self else { return }
             guard let currentCoordinate = returnedCoordinate else { return }
             let formattedCoordinate = String(currentCoordinate.latitude) + "," + String(currentCoordinate.longitude)
-            let urlString = NetworkConstants.createUrlString(search: "", location: formattedCoordinate, sort: "POPULARITY", limit: 10)
+            let urlString = NetworkConstants.createUrlStringForSearch(search: "", location: formattedCoordinate, sort: "POPULARITY", limit: 10)
             guard let request = self.networkManager.createRequest(for: urlString) else { return }
             
             self.networkManager.executeRequest(request: request, forType: Places.self) { places, error in

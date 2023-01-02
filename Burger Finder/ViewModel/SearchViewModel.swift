@@ -29,7 +29,7 @@ class SearchViewModel {
                 guard let self = self else { return }
                 if let validCoordinate = returnedCoordinate {
                     let formattedCoordinate = String(validCoordinate.latitude) + "," + String(validCoordinate.longitude)
-                    let urlString = NetworkConstants.createUrlString(search: search, location: formattedCoordinate, sort: "DISTANCE", limit: 50)
+                    let urlString = NetworkConstants.createUrlStringForSearch(search: search, location: formattedCoordinate, sort: "DISTANCE", limit: 50)
                     guard let request = self.networkManager.createRequest(for: urlString) else { return }
                     
                     self.networkManager.executeRequest(request: request, forType: Places.self) { places, error in
@@ -46,7 +46,7 @@ class SearchViewModel {
             locationManager.resolvedCurrentLocation { resolvedCoordinate in
                 guard let currentCoordinate = resolvedCoordinate else { return }
                 let formattedCoordinate = String(currentCoordinate.latitude) + "," + String(currentCoordinate.longitude)
-                let urlString = NetworkConstants.createUrlString(search: search, location: formattedCoordinate, sort: "DISTANCE", limit: 50)
+                let urlString = NetworkConstants.createUrlStringForSearch(search: search, location: formattedCoordinate, sort: "DISTANCE", limit: 50)
                 guard let request = self.networkManager.createRequest(for: urlString) else { return }
                 self.networkManager.executeRequest(request: request, forType: Places.self) { places, error in
                     if let error = error {

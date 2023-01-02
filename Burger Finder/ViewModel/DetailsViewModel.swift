@@ -11,12 +11,16 @@ class DetailsViewModel {
     
     private let imageLoader: ImageLoaderProtocol
     private let coreDataManager: CoreDataManagerProtocol
+    private let networkManager: NetworkManagerProtocol
     private let userDefaults = UserDefaults.standard
+    var photos = [Photo]()
     
     init(imageLoader: ImageLoaderProtocol = ImageLoader.shared,
-         coreDataManager: CoreDataManagerProtocol = CoreDataManager.shared) {
+         coreDataManager: CoreDataManagerProtocol = CoreDataManager.shared,
+         networkManager: NetworkManagerProtocol = NetworkManager.shared) {
         self.imageLoader = imageLoader
         self.coreDataManager = coreDataManager
+        self.networkManager = networkManager
     }
     
     //Save isSaved boolean as true in userdefaults if the place is saved, save it as false if the place is unsaved, use place id as key
@@ -36,6 +40,22 @@ class DetailsViewModel {
     //Delete place from CoreData
     func deletePlace(place: Place){
         coreDataManager.deletePlace(place: place)
+    }
+    
+    //Make a network call for fetching photos of a place based on placeId
+    func getPhotos(placeId: String, completion: @escaping (Result<[Photo], Error>) -> Void) {
+        
+        let urlString = NetworkConstants.createUrlStringForPhotos(placeId: placeId)
+        guard let request = networkManager.createRequest(for: urlString) else { return }
+        
+        networkManager.executeRequest(request: request, forType: [Photo].self) { photos, error in
+            if let error = error {
+                completion(.failure(error))
+            }
+            if let photos = photos {
+                completion(.success(photos))
+            }
+        }
     }
     
     //Fetch image using prefix suffix properties of Photo model and size

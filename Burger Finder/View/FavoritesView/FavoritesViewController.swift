@@ -17,6 +17,8 @@ class FavoritesViewController: UIViewController {
     typealias Snapshot = NSDiffableDataSourceSnapshot<FavoritesSection, Place>
     lazy var dataSource = createDataSource()
     
+    let favoritesSearchBar = UISearchBar()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -24,9 +26,13 @@ class FavoritesViewController: UIViewController {
         navigationItem.backButtonDisplayMode = .minimal
         
         view.addSubview(favoritesCollectionView)
+        view.addSubview(favoritesSearchBar)
         
         //configure favoritesCollectionView
         configureFavoritesCollectionView()
+        
+        //configure favoritesSearchBar
+        configureFavoritesSearchBar()
     }
     
     override func viewDidAppear(_ animated: Bool) {

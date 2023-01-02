@@ -155,5 +155,4 @@ class CoreDataManager:CoreDataManagerProtocol {
             print("Error deleting all places :\(error)")
         }
     }
-    
 }

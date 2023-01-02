@@ -24,14 +24,16 @@ extension FavoritesViewController {
         
         //Adjust constraints
         favoritesCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        let guide = view.safeAreaLayoutGuide
         let constraints = [
             favoritesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             favoritesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            favoritesCollectionView.topAnchor.constraint(equalTo: guide.topAnchor),
+            favoritesCollectionView.topAnchor.constraint(equalTo: favoritesSearchBar.bottomAnchor, constant: 20),
             favoritesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ]
         NSLayoutConstraint.activate(constraints)
+        
+        //Dismiss keyboard when collectionView is dragged
+        favoritesCollectionView.keyboardDismissMode = .onDrag
         
         //Register a cell
         favoritesCollectionView.register(FavoritesCell.self, forCellWithReuseIdentifier: FavoritesCell.identifier)

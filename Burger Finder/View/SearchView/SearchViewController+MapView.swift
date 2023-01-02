@@ -32,6 +32,7 @@ extension SearchViewController: MKMapViewDelegate {
         mapView.isHidden = true
     }
     
+    //Dismiss keyboard when anywhere is tapped on screen
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }

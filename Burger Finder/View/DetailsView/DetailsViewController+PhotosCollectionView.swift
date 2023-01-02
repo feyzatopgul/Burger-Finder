@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension DetailsViewController: UICollectionViewDelegateFlowLayout {
+extension DetailsViewController {
     
     func configurePhotosCollectionView() {
         //view.addSubview(photosCollectionView)
@@ -34,11 +34,6 @@ extension DetailsViewController: UICollectionViewDelegateFlowLayout {
         
         //Register a cell
         photosCollectionView.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.identifier)
-    }
-    
-    // Adjust item size
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: photosCollectionView.frame.width/2, height: photosCollectionView.frame.height)
     }
     
     //Create data source for collectionView

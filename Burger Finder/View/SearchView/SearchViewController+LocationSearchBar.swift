@@ -12,7 +12,7 @@ extension SearchViewController {
     
     func configureLocationSearchBar() {
         view.addSubview(locationSearchBar)
-        let guide = self.view.safeAreaLayoutGuide
+        let guide = view.safeAreaLayoutGuide
         locationSearchBar.delegate = self
         locationSearchBar.placeholder = "Current location..."
         locationSearchBar.setImage(UIImage(systemName: "location"), for: .search, state: .normal)

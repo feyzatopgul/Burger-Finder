@@ -14,7 +14,7 @@ class FavoritesCell: UICollectionViewCell {
     let nameLabel = UILabel()
     let locationLabel = UILabel()
     var ratingView = RatingView()
-    let likedView = UIImageView()
+    let burgerIconView = UIImageView()
     let burgerView = UIImageView()
     
     override init(frame: CGRect) {
@@ -30,12 +30,12 @@ class FavoritesCell: UICollectionViewCell {
         contentView.addSubview(nameLabel)
         contentView.addSubview(locationLabel)
         contentView.addSubview(ratingView)
-        contentView.addSubview(likedView)
+        contentView.addSubview(burgerIconView)
         
         configureNameLabel()
         configureLocationLabel()
         configureRatingView()
-        configureLikedView()
+        configureburgerIconView()
         configurebackgroundView()
     }
     
@@ -63,15 +63,13 @@ class FavoritesCell: UICollectionViewCell {
     }
     
     //likedView configuration
-    func configureLikedView() {
-        let configuration = UIImage.SymbolConfiguration(scale: .large)
-        likedView.image = UIImage(systemName: "heart.fill", withConfiguration: configuration)
-        likedView.tintColor = UIColor(named: "primaryAppColor")
+    func configureburgerIconView() {
+        burgerIconView.image = UIImage(named: "burgerIcon")
         
-        likedView.translatesAutoresizingMaskIntoConstraints = false
+        burgerIconView.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
-            likedView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            likedView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            burgerIconView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            burgerIconView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
         ]
         NSLayoutConstraint.activate(constraints)
     }

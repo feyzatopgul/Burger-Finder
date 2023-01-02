@@ -64,6 +64,12 @@
 		62CABDF5295FB44B00DD0815 /* SearchViewController+MapListBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABDF4295FB44B00DD0815 /* SearchViewController+MapListBarButton.swift */; };
 		62CABDF92960C81B00DD0815 /* SearchViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABDF82960C81B00DD0815 /* SearchViewController+MapView.swift */; };
 		62CABDFB29615DF100DD0815 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABDFA29615DF100DD0815 /* PlaceAnnotation.swift */; };
+		62CABDFE296224C300DD0815 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABDFD296224C300DD0815 /* PhotoViewController.swift */; };
+		62CABE002962251B00DD0815 /* DetailsViewController+PhotosCollectionViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABDFF2962251B00DD0815 /* DetailsViewController+PhotosCollectionViewDelegates.swift */; };
+		62CABE022962297B00DD0815 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE012962297B00DD0815 /* PhotoViewModel.swift */; };
+		62CABE0429622E9F00DD0815 /* PhotoViewController+CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE0329622E9F00DD0815 /* PhotoViewController+CloseButton.swift */; };
+		62CABE0629622EE800DD0815 /* PhotoViewController+PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE0529622EE800DD0815 /* PhotoViewController+PhotoView.swift */; };
+		62CABE082962526400DD0815 /* FavoritesViewController+FavoritesSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE072962526400DD0815 /* FavoritesViewController+FavoritesSearchBar.swift */; };
 		62E1220B295A646000586B9A /* DetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E1220A295A646000586B9A /* DetailInfoView.swift */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +133,12 @@
 		62CABDF4295FB44B00DD0815 /* SearchViewController+MapListBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+MapListBarButton.swift"; sourceTree = "<group>"; };
 		62CABDF82960C81B00DD0815 /* SearchViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+MapView.swift"; sourceTree = "<group>"; };
 		62CABDFA29615DF100DD0815 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
+		62CABDFD296224C300DD0815 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		62CABDFF2962251B00DD0815 /* DetailsViewController+PhotosCollectionViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsViewController+PhotosCollectionViewDelegates.swift"; sourceTree = "<group>"; };
+		62CABE012962297B00DD0815 /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
+		62CABE0329622E9F00DD0815 /* PhotoViewController+CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoViewController+CloseButton.swift"; sourceTree = "<group>"; };
+		62CABE0529622EE800DD0815 /* PhotoViewController+PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoViewController+PhotoView.swift"; sourceTree = "<group>"; };
+		62CABE072962526400DD0815 /* FavoritesViewController+FavoritesSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesViewController+FavoritesSearchBar.swift"; sourceTree = "<group>"; };
 		62E1220A295A646000586B9A /* DetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +162,7 @@
 				627C2C37295BE2F8006513C3 /* DetailsViewController+GetDirectionsButton.swift */,
 				627C2C33295BE237006513C3 /* DetailsViewController+DetailsScrollView.swift */,
 				627C2C2F295BA2BB006513C3 /* DetailsViewController+PhotosCollectionView.swift */,
+				62CABDFF2962251B00DD0815 /* DetailsViewController+PhotosCollectionViewDelegates.swift */,
 				62E1220A295A646000586B9A /* DetailInfoView.swift */,
 				627C2C31295BA37D006513C3 /* PhotoCell.swift */,
 			);
@@ -228,6 +241,7 @@
 				62CABDEB295F854E00DD0815 /* SearchViewModel.swift */,
 				62CABDED295F916B00DD0815 /* DetailsViewModel.swift */,
 				62CABDEF295F986700DD0815 /* FavoritesViewModel.swift */,
+				62CABE012962297B00DD0815 /* PhotoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -239,6 +253,7 @@
 				62893C2D295782B2009012A6 /* HomeView */,
 				62893C36295782DC009012A6 /* SearchView */,
 				6274DA9C295A1B1C006ADFC4 /* DetailsView */,
+				62CABDFC2962248A00DD0815 /* PhotoView */,
 				62893C39295782FD009012A6 /* FavoritesView */,
 			);
 			path = View;
@@ -293,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				62893C3A29578322009012A6 /* FavoritesViewController.swift */,
+				62CABE072962526400DD0815 /* FavoritesViewController+FavoritesSearchBar.swift */,
 				627C2C3E295CE275006513C3 /* FavoritesViewController+FavoritesCollectionView.swift */,
 				627C2C42295CE803006513C3 /* FavoritesViewController+CollectionViewDelegates.swift */,
 				627C2C40295CE66A006513C3 /* FavoritesCell.swift */,
@@ -333,6 +349,16 @@
 				62893C5229581B18009012A6 /* ImageLoader.swift */,
 			);
 			path = ImageLoader;
+			sourceTree = "<group>";
+		};
+		62CABDFC2962248A00DD0815 /* PhotoView */ = {
+			isa = PBXGroup;
+			children = (
+				62CABDFD296224C300DD0815 /* PhotoViewController.swift */,
+				62CABE0329622E9F00DD0815 /* PhotoViewController+CloseButton.swift */,
+				62CABE0529622EE800DD0815 /* PhotoViewController+PhotoView.swift */,
+			);
+			path = PhotoView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,6 +433,7 @@
 			files = (
 				62893C2329578205009012A6 /* NetworkConstants.swift in Sources */,
 				62CABDF5295FB44B00DD0815 /* SearchViewController+MapListBarButton.swift in Sources */,
+				62CABE0429622E9F00DD0815 /* PhotoViewController+CloseButton.swift in Sources */,
 				62893C4C29580426009012A6 /* HomeViewController+WarningLabel.swift in Sources */,
 				62893C31295782C3009012A6 /* HomeViewController+SearchButton.swift in Sources */,
 				62893C4229578698009012A6 /* LocationManager.swift in Sources */,
@@ -422,8 +449,11 @@
 				627C2C30295BA2BB006513C3 /* DetailsViewController+PhotosCollectionView.swift in Sources */,
 				62893C462957C148009012A6 /* GradientView.swift in Sources */,
 				62893C3E29578372009012A6 /* Places.swift in Sources */,
+				62CABDFE296224C300DD0815 /* PhotoViewController.swift in Sources */,
+				62CABE022962297B00DD0815 /* PhotoViewModel.swift in Sources */,
 				62893C2C295782A7009012A6 /* TabBarController.swift in Sources */,
 				6274DAA9295A5D6B006ADFC4 /* HomeViewController+CollectionViewDelegates.swift in Sources */,
+				62CABE002962251B00DD0815 /* DetailsViewController+PhotosCollectionViewDelegates.swift in Sources */,
 				62893C1F295781EE009012A6 /* NetworkManager.swift in Sources */,
 				62400637295E1B1C00F536F3 /* LocationItem+CoreDataProperties.swift in Sources */,
 				627C2C38295BE2F8006513C3 /* DetailsViewController+GetDirectionsButton.swift in Sources */,
@@ -449,6 +479,7 @@
 				62893C4A2957DF41009012A6 /* HomeViewController+WarningView.swift in Sources */,
 				62400633295E188400F536F3 /* CoordinateItem+CoreDataProperties.swift in Sources */,
 				627C2C43295CE803006513C3 /* FavoritesViewController+CollectionViewDelegates.swift in Sources */,
+				62CABE082962526400DD0815 /* FavoritesViewController+FavoritesSearchBar.swift in Sources */,
 				62893C0B295781A6009012A6 /* SceneDelegate.swift in Sources */,
 				627C2C32295BA37D006513C3 /* PhotoCell.swift in Sources */,
 				6274DA972959260A006ADFC4 /* PlaceCell.swift in Sources */,
@@ -456,6 +487,7 @@
 				62CABDFB29615DF100DD0815 /* PlaceAnnotation.swift in Sources */,
 				62893C442957B579009012A6 /* HomeViewController+PopularPlacesView.swift in Sources */,
 				62CABDF0295F986700DD0815 /* FavoritesViewModel.swift in Sources */,
+				62CABE0629622EE800DD0815 /* PhotoViewController+PhotoView.swift in Sources */,
 				627C2C3D295CDDDD006513C3 /* DetailsViewController+SaveBarButton.swift in Sources */,
 				62893C21295781FB009012A6 /* NetworkError.swift in Sources */,
 				6274DA94295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift in Sources */,
