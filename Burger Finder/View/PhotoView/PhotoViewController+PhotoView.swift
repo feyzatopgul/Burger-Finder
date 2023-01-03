@@ -14,7 +14,9 @@ extension PhotoViewController {
         view.addSubview(photoView)
         
         guard let photo = photo else { return }
-        photoViewModel.fetchImage(prefix: photo.prefix, suffix: photo.suffix, size: "400x600") { [weak self] result in
+        photoViewModel.fetchImage(prefix: photo.prefix,
+                                  suffix: photo.suffix,
+                                  size: PhotoViewConstants.imageSize) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .failure(let error):

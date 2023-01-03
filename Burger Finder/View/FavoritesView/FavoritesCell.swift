@@ -46,7 +46,7 @@ class FavoritesCell: UICollectionViewCell {
     //burgerView configuration
     func configurebackgroundView() {
     
-        burgerView.image = UIImage(named: "burgerBackground")
+        burgerView.image = UIImage(named: FavoritesViewConstants.burgerBackground )
         burgerView.contentMode = .scaleAspectFill
         burgerView.clipsToBounds = true
         burgerView.layer.cornerRadius = 30
@@ -64,7 +64,7 @@ class FavoritesCell: UICollectionViewCell {
     
     //likedView configuration
     func configureburgerIconView() {
-        burgerIconView.image = UIImage(named: "burgerIcon")
+        burgerIconView.image = UIImage(named: FavoritesViewConstants.burgerIcon )
         
         burgerIconView.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
@@ -80,39 +80,38 @@ class FavoritesCell: UICollectionViewCell {
         nameLabel.numberOfLines = 3
         nameLabel.textAlignment = .left
         nameLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        nameLabel.textColor = UIColor(named: "textColor")
+        nameLabel.textColor = UIColor(named: FavoritesViewConstants.textColor)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
-            //nameLabel.heightAnchor.constraint(equalToConstant: 70),
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
             nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
             nameLabel.bottomAnchor.constraint(equalTo: ratingView.topAnchor, constant: -5)
         ]
         NSLayoutConstraint.activate(constraints)
     }
     
-    //RatingView configuration
+    //ratingView configuration
     func configureRatingView() {
        
         ratingView.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
-            ratingView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            ratingView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
             ratingView.bottomAnchor.constraint(equalTo: locationLabel.topAnchor, constant: -5)
         ]
         NSLayoutConstraint.activate(constraints)
     }
     
-    //Name label configuration
+    //locationLabel configuration
     func configureLocationLabel() {
         locationLabel.numberOfLines = 3
         locationLabel.textAlignment = .left
         locationLabel.font = UIFont.systemFont(ofSize: 18, weight: .light)
-        locationLabel.textColor = UIColor(named: "textColor")
+        locationLabel.textColor = UIColor(named: FavoritesViewConstants.textColor)
         locationLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let constraints = [
             locationLabel.heightAnchor.constraint(equalToConstant: 30),
-            locationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            locationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
             locationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
             locationLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
         ]

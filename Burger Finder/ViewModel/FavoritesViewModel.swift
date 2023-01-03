@@ -14,8 +14,14 @@ class FavoritesViewModel {
     init(coreDataManager: CoreDataManagerProtocol = CoreDataManager.shared) {
         self.coreDataManager = coreDataManager
     }
+    
     //Fetch all saved places from CoreData
     func getSavedPlaces() -> [Place] {
         return coreDataManager.fetchPlaces()
+    }
+    
+    //Fetch filtered places from CoreData
+    func getFilteredPlaces(searchTerm: String) -> [Place] {
+        return coreDataManager.filterPlaces(filter: searchTerm)
     }
 }

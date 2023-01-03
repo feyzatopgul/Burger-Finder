@@ -47,23 +47,23 @@ class PlaceCell: UITableViewCell {
         let constraints = [
             placeImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             placeImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            placeImage.heightAnchor.constraint(equalToConstant: 100),
-            placeImage.widthAnchor.constraint(equalToConstant: 100),
+            placeImage.heightAnchor.constraint(equalToConstant: 110),
+            placeImage.widthAnchor.constraint(equalToConstant: 110),
         ]
         NSLayoutConstraint.activate(constraints)
     }
     
     //nameLabel configuration
     private func configureNameLabel(){
-        nameLabel.numberOfLines = 2
-        nameLabel.font = .systemFont(ofSize: 20, weight: .semibold)
-        nameLabel.textColor = UIColor(named: "textColor")
+        nameLabel.numberOfLines = 3
+        nameLabel.font = .systemFont(ofSize: 18, weight: .semibold)
+        nameLabel.textColor = UIColor(named: SearchViewConstants.textColor)
 
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             nameLabel.leadingAnchor.constraint(equalTo: placeImage.trailingAnchor, constant: 20),
             nameLabel.trailingAnchor.constraint(equalTo: ratingLabel.leadingAnchor, constant: -10),
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30)
+            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 25)
         ]
         NSLayoutConstraint.activate(constraints)
     }
@@ -73,7 +73,7 @@ class PlaceCell: UITableViewCell {
         ratingLabel.font = .systemFont(ofSize: 16, weight: .semibold)
         ratingLabel.textColor = .white
         ratingLabel.textAlignment = .center
-        ratingLabel.backgroundColor = UIColor(named: "primaryAppColor")
+        ratingLabel.backgroundColor = UIColor(named: SearchViewConstants.primaryAppColor)
         ratingLabel.layer.masksToBounds = true
         ratingLabel.layer.cornerRadius = 15
         
@@ -89,9 +89,7 @@ class PlaceCell: UITableViewCell {
     
     //priceView configuration
     private func configurePriceView() {
-        
         priceView.axis = .horizontal
-        
         priceView.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             priceView.leadingAnchor.constraint(equalTo: placeImage.trailingAnchor, constant: 20),
@@ -107,12 +105,9 @@ class PlaceCell: UITableViewCell {
             view.removeFromSuperview()
         }
     }
-    
+    //Configure isOpenLabel
     private func configureIsOpenLabel() {
-        
-        isOpenLabel.textColor = UIColor(named: "textColor")
-        //isOpenLabel.font = .systemFont(ofSize: 16, weight: .regular)
-        
+        isOpenLabel.textColor = UIColor(named: SearchViewConstants.textColor)
         isOpenLabel.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             isOpenLabel.topAnchor.constraint(equalTo: priceView.bottomAnchor, constant: 10),
@@ -120,5 +115,4 @@ class PlaceCell: UITableViewCell {
         ]
         NSLayoutConstraint.activate(constraints)
     }
-    
 }

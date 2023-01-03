@@ -44,7 +44,6 @@ class DetailsViewModel {
     
     //Make a network call for fetching photos of a place based on placeId
     func getPhotos(placeId: String, completion: @escaping (Result<[Photo], Error>) -> Void) {
-        
         let urlString = NetworkConstants.createUrlStringForPhotos(placeId: placeId)
         guard let request = networkManager.createRequest(for: urlString) else { return }
         

@@ -13,7 +13,7 @@ extension FavoritesViewController: UISearchBarDelegate {
     func  configureFavoritesSearchBar() {
         let guide = view.safeAreaLayoutGuide
         favoritesSearchBar.delegate = self
-        favoritesSearchBar.placeholder = "Search in favorites..."
+        favoritesSearchBar.placeholder = FavoritesViewConstants.favoritesSearchBarPlaceholder
         favoritesSearchBar.translatesAutoresizingMaskIntoConstraints = false
         
         let constraints = [
@@ -25,7 +25,13 @@ extension FavoritesViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        if !searchText.isEmpty {
+            favoritePlaces = favoritesViewModel.getFilteredPlaces(searchTerm: searchText)
+        } else {
+            favoritePlaces = favoritesViewModel.getSavedPlaces()
+        }
+        applySnapshot()
+        
     }
     
     //Reset search bar text when cancel button is clicked

@@ -21,6 +21,7 @@ extension PlaceItem {
     @NSManaged public var id: String
     @NSManaged public var distance: Int32
     @NSManaged public var hours: HoursItem
+    //@NSManaged public var geocodes: GeocodesItem
     @NSManaged public var coordinates: CoordinateItem
     @NSManaged public var location: LocationItem?
     @NSManaged public var name: String

@@ -14,8 +14,8 @@ extension HomeViewController {
         
         //Button configuration
         refreshButton.backgroundColor = .tertiarySystemBackground
-        refreshButton.setTitle("Refresh", for: .normal)
-        refreshButton.setTitleColor(UIColor(named: "primaryAppColor"), for: .normal)
+        refreshButton.setTitle(HomeViewConstants.refreshButtonTitle, for: .normal)
+        refreshButton.setTitleColor(UIColor(named: HomeViewConstants.primaryAppColor), for: .normal)
         refreshButton.tintColor = .tertiarySystemBackground
         refreshButton.layer.cornerRadius = 10
         

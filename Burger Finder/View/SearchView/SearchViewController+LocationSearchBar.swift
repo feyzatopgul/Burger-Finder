@@ -14,8 +14,8 @@ extension SearchViewController {
         view.addSubview(locationSearchBar)
         let guide = view.safeAreaLayoutGuide
         locationSearchBar.delegate = self
-        locationSearchBar.placeholder = "Current location..."
-        locationSearchBar.setImage(UIImage(systemName: "location"), for: .search, state: .normal)
+        locationSearchBar.placeholder = SearchViewConstants.locationSearchBarPlaceholder
+        locationSearchBar.setImage(UIImage(systemName: SearchViewConstants.locationImage), for: .search, state: .normal)
         locationSearchBar.translatesAutoresizingMaskIntoConstraints = false
         
         let constraints = [

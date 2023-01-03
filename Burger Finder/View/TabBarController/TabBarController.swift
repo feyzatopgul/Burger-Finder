@@ -17,14 +17,16 @@ class TabBarController: UITabBarController {
     func setUpTabBar() {
         
         let homeVC = UINavigationController(rootViewController: HomeViewController())
-        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
+        homeVC.tabBarItem = UITabBarItem(title: TabBarConstants.homeTitle,
+                                         image: UIImage(systemName: TabBarConstants.houseImage), tag: 0)
         
         let favVC = UINavigationController(rootViewController: FavoritesViewController())
-        favVC.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart"), tag: 1)
+        favVC.tabBarItem = UITabBarItem(title: TabBarConstants.favoritesTitle,
+                                        image: UIImage(systemName: TabBarConstants.heartImage), tag: 1)
         
         self.setViewControllers([homeVC, favVC], animated: true)
         
-        self.tabBar.tintColor = UIColor(named: "primaryAppColor")
+        self.tabBar.tintColor = UIColor(named: TabBarConstants.primaryAppColor)
         self.tabBar.backgroundColor = .tertiarySystemBackground
     }
 

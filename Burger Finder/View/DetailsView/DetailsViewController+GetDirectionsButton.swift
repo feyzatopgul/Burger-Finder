@@ -14,8 +14,8 @@ extension DetailsViewController {
     //Configure getDirectionsButton
     func configureGetDirectionsButton() {
         //Button configuration
-        getDirectionsButton.backgroundColor = UIColor(named: "primaryAppColor")
-        getDirectionsButton.setTitle("Get directions", for: .normal)
+        getDirectionsButton.backgroundColor = UIColor(named: DetailsViewConstants.primaryAppColor)
+        getDirectionsButton.setTitle(DetailsViewConstants.getDirectionsTitle, for: .normal)
         getDirectionsButton.setTitleColor(.tertiarySystemBackground, for: .normal)
         getDirectionsButton.tintColor = .white
         getDirectionsButton.layer.cornerRadius = 20
@@ -35,7 +35,6 @@ extension DetailsViewController {
     }
 
     //Show directions on maps
-    // DO I NEED VIEWMODEL ????
     @objc func getDirections() {
         guard let geoCoord = place?.geocodes.main else { return }
         let coordinates = CLLocationCoordinate2DMake(geoCoord.latitude, geoCoord.longitude)
@@ -46,7 +45,7 @@ extension DetailsViewController {
             MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
             MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
         ]
-        mapItem.name = "Directions"
+        mapItem.name = DetailsViewConstants.mapItemName
         mapItem.openInMaps(launchOptions: options)
     }
 }

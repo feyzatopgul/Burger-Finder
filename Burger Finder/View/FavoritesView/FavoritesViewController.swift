@@ -22,7 +22,7 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        title = "Favorites"
+        title = FavoritesViewConstants.title
         navigationItem.backButtonDisplayMode = .minimal
         
         view.addSubview(favoritesCollectionView)
@@ -35,10 +35,18 @@ class FavoritesViewController: UIViewController {
         configureFavoritesSearchBar()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        favoritesSearchBar.text = ""
+        //Is it OK to put it on viewWillAppear
         favoritePlaces = favoritesViewModel.getSavedPlaces()
         applySnapshot()
+    }
+   
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        favoritePlaces = favoritesViewModel.getSavedPlaces()
+//        applySnapshot()
     }
 
 }

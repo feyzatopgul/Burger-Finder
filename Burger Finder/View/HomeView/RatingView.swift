@@ -26,8 +26,8 @@ class RatingView: UIStackView {
     //Creating price images
     func createRatingImages(filled: Int) -> [UIImageView] {
         var imageViews:[UIImageView] = []
-        let filledStar = UIImage(systemName: "star.fill")
-        let nonFilledStar = UIImage(systemName: "star")
+        let filledStar = UIImage(systemName: HomeViewConstants.filledStar)
+        let nonFilledStar = UIImage(systemName: HomeViewConstants.star)
         
         for i in 0...4 {
             imageViews.append(UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20)))
@@ -45,7 +45,7 @@ class RatingView: UIStackView {
         let ratingImages = createRatingImages(filled: intRating)
         
         for ratingImage in ratingImages {
-            ratingImage.tintColor = UIColor(named: "primaryAppColor")
+            ratingImage.tintColor = UIColor(named: HomeViewConstants.primaryAppColor)
             self.addArrangedSubview(ratingImage)
         }
     }

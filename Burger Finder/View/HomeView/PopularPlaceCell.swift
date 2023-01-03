@@ -68,7 +68,7 @@ class PopularPlaceCell: UICollectionViewCell {
         nameLabel.numberOfLines = 3
         nameLabel.textAlignment = .left
         nameLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-        nameLabel.textColor = UIColor(named: "textColor")
+        nameLabel.textColor = UIColor(named: HomeViewConstants.textColor)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor),

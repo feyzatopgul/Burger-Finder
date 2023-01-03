@@ -15,7 +15,7 @@ extension HomeViewController {
         self.view.addSubview(searchButton)
         //Button configuration
         searchButton.backgroundColor = .tertiarySystemBackground
-        searchButton.setTitle("Search for burger", for: .normal)
+        searchButton.setTitle(HomeViewConstants.searchBarTitle, for: .normal)
         searchButton.setTitleColor(.systemGray2, for: .normal)
         searchButton.tintColor = .systemGray2
         searchButton.layer.cornerRadius = 10

@@ -28,8 +28,6 @@ extension SearchViewController: UISearchBarDelegate {
 //            self.getPlaces(search: self.placeText, location: self.locationText)
 //            self.createAnnotations(places: self.places)
 //        }
-        print("Search: \(placeText)")
-        print("Location: \(locationText)")
         getPlaces(search: placeText, location: locationText)
     }
     

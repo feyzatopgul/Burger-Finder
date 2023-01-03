@@ -36,7 +36,7 @@ class HomeViewController: UIViewController {
         navigationItem.backButtonDisplayMode = .minimal
         
         //Set up background
-        setBackground(imageName: "burgerBackground")
+        setBackground(imageName: HomeViewConstants.burgerBackground)
         
         //Configure search field
         configureSearchButton()

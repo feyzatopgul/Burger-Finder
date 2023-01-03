@@ -13,14 +13,14 @@ extension PhotoViewController {
     //Configure closeButton
     func configureCloseButton() {
         view.addSubview(closeButton)
-        let xMark = UIImage(named: "closeIcon")
+        let xMark = UIImage(named: PhotoViewConstants.closeIcon)
         closeButton.setImage(xMark, for: .normal)
     
         //Adjust constraints
         let guide = view.safeAreaLayoutGuide
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
-            closeButton.topAnchor.constraint(equalTo: guide.topAnchor, constant: 15),
+            closeButton.topAnchor.constraint(equalTo: guide.topAnchor, constant: 25),
             closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             closeButton.widthAnchor.constraint(equalToConstant: 20),
             closeButton.heightAnchor.constraint(equalToConstant: 20)

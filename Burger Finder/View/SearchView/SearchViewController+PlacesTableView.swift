@@ -62,23 +62,25 @@ extension SearchViewController {
         
         //
         if place.hours.openNow {
-            placeCell.isOpenLabel.textColor = UIColor(named: "primaryAppColor")
+            placeCell.isOpenLabel.textColor = UIColor(named: SearchViewConstants.primaryAppColor)
             placeCell.isOpenLabel.font = .systemFont(ofSize: 16, weight: .medium)
-            placeCell.isOpenLabel.text = "Open"
+            placeCell.isOpenLabel.text = SearchViewConstants.isOpenLabelOpen
         } else {
-            placeCell.isOpenLabel.textColor = UIColor(named: "textColor")
+            placeCell.isOpenLabel.textColor = UIColor(named: SearchViewConstants.textColor)
             placeCell.isOpenLabel.font = .systemFont(ofSize: 16, weight: .regular)
-            placeCell.isOpenLabel.text = "Closed"
+            placeCell.isOpenLabel.text = SearchViewConstants.isOpenLabelClosed
         }
 
         //Set imageView with a placeholder
-        placeCell.placeImage.image = UIImage(named: "placeholderBurger")
+        placeCell.placeImage.image = UIImage(named: SearchViewConstants.burgerIcon)
+    
         //Set imageView with the first photo if available
         if let photos = place.photos {
             if !photos.isEmpty {
                 let photo = photos.first!
                 searchViewModel.fetchImage(prefix: photo.prefix,
-                                              suffix: photo.suffix, size: "600x600") { result in
+                                           suffix: photo.suffix,
+                                           size: SearchViewConstants.imageSize) { result in
                     switch result {
                     case .failure(let error):
                         print("Error loading image: \(error)")

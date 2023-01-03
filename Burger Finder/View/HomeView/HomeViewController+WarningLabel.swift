@@ -12,8 +12,8 @@ extension HomeViewController {
     
     func configureWarningLabel() {
         
-        warningLabel.text = "Ooops! We can't find you.\n\nIf you allow Location permissions, we can show you nearby burger places."
-        warningLabel.textColor = UIColor(named: "warningLabelColor")
+        warningLabel.text = HomeViewConstants.warningLabel
+        warningLabel.textColor = UIColor(named: HomeViewConstants.warningLabelColor)
         warningLabel.numberOfLines = 0
         warningLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         

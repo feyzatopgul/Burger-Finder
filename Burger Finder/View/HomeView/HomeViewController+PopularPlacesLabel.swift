@@ -12,8 +12,8 @@ extension HomeViewController {
     
     func configurePopularPlacesLabel() {
         
-        popularPlacesLabel.text = "Popular burger places around you..."
-        popularPlacesLabel.textColor = UIColor(named: "textColor")
+        popularPlacesLabel.text = HomeViewConstants.popularPlacesLabel
+        popularPlacesLabel.textColor = UIColor(named: HomeViewConstants.textColor)
         popularPlacesLabel.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         
         popularPlacesLabel.translatesAutoresizingMaskIntoConstraints = false

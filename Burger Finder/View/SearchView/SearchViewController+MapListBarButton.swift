@@ -12,8 +12,8 @@ extension SearchViewController {
     
     //Set button image listIcon when tapped and change with it to mapIcon when tapped again
     func setButtonImage() {
-        let map = UIImage(named: "mapIcon")
-        let list = UIImage(named: "listIcon")
+        let map = UIImage(named: SearchViewConstants.mapIcon)
+        let list = UIImage(named: SearchViewConstants.listIcon)
         let buttonImage = mapViewHidden ? map : list
         if let button = self.mapListBarButton.customView as? UIButton {
             button.setImage(buttonImage, for: .normal)
@@ -65,7 +65,6 @@ extension SearchViewController {
                 self.mapView.isHidden = false
                 self.placesTableView.isHidden = true
             }
-            //createAnnotations(places: places)
         }
     }
 }

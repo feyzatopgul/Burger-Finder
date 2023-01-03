@@ -20,7 +20,7 @@
 		6274DA94295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274DA93295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift */; };
 		6274DA972959260A006ADFC4 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274DA962959260A006ADFC4 /* PlaceCell.swift */; };
 		6274DA9929596BBA006ADFC4 /* SearchViewController+SearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274DA9829596BBA006ADFC4 /* SearchViewController+SearchBarDelegate.swift */; };
-		6274DA9B295A1AD2006ADFC4 /* SearchViewController+TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274DA9A295A1AD2006ADFC4 /* SearchViewController+TableViewDelegate.swift */; };
+		6274DA9B295A1AD2006ADFC4 /* SearchViewController+PlacesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274DA9A295A1AD2006ADFC4 /* SearchViewController+PlacesTableViewDelegate.swift */; };
 		6274DA9F295A1B51006ADFC4 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274DA9E295A1B51006ADFC4 /* DetailsViewController.swift */; };
 		6274DAA5295A4B69006ADFC4 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274DAA4295A4B69006ADFC4 /* PriceView.swift */; };
 		6274DAA7295A5049006ADFC4 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274DAA6295A5049006ADFC4 /* RatingView.swift */; };
@@ -63,13 +63,21 @@
 		62CABDF0295F986700DD0815 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABDEF295F986700DD0815 /* FavoritesViewModel.swift */; };
 		62CABDF5295FB44B00DD0815 /* SearchViewController+MapListBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABDF4295FB44B00DD0815 /* SearchViewController+MapListBarButton.swift */; };
 		62CABDF92960C81B00DD0815 /* SearchViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABDF82960C81B00DD0815 /* SearchViewController+MapView.swift */; };
-		62CABDFB29615DF100DD0815 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABDFA29615DF100DD0815 /* PlaceAnnotation.swift */; };
 		62CABDFE296224C300DD0815 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABDFD296224C300DD0815 /* PhotoViewController.swift */; };
 		62CABE002962251B00DD0815 /* DetailsViewController+PhotosCollectionViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABDFF2962251B00DD0815 /* DetailsViewController+PhotosCollectionViewDelegates.swift */; };
 		62CABE022962297B00DD0815 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE012962297B00DD0815 /* PhotoViewModel.swift */; };
 		62CABE0429622E9F00DD0815 /* PhotoViewController+CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE0329622E9F00DD0815 /* PhotoViewController+CloseButton.swift */; };
 		62CABE0629622EE800DD0815 /* PhotoViewController+PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE0529622EE800DD0815 /* PhotoViewController+PhotoView.swift */; };
 		62CABE082962526400DD0815 /* FavoritesViewController+FavoritesSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE072962526400DD0815 /* FavoritesViewController+FavoritesSearchBar.swift */; };
+		62CABE0A2963705100DD0815 /* TabBarConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE092963705100DD0815 /* TabBarConstants.swift */; };
+		62CABE0C2963711E00DD0815 /* HomeViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE0B2963711E00DD0815 /* HomeViewConstants.swift */; };
+		62CABE0E2963745500DD0815 /* SearchViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE0D2963745500DD0815 /* SearchViewConstants.swift */; };
+		62CABE10296377FA00DD0815 /* DetailsViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE0F296377FA00DD0815 /* DetailsViewConstants.swift */; };
+		62CABE1229637A0900DD0815 /* PhotoViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE1129637A0900DD0815 /* PhotoViewConstants.swift */; };
+		62CABE1429637BEA00DD0815 /* FavoritesViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE1329637BEA00DD0815 /* FavoritesViewConstants.swift */; };
+		62CABE1629639B4100DD0815 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE1529639B4100DD0815 /* PlaceAnnotation.swift */; };
+		62CABE1829639E2A00DD0815 /* DetailsViewController+NavigationTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE1729639E2A00DD0815 /* DetailsViewController+NavigationTitle.swift */; };
+		62CABE1A2963A62E00DD0815 /* GeocodesItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE192963A62E00DD0815 /* GeocodesItem+CoreDataProperties.swift */; };
 		62E1220B295A646000586B9A /* DetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E1220A295A646000586B9A /* DetailInfoView.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,7 +95,7 @@
 		6274DA93295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+PlacesTableView.swift"; sourceTree = "<group>"; };
 		6274DA962959260A006ADFC4 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		6274DA9829596BBA006ADFC4 /* SearchViewController+SearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+SearchBarDelegate.swift"; sourceTree = "<group>"; };
-		6274DA9A295A1AD2006ADFC4 /* SearchViewController+TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+TableViewDelegate.swift"; sourceTree = "<group>"; };
+		6274DA9A295A1AD2006ADFC4 /* SearchViewController+PlacesTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+PlacesTableViewDelegate.swift"; sourceTree = "<group>"; };
 		6274DA9E295A1B51006ADFC4 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		6274DAA4295A4B69006ADFC4 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		6274DAA6295A5049006ADFC4 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
@@ -132,13 +140,21 @@
 		62CABDEF295F986700DD0815 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		62CABDF4295FB44B00DD0815 /* SearchViewController+MapListBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+MapListBarButton.swift"; sourceTree = "<group>"; };
 		62CABDF82960C81B00DD0815 /* SearchViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+MapView.swift"; sourceTree = "<group>"; };
-		62CABDFA29615DF100DD0815 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
 		62CABDFD296224C300DD0815 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		62CABDFF2962251B00DD0815 /* DetailsViewController+PhotosCollectionViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsViewController+PhotosCollectionViewDelegates.swift"; sourceTree = "<group>"; };
 		62CABE012962297B00DD0815 /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
 		62CABE0329622E9F00DD0815 /* PhotoViewController+CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoViewController+CloseButton.swift"; sourceTree = "<group>"; };
 		62CABE0529622EE800DD0815 /* PhotoViewController+PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoViewController+PhotoView.swift"; sourceTree = "<group>"; };
 		62CABE072962526400DD0815 /* FavoritesViewController+FavoritesSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesViewController+FavoritesSearchBar.swift"; sourceTree = "<group>"; };
+		62CABE092963705100DD0815 /* TabBarConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarConstants.swift; sourceTree = "<group>"; };
+		62CABE0B2963711E00DD0815 /* HomeViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewConstants.swift; sourceTree = "<group>"; };
+		62CABE0D2963745500DD0815 /* SearchViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewConstants.swift; sourceTree = "<group>"; };
+		62CABE0F296377FA00DD0815 /* DetailsViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewConstants.swift; sourceTree = "<group>"; };
+		62CABE1129637A0900DD0815 /* PhotoViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewConstants.swift; sourceTree = "<group>"; };
+		62CABE1329637BEA00DD0815 /* FavoritesViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewConstants.swift; sourceTree = "<group>"; };
+		62CABE1529639B4100DD0815 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
+		62CABE1729639E2A00DD0815 /* DetailsViewController+NavigationTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsViewController+NavigationTitle.swift"; sourceTree = "<group>"; };
+		62CABE192963A62E00DD0815 /* GeocodesItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeocodesItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		62E1220A295A646000586B9A /* DetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,7 +172,9 @@
 		6274DA9C295A1B1C006ADFC4 /* DetailsView */ = {
 			isa = PBXGroup;
 			children = (
+				62CABE0F296377FA00DD0815 /* DetailsViewConstants.swift */,
 				6274DA9E295A1B51006ADFC4 /* DetailsViewController.swift */,
+				62CABE1729639E2A00DD0815 /* DetailsViewController+NavigationTitle.swift */,
 				627C2C3C295CDDDD006513C3 /* DetailsViewController+SaveBarButton.swift */,
 				627C2C35295BE2BA006513C3 /* DetailsViewController+DetailInfoView.swift */,
 				627C2C37295BE2F8006513C3 /* DetailsViewController+GetDirectionsButton.swift */,
@@ -174,6 +192,7 @@
 			children = (
 				62400629295DFD6000F536F3 /* PlaceDataModel.xcdatamodeld */,
 				6240062C295E14FB00F536F3 /* CoreDataManager.swift */,
+				62CABE192963A62E00DD0815 /* GeocodesItem+CoreDataProperties.swift */,
 				62400632295E188400F536F3 /* CoordinateItem+CoreDataProperties.swift */,
 				62400634295E1AD100F536F3 /* HoursItem+CoreDataProperties.swift */,
 				62400636295E1B1C00F536F3 /* LocationItem+CoreDataProperties.swift */,
@@ -263,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				62893C2B295782A7009012A6 /* TabBarController.swift */,
+				62CABE092963705100DD0815 /* TabBarConstants.swift */,
 			);
 			path = TabBarController;
 			sourceTree = "<group>";
@@ -270,6 +290,7 @@
 		62893C2D295782B2009012A6 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				62CABE0B2963711E00DD0815 /* HomeViewConstants.swift */,
 				62893C2E295782BD009012A6 /* HomeViewController.swift */,
 				62893C30295782C3009012A6 /* HomeViewController+SearchButton.swift */,
 				62893C32295782C9009012A6 /* HomeViewController+PlacesCollectionView.swift */,
@@ -290,6 +311,7 @@
 		62893C36295782DC009012A6 /* SearchView */ = {
 			isa = PBXGroup;
 			children = (
+				62CABE0D2963745500DD0815 /* SearchViewConstants.swift */,
 				62893C37295782ED009012A6 /* SearchViewController.swift */,
 				62CABDF4295FB44B00DD0815 /* SearchViewController+MapListBarButton.swift */,
 				62CABDF82960C81B00DD0815 /* SearchViewController+MapView.swift */,
@@ -297,9 +319,10 @@
 				6274DA9129590F36006ADFC4 /* SearchViewController+LocationSearchBar.swift */,
 				6274DA9829596BBA006ADFC4 /* SearchViewController+SearchBarDelegate.swift */,
 				6274DA93295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift */,
-				6274DA9A295A1AD2006ADFC4 /* SearchViewController+TableViewDelegate.swift */,
+				6274DA9A295A1AD2006ADFC4 /* SearchViewController+PlacesTableViewDelegate.swift */,
 				6274DA962959260A006ADFC4 /* PlaceCell.swift */,
 				6274DAA4295A4B69006ADFC4 /* PriceView.swift */,
+				62CABE1529639B4100DD0815 /* PlaceAnnotation.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -307,6 +330,7 @@
 		62893C39295782FD009012A6 /* FavoritesView */ = {
 			isa = PBXGroup;
 			children = (
+				62CABE1329637BEA00DD0815 /* FavoritesViewConstants.swift */,
 				62893C3A29578322009012A6 /* FavoritesViewController.swift */,
 				62CABE072962526400DD0815 /* FavoritesViewController+FavoritesSearchBar.swift */,
 				627C2C3E295CE275006513C3 /* FavoritesViewController+FavoritesCollectionView.swift */,
@@ -320,7 +344,6 @@
 			isa = PBXGroup;
 			children = (
 				62893C3D29578372009012A6 /* Places.swift */,
-				62CABDFA29615DF100DD0815 /* PlaceAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -354,6 +377,7 @@
 		62CABDFC2962248A00DD0815 /* PhotoView */ = {
 			isa = PBXGroup;
 			children = (
+				62CABE1129637A0900DD0815 /* PhotoViewConstants.swift */,
 				62CABDFD296224C300DD0815 /* PhotoViewController.swift */,
 				62CABE0329622E9F00DD0815 /* PhotoViewController+CloseButton.swift */,
 				62CABE0529622EE800DD0815 /* PhotoViewController+PhotoView.swift */,
@@ -432,23 +456,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				62893C2329578205009012A6 /* NetworkConstants.swift in Sources */,
+				62CABE0A2963705100DD0815 /* TabBarConstants.swift in Sources */,
 				62CABDF5295FB44B00DD0815 /* SearchViewController+MapListBarButton.swift in Sources */,
 				62CABE0429622E9F00DD0815 /* PhotoViewController+CloseButton.swift in Sources */,
 				62893C4C29580426009012A6 /* HomeViewController+WarningLabel.swift in Sources */,
+				62CABE1A2963A62E00DD0815 /* GeocodesItem+CoreDataProperties.swift in Sources */,
 				62893C31295782C3009012A6 /* HomeViewController+SearchButton.swift in Sources */,
 				62893C4229578698009012A6 /* LocationManager.swift in Sources */,
 				627C2C41295CE66A006513C3 /* FavoritesCell.swift in Sources */,
 				62893C3B29578322009012A6 /* FavoritesViewController.swift in Sources */,
-				6274DA9B295A1AD2006ADFC4 /* SearchViewController+TableViewDelegate.swift in Sources */,
+				6274DA9B295A1AD2006ADFC4 /* SearchViewController+PlacesTableViewDelegate.swift in Sources */,
 				62CABDEE295F916B00DD0815 /* DetailsViewModel.swift in Sources */,
 				6274DA9229590F36006ADFC4 /* SearchViewController+LocationSearchBar.swift in Sources */,
+				62CABE0E2963745500DD0815 /* SearchViewConstants.swift in Sources */,
 				62400635295E1AD100F536F3 /* HoursItem+CoreDataProperties.swift in Sources */,
 				62400639295E1B8100F536F3 /* PhotoItem+CoreDataProperties.swift in Sources */,
+				62CABE10296377FA00DD0815 /* DetailsViewConstants.swift in Sources */,
 				6240062D295E14FB00F536F3 /* CoreDataManager.swift in Sources */,
 				627C2C36295BE2BA006513C3 /* DetailsViewController+DetailInfoView.swift in Sources */,
 				627C2C30295BA2BB006513C3 /* DetailsViewController+PhotosCollectionView.swift in Sources */,
 				62893C462957C148009012A6 /* GradientView.swift in Sources */,
 				62893C3E29578372009012A6 /* Places.swift in Sources */,
+				62CABE0C2963711E00DD0815 /* HomeViewConstants.swift in Sources */,
 				62CABDFE296224C300DD0815 /* PhotoViewController.swift in Sources */,
 				62CABE022962297B00DD0815 /* PhotoViewModel.swift in Sources */,
 				62893C2C295782A7009012A6 /* TabBarController.swift in Sources */,
@@ -463,9 +492,11 @@
 				62CABDEC295F854E00DD0815 /* SearchViewModel.swift in Sources */,
 				62893C35295782D0009012A6 /* PopularPlaceCell.swift in Sources */,
 				62893C4E29580BD3009012A6 /* HomeViewController+RefreshButton.swift in Sources */,
+				62CABE1229637A0900DD0815 /* PhotoViewConstants.swift in Sources */,
 				62E1220B295A646000586B9A /* DetailInfoView.swift in Sources */,
 				6274DAA5295A4B69006ADFC4 /* PriceView.swift in Sources */,
 				6240062B295DFD6000F536F3 /* PlaceDataModel.xcdatamodeld in Sources */,
+				62CABE1629639B4100DD0815 /* PlaceAnnotation.swift in Sources */,
 				627C2C34295BE237006513C3 /* DetailsViewController+DetailsScrollView.swift in Sources */,
 				62893C33295782C9009012A6 /* HomeViewController+PlacesCollectionView.swift in Sources */,
 				62893C38295782ED009012A6 /* SearchViewController.swift in Sources */,
@@ -480,16 +511,17 @@
 				62400633295E188400F536F3 /* CoordinateItem+CoreDataProperties.swift in Sources */,
 				627C2C43295CE803006513C3 /* FavoritesViewController+CollectionViewDelegates.swift in Sources */,
 				62CABE082962526400DD0815 /* FavoritesViewController+FavoritesSearchBar.swift in Sources */,
+				62CABE1429637BEA00DD0815 /* FavoritesViewConstants.swift in Sources */,
 				62893C0B295781A6009012A6 /* SceneDelegate.swift in Sources */,
 				627C2C32295BA37D006513C3 /* PhotoCell.swift in Sources */,
 				6274DA972959260A006ADFC4 /* PlaceCell.swift in Sources */,
 				6274DA9029590EB0006ADFC4 /* SearchViewController+PlaceSearchBar.swift in Sources */,
-				62CABDFB29615DF100DD0815 /* PlaceAnnotation.swift in Sources */,
 				62893C442957B579009012A6 /* HomeViewController+PopularPlacesView.swift in Sources */,
 				62CABDF0295F986700DD0815 /* FavoritesViewModel.swift in Sources */,
 				62CABE0629622EE800DD0815 /* PhotoViewController+PhotoView.swift in Sources */,
 				627C2C3D295CDDDD006513C3 /* DetailsViewController+SaveBarButton.swift in Sources */,
 				62893C21295781FB009012A6 /* NetworkError.swift in Sources */,
+				62CABE1829639E2A00DD0815 /* DetailsViewController+NavigationTitle.swift in Sources */,
 				6274DA94295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift in Sources */,
 				6274DA9929596BBA006ADFC4 /* SearchViewController+SearchBarDelegate.swift in Sources */,
 				6240062F295E157B00F536F3 /* PlaceItem+CoreDataProperties.swift in Sources */,

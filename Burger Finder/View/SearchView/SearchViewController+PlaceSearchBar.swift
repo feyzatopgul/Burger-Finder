@@ -15,7 +15,7 @@ extension SearchViewController {
         placeSearchBar.delegate = self
         placeSearchBar.sizeToFit()
         navigationItem.titleView = placeSearchBar
-        placeSearchBar.placeholder = "Search for a place..."
+        placeSearchBar.placeholder = SearchViewConstants.placeSearchBarPlaceholder
     }
     
 }

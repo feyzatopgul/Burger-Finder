@@ -51,9 +51,11 @@ extension DetailsViewController {
     //Populate photoCell with data
     func populateCell(photoCell: PhotoCell, photo: Photo) {
         //Set imageView with a placeholder
-        photoCell.placeImageView.image = UIImage(named: "placeholderBurger")
+        photoCell.placeImageView.image = UIImage(named: DetailsViewConstants.burgerIcon)
         //Set imageView with place photos
-        detailsViewModel.fetchImage(prefix: photo.prefix, suffix: photo.suffix, size: "150x200") { result in
+        detailsViewModel.fetchImage(prefix: photo.prefix,
+                                    suffix: photo.suffix,
+                                    size: DetailsViewConstants.imageSize) { result in
             switch result {
             case .failure(let error):
                 print("Error loading image: \(error)")

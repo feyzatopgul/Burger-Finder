@@ -37,6 +37,7 @@ extension SearchViewController: MKMapViewDelegate {
         view.endEditing(true)
     }
     
+    //Create annotations for mapView
     func createAnnotations(places: [Place]) {
         //Remove all existing annotations
         let allAnotations = mapView.annotations
@@ -59,6 +60,14 @@ extension SearchViewController: MKMapViewDelegate {
             self.mapView.setRegion(region, animated: true)
         }
     }
+    //Customize mapView MKMarkerAnnotation with burgerIcon
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: SearchViewConstants.burgerAnnotation)
+        annotationView.markerTintColor = UIColor(named: SearchViewConstants.primaryAppColor)
+        annotationView.glyphImage = UIImage(named: SearchViewConstants.burgerAnnotation)
+        return annotationView
+    }
+    
     //Navigate to details view when annotation is tapped on map
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView){
         guard let annotation = view.annotation as? PlaceAnnotation else { return }
@@ -66,4 +75,5 @@ extension SearchViewController: MKMapViewDelegate {
         detailsVC.place = annotation.place
         navigationController?.pushViewController(detailsVC, animated: true)
     }
+    
 }

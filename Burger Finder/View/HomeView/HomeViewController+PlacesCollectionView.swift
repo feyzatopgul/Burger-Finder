@@ -60,13 +60,14 @@ extension HomeViewController {
         popularPlaceCell.ratingView.rating = place.rating
         
         //Set imageView with a placeholder
-        popularPlaceCell.imageView.image = UIImage(named: "placeholderBurger")
+        popularPlaceCell.imageView.image = UIImage(named: HomeViewConstants.placeHolderBurger)
         //Set imageView with the first photo if available
         if let photos = place.photos {
             if !photos.isEmpty {
                 let photo = photos.first!
                 homeViewModel.fetchImage(prefix: photo.prefix,
-                                              suffix: photo.suffix, size: "150x200") { result in
+                                         suffix: photo.suffix,
+                                         size: HomeViewConstants.imageSize ) { result in
                     switch result {
                     case .failure(let error):
                         print("Error loading image: \(error)")

@@ -73,4 +73,12 @@ class SearchViewController: UIViewController {
             }
         }
     }
+    //Deselect selected annotations when after view appears
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let selectedAnnotations = mapView.selectedAnnotations
+        for annotation in selectedAnnotations {
+            mapView.deselectAnnotation(annotation, animated: true)
+        }
+    }
 }

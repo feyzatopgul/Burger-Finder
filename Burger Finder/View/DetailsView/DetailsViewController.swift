@@ -27,9 +27,11 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .tertiarySystemBackground
-        title = place?.name
         view.addSubview(detailsScrollView)
         view.addSubview(photosCollectionView)
+        
+        //Configure navigationItem titleView
+        configureNavigationTitle()
         
         //Configure saveBarButton
         configureSaveButton()
@@ -47,6 +49,7 @@ class DetailsViewController: UIViewController {
         configurePhotosCollectionView()
         
         getPhotos()
+        applySnapshot()
         
     }
     
@@ -61,6 +64,7 @@ class DetailsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         getPhotos()
+        applySnapshot()
     }
     
     //Fetch photos of the place
@@ -75,7 +79,6 @@ class DetailsViewController: UIViewController {
                 self.photos = returnedPhotos
             }
         }
-        applySnapshot()
     }
 }
 

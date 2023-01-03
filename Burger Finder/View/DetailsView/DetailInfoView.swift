@@ -45,12 +45,12 @@ class DetailInfoView: UIStackView {
         
         configureInfoStack(stack: addressStack,
                            text: place?.location?.formattedAddress,
-                           imageName: "location",
+                           imageName: DetailsViewConstants.location,
                            textColor: .systemGray,
                            imageColor: .systemGray)
         configureInfoStack(stack: hoursStack,
                            text: place?.hours.display,
-                           imageName: "clock", textColor: .systemGray,
+                           imageName: DetailsViewConstants.clock, textColor: .systemGray,
                            imageColor: .systemGray)
         configurePhoneStack()
         
@@ -82,9 +82,8 @@ class DetailInfoView: UIStackView {
         
         let phoneButton = UIButton()
         phoneButton.setTitle(place?.phoneNumber, for: .normal)
-        phoneButton.setTitleColor(UIColor(named: "primaryAppColor"), for: .normal)
-        let phoneImage = UIImage(systemName: "phone.fill")?.withTintColor(UIColor(named: "primaryAppColor") ?? .systemBackground,
-                                                                          renderingMode: .alwaysOriginal)
+        phoneButton.setTitleColor(UIColor(named: DetailsViewConstants.primaryAppColor), for: .normal)
+        let phoneImage = UIImage(systemName: DetailsViewConstants.filledPhone)?.withTintColor(UIColor(named: DetailsViewConstants.primaryAppColor) ?? .systemBackground, renderingMode: .alwaysOriginal)
         phoneButton.setImage(phoneImage, for: .normal)
         phoneStack.addArrangedSubview(phoneButton)
         
@@ -93,7 +92,6 @@ class DetailInfoView: UIStackView {
     }
     
     //Call number when phone number is tapped
-    //DO I NEED VIEWMODEL ????
     @objc func callNumber() {
         guard let phoneNumber = place?.phoneNumber else { return }
         let validPhoneNumber = phoneNumber.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")

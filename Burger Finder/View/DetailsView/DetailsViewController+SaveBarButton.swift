@@ -12,8 +12,8 @@ extension DetailsViewController {
     //Set button image filled when tapped and change with it non-filled when tapped again
     func setButtonImage() {
         let configuration = UIImage.SymbolConfiguration(scale: .large)
-        let heart = UIImage(systemName: "heart", withConfiguration: configuration)!
-        let heartFilled = UIImage(systemName: "heart.fill", withConfiguration: configuration)!
+        let heart = UIImage(systemName: DetailsViewConstants.heart, withConfiguration: configuration)!
+        let heartFilled = UIImage(systemName: DetailsViewConstants.filledHeart, withConfiguration: configuration)!
         
         let buttonImage = saveButtonTapped ? heartFilled : heart
         if let button = self.saveBarButton.customView as? UIButton {
