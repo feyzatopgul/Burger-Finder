@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension SearchViewController {
-    
+    //Configure locationSearchBar
     func configureLocationSearchBar() {
         view.addSubview(locationSearchBar)
         let guide = view.safeAreaLayoutGuide
@@ -18,6 +18,7 @@ extension SearchViewController {
         locationSearchBar.setImage(UIImage(systemName: SearchViewConstants.locationImage), for: .search, state: .normal)
         locationSearchBar.translatesAutoresizingMaskIntoConstraints = false
         
+        //Adjust constraints
         let constraints = [
             locationSearchBar.topAnchor.constraint(equalTo: guide.topAnchor),
             locationSearchBar.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 45),

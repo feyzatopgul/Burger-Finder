@@ -23,7 +23,7 @@ class RatingView: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //Creating price images
+    //Create rating images based on rating property of place
     func createRatingImages(filled: Int) -> [UIImageView] {
         var imageViews:[UIImageView] = []
         let filledStar = UIImage(systemName: HomeViewConstants.filledStar)
@@ -39,6 +39,7 @@ class RatingView: UIStackView {
         return imageViews
     }
     
+    //Create RatingView
     func createRatingView() {
         
         let intRating = rating != nil ? Int(round(rating!)) : 0

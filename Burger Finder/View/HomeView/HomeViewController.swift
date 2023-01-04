@@ -9,9 +9,6 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-//    var downloadViewModel = DownloadViewModel()
-//    var imageLoadViewModel = ImageLoadViewModel()
-    
     var homeViewModel = HomeViewModel()
     var places = [Place]()
     
@@ -38,17 +35,17 @@ class HomeViewController: UIViewController {
         //Set up background
         setBackground(imageName: HomeViewConstants.burgerBackground)
         
-        //Configure search field
+        //Configure searchButton
         configureSearchButton()
         
-        //Configure popular places view
+        //Configure popularPlacesView
         configurePopularPlacesView()
         //Set data source and configure collection view
         placesCollectionView.dataSource = dataSource
         configurePlacesCollectionView()
         configurePopularPlacesLabel()
         
-        //Configure warning view
+        //Configure warningView
         configureWarningView()
         configureWarningLabel()
         configureRefreshButton()

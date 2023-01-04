@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension FavoritesViewController {
-    
+    //Configure favoritesCollectionView
     func configureFavoritesCollectionView(){
         favoritesCollectionView.backgroundColor = .tertiarySystemBackground
         favoritesCollectionView.delegate = self
@@ -39,7 +39,7 @@ extension FavoritesViewController {
         favoritesCollectionView.register(FavoritesCell.self, forCellWithReuseIdentifier: FavoritesCell.identifier)
     }
     
-    //Create data source for collectionView
+    //Create data source for favoritesCollectionView
     func createDataSource() -> DataSource {
         let dataSource = DataSource(collectionView: favoritesCollectionView) { collectionView, indexPath, place in
             guard let favoritesCell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoritesCell.identifier, for: indexPath) as? FavoritesCell else { return UICollectionViewCell()}
@@ -52,7 +52,7 @@ extension FavoritesViewController {
         return dataSource
     }
     
-    //Apply snapshot for update collectionView
+    //Apply snapshot to update favoritesCollectionView
     func applySnapshot() {
         var snapshot = Snapshot()
         snapshot.appendSections([.main])

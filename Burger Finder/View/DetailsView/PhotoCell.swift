@@ -23,13 +23,14 @@ class PhotoCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //Image view configuration
+    //Configure placeImageView
     func configurePlaceImageView() {
         
         placeImageView.layer.cornerRadius = 20
         placeImageView.contentMode = .scaleToFill
         placeImageView.clipsToBounds = true
         
+        //Adjust constraints
         placeImageView.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             placeImageView.topAnchor.constraint(equalTo: contentView.topAnchor),

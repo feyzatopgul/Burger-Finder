@@ -22,9 +22,9 @@ class SearchViewModel {
         self.locationManager = locationManager
     }
     
-    //Fetch nearby places based on search terms
     func fetchSearchedPlaces(search: String, location: String, completion: @escaping (Result<[Place], Error>) -> Void) {
         if !location.isEmpty {
+            //If there is a location that is searched it fetches the places based on that location
             locationManager.findLocation(query: location) { [weak self] returnedCoordinate in
                 guard let self = self else { return }
                 if let validCoordinate = returnedCoordinate {
@@ -43,6 +43,7 @@ class SearchViewModel {
                 }
             }
         } else {
+            //If the location is empty it fetches the places based on the current location
             locationManager.resolvedCurrentLocation { resolvedCoordinate in
                 guard let currentCoordinate = resolvedCoordinate else { return }
                 let formattedCoordinate = String(currentCoordinate.latitude) + "," + String(currentCoordinate.longitude)
@@ -62,6 +63,7 @@ class SearchViewModel {
     }
     
     func getCoordinate(location: String, completion: @escaping (CLLocationCoordinate2D) -> Void) {
+        //If the location is not empty it returns the searched location coordinate
         if !location.isEmpty {
             locationManager.findLocation(query: location) { returnedCoordinate in
                 if let coordinate = returnedCoordinate {
@@ -69,6 +71,7 @@ class SearchViewModel {
                 }
             }
         } else {
+            //If the location is empty it returns the current location coordinate
             locationManager.resolvedCurrentLocation { returnedCoordinate in
                 if let coordinate = returnedCoordinate {
                     completion(coordinate)

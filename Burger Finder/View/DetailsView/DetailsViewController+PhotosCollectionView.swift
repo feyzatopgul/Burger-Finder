@@ -9,9 +9,8 @@ import Foundation
 import UIKit
 
 extension DetailsViewController {
-    
+    //Configure photosCollectionView
     func configurePhotosCollectionView() {
-        //view.addSubview(photosCollectionView)
         photosCollectionView.backgroundColor = .clear
         photosCollectionView.delegate = self
         
@@ -36,7 +35,7 @@ extension DetailsViewController {
         photosCollectionView.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.identifier)
     }
     
-    //Create data source for collectionView
+    //Create data source for photosCollectionView
     func createDataSource() -> DataSource {
         let dataSource = DataSource(collectionView: photosCollectionView) {[weak self] collectionView, indexPath, placePhoto in
             guard let self = self,
@@ -67,7 +66,7 @@ extension DetailsViewController {
         }
     }
     
-    //Apply snapshot for update collectionView
+    //Apply snapshot for update photosCollectionView
     func applySnapshot() {
         var snapshot = Snapshot()
         snapshot.appendSections([.main])

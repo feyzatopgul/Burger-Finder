@@ -10,8 +10,12 @@ import UIKit
 
 extension PhotoViewController {
     
+    //Configire photoView
     func configurePhotoView() {
         view.addSubview(photoView)
+        photoView.layer.cornerRadius = 20
+        photoView.contentMode = .scaleAspectFill
+        photoView.clipsToBounds = true
         
         guard let photo = photo else { return }
         photoViewModel.fetchImage(prefix: photo.prefix,
@@ -28,10 +32,8 @@ extension PhotoViewController {
             }
         }
         
+        //Adjust constraints
         photoView.translatesAutoresizingMaskIntoConstraints = false
-        photoView.layer.cornerRadius = 20
-        photoView.contentMode = .scaleAspectFill
-        photoView.clipsToBounds = true
         let guide = view.safeAreaLayoutGuide
         let constraints = [
             photoView.topAnchor.constraint(equalTo: closeButton.topAnchor, constant: 60),
@@ -41,7 +43,6 @@ extension PhotoViewController {
             photoView.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -100)
         ]
         NSLayoutConstraint.activate(constraints)
-        
     }
     
 }

@@ -37,7 +37,7 @@ class PlaceCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //placeImage configuration
+    //Configure placeImage
     private func configurePlaceImage() {
         placeImage.layer.cornerRadius = 20
         placeImage.clipsToBounds = true
@@ -53,7 +53,7 @@ class PlaceCell: UITableViewCell {
         NSLayoutConstraint.activate(constraints)
     }
     
-    //nameLabel configuration
+    //Configure nameLabel
     private func configureNameLabel(){
         nameLabel.numberOfLines = 3
         nameLabel.font = .systemFont(ofSize: 18, weight: .semibold)
@@ -68,7 +68,7 @@ class PlaceCell: UITableViewCell {
         NSLayoutConstraint.activate(constraints)
     }
     
-    //ratingLabel configuration
+    //Configure ratingLabel
     private func configureRatingLabel(){
         ratingLabel.font = .systemFont(ofSize: 16, weight: .semibold)
         ratingLabel.textColor = .white
@@ -87,7 +87,7 @@ class PlaceCell: UITableViewCell {
         NSLayoutConstraint.activate(constraints)
     }
     
-    //priceView configuration
+    //Configure priceView
     private func configurePriceView() {
         priceView.axis = .horizontal
         priceView.translatesAutoresizingMaskIntoConstraints = false

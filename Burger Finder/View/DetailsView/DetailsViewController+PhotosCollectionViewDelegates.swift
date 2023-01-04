@@ -15,6 +15,7 @@ extension DetailsViewController: UICollectionViewDelegateFlowLayout, UICollectio
         return CGSize(width: photosCollectionView.frame.width/2, height: photosCollectionView.frame.height)
     }
     
+    //Navigate to PhotoViewController when a photosCollectionView cell is tapped
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let photoVC = PhotoViewController()
         photoVC.photo = photos[indexPath.row]

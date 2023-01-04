@@ -16,6 +16,7 @@ class DetailInfoView: UIStackView {
     }
     var addressStack = UIStackView()
     var hoursStack = UIStackView()
+    var websiteStack = UIStackView()
     var phoneStack = UIStackView()
     var ratingView = RatingView()
     var priceView = PriceView()
@@ -28,6 +29,7 @@ class DetailInfoView: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     func createDetailInfoView() {
         self.axis = .vertical
         self.spacing = 15
@@ -38,26 +40,38 @@ class DetailInfoView: UIStackView {
         self.addArrangedSubview(priceView)
         self.addArrangedSubview(addressStack)
         self.addArrangedSubview(hoursStack)
+        self.addArrangedSubview(websiteStack)
         self.addArrangedSubview(phoneStack)
         
         ratingView.rating = place?.rating
         priceView.price = place?.price
         
-        configureInfoStack(stack: addressStack,
+        configureLabelStack(stack: addressStack,
                            text: place?.location?.formattedAddress,
                            imageName: DetailsViewConstants.location,
                            textColor: .systemGray,
                            imageColor: .systemGray)
-        configureInfoStack(stack: hoursStack,
+        configureLabelStack(stack: hoursStack,
                            text: place?.hours.display,
                            imageName: DetailsViewConstants.clock, textColor: .systemGray,
                            imageColor: .systemGray)
-        configurePhoneStack()
+        configureButtonStack(stack: websiteStack,
+                             text: place?.website,
+                             imageName: DetailsViewConstants.web,
+                             textColor: UIColor(named: DetailsViewConstants.primaryAppColor) ?? .systemGray,
+                             imageColor: UIColor(named: DetailsViewConstants.primaryAppColor) ?? .systemGray,
+                             selector: #selector(openWebsite))
+        configureButtonStack(stack: phoneStack,
+                             text: place?.phoneNumber,
+                             imageName: DetailsViewConstants.filledPhone,
+                             textColor: UIColor(named: DetailsViewConstants.primaryAppColor) ?? .systemGray,
+                             imageColor: UIColor(named: DetailsViewConstants.primaryAppColor) ?? .systemGray,
+                             selector: #selector(callNumber))
         
     }
     
-    //Configures a horizontal stack for place detail info
-    func configureInfoStack(stack: UIStackView, text: String?, imageName: String, textColor: UIColor, imageColor: UIColor) {
+    //Configures a horizontal stack with an info image and label
+    func configureLabelStack(stack: UIStackView, text: String?, imageName: String, textColor: UIColor, imageColor: UIColor) {
         stack.axis = .horizontal
         stack.alignment = .leading
         stack.spacing = 10
@@ -75,29 +89,39 @@ class DetailInfoView: UIStackView {
         stack.addArrangedSubview(infoLabel)
     }
     
-    func configurePhoneStack(){
-        phoneStack.axis = .horizontal
-        phoneStack.alignment = .leading
-        phoneStack.spacing = 10
+    //Configures a horizontal stack for phoneInfo with an image and button
+    func configureButtonStack(stack: UIStackView, text: String?, imageName: String, textColor: UIColor, imageColor: UIColor, selector: Selector){
+        stack.axis = .horizontal
+        stack.alignment = .leading
+        stack.spacing = 10
         
-        let phoneButton = UIButton()
-        phoneButton.setTitle(place?.phoneNumber, for: .normal)
-        phoneButton.setTitleColor(UIColor(named: DetailsViewConstants.primaryAppColor), for: .normal)
-        let phoneImage = UIImage(systemName: DetailsViewConstants.filledPhone)?.withTintColor(UIColor(named: DetailsViewConstants.primaryAppColor) ?? .systemBackground, renderingMode: .alwaysOriginal)
-        phoneButton.setImage(phoneImage, for: .normal)
-        phoneStack.addArrangedSubview(phoneButton)
+        let button = UIButton()
+        button.setTitle(text, for: .normal)
+        button.setTitleColor(textColor, for: .normal)
+        let image = UIImage(systemName: imageName)?.withTintColor(imageColor, renderingMode: .alwaysOriginal)
+        button.setImage(image, for: .normal)
+        stack.addArrangedSubview(button)
         
         //Add target
-        phoneButton.addTarget(self, action: #selector(callNumber), for: .touchUpInside)
+        button.addTarget(self, action: selector, for: .touchUpInside)
     }
     
-    //Call number when phone number is tapped
+    //Call number when phoneButton is tapped
     @objc func callNumber() {
         guard let phoneNumber = place?.phoneNumber else { return }
         let validPhoneNumber = phoneNumber.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
         guard let callUrl = URL(string: "tel://\(validPhoneNumber)") else { return }
         if (UIApplication.shared.canOpenURL(callUrl)) {
             UIApplication.shared.open(callUrl, options: [:], completionHandler: nil)
+        }
+    }
+    
+    //Open website in Safari
+    @objc func openWebsite(){
+        guard let website = place?.website else { return }
+        guard let webUrl = URL(string: website) else { return }
+        if (UIApplication.shared.canOpenURL(webUrl)) {
+            UIApplication.shared.open(webUrl, options: [:], completionHandler: nil)
         }
     }
 }

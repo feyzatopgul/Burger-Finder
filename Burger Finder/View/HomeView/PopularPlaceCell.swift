@@ -31,7 +31,7 @@ class PopularPlaceCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    //Background view configuration
+    //Configure backgroundView
     func configureBackgroundView(){
         backView.layer.cornerRadius = 15
         backView.backgroundColor = .tertiarySystemBackground
@@ -46,7 +46,7 @@ class PopularPlaceCell: UICollectionViewCell {
         NSLayoutConstraint.activate(constraints)
     }
 
-    //Image view configuration
+    //Configure imageView
     func configureImageView() {
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +63,7 @@ class PopularPlaceCell: UICollectionViewCell {
         NSLayoutConstraint.activate(constraints)
     }
     
-    //Name label configuration
+    //Configure nameLabel
     func configureNameLabel() {
         nameLabel.numberOfLines = 3
         nameLabel.textAlignment = .left
@@ -79,7 +79,7 @@ class PopularPlaceCell: UICollectionViewCell {
         NSLayoutConstraint.activate(constraints)
     }
     
-    //Rating label configuration
+    //Configure ratingView
     func configureRatingView() {
         
         ratingView.axis = .horizontal
@@ -92,9 +92,9 @@ class PopularPlaceCell: UICollectionViewCell {
         NSLayoutConstraint.activate(constraints)
     }
     
+    //Reset priceView for preventing adding more subviews when the cell is reused
     override func prepareForReuse() {
         super.prepareForReuse()
-        //Reset priceView for preventing adding more subviews when the cell is reused
         for view in ratingView.subviews {
             view.removeFromSuperview()
         }

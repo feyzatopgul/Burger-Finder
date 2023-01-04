@@ -10,12 +10,14 @@ import UIKit
 
 extension FavoritesViewController: UISearchBarDelegate {
     
+    //Configure favoritesSearchBar
     func  configureFavoritesSearchBar() {
         let guide = view.safeAreaLayoutGuide
         favoritesSearchBar.delegate = self
         favoritesSearchBar.placeholder = FavoritesViewConstants.favoritesSearchBarPlaceholder
-        favoritesSearchBar.translatesAutoresizingMaskIntoConstraints = false
         
+        //Adjust constraints
+        favoritesSearchBar.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             favoritesSearchBar.topAnchor.constraint(equalTo: guide.topAnchor),
             favoritesSearchBar.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 25),
@@ -26,8 +28,10 @@ extension FavoritesViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if !searchText.isEmpty {
+            //Filter saved places from CoreData if searchBar text is not empty
             favoritePlaces = favoritesViewModel.getFilteredPlaces(searchTerm: searchText)
         } else {
+            //Get all saved places if searchBar text is empty
             favoritePlaces = favoritesViewModel.getSavedPlaces()
         }
         applySnapshot()

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension SearchViewController {
-    
+    //Configure placesSearchBar
     func configurePlaceSearchBar() {
         view.addSubview(placeSearchBar)
         placeSearchBar.delegate = self

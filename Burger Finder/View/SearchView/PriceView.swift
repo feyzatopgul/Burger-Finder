@@ -21,9 +21,8 @@ class PriceView: UIStackView {
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    //Create priceImages based on price property of place
     func createPriceImages(filled: Int) -> [UIImageView] {
-        
         var imageViews:[UIImageView] = []
         let filledPrice = UIImage(systemName: SearchViewConstants.filledPrice)
         let nonFilledPrice = UIImage(systemName: SearchViewConstants.nonFilledPrice)
@@ -39,10 +38,9 @@ class PriceView: UIStackView {
         return imageViews
     }
     
+    //Create PriceView
     func createPriceView() {
-        
         let priceImages = createPriceImages(filled: price ?? 0)
-        
         for priceImage in priceImages {
             priceImage.tintColor = UIColor(named: SearchViewConstants.priceColor)
             self.addArrangedSubview(priceImage)

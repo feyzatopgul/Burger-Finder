@@ -15,6 +15,8 @@ extension DetailsViewController {
         detailsScrollView.addSubview(detailInfoView)
         detailsScrollView.addSubview(getDirectionsButton)
         detailsScrollView.contentSize = CGSize(width: view.frame.width, height: view.frame.height * 0.6)
+
+        //Adjust constraints
         detailsScrollView.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             detailsScrollView.topAnchor.constraint(equalTo: photosCollectionView.bottomAnchor),

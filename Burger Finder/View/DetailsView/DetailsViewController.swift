@@ -55,9 +55,11 @@ class DetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //Check if the place is saved or not with the boolean saved in UserDefaults
         if let place = place {
             saveButtonTapped = detailsViewModel.getSavedState(placeId: place.id)
         }
+        //Set button image based on savedState
         setButtonImage()
     }
     
@@ -67,16 +69,19 @@ class DetailsViewController: UIViewController {
         applySnapshot()
     }
     
-    //Fetch photos of the place
+    //Fetch photos of the place if there is any
     func getPhotos() {
         guard let place = place else { return }
-        detailsViewModel.getPhotos(placeId: place.id) {[weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .failure(let error):
-                print("Error while fetching photos: \(error)")
-            case .success(let returnedPhotos):
-                self.photos = returnedPhotos
+        guard let photos = place.photos else {return}
+        if !photos.isEmpty {
+            detailsViewModel.getPhotos(placeId: place.id) {[weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure(let error):
+                    print("Error while fetching photos: \(error)")
+                case .success(let returnedPhotos):
+                    self.photos = returnedPhotos
+                }
             }
         }
     }

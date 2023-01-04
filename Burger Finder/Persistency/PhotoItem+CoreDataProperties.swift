@@ -21,7 +21,6 @@ extension PhotoItem {
     @NSManaged public var suffix: String
     @NSManaged public var width: Int32
     @NSManaged public var height: Int32
-    //@NSManaged public var place: PlaceItem
 }
 
 extension PhotoItem : Identifiable {

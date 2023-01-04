@@ -27,10 +27,11 @@ extension PhotoViewController {
         ]
         NSLayoutConstraint.activate(constraints)
         
+        //Add target
         closeButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
     }
     
-    //Dismiss viewcontroller when it is tapped
+    //Dismiss PhotoViewController when closeButton is tapped
     @objc func dismissView() {
         self.dismiss(animated: true)
     }

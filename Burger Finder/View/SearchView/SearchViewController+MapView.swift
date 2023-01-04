@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 extension SearchViewController: MKMapViewDelegate {
-    
+    //Configure mapView
     func configureMapView() {
         view.addSubview(mapView)
         
@@ -31,10 +31,11 @@ extension SearchViewController: MKMapViewDelegate {
         //Set mapView hidden by default
         mapView.isHidden = true
     }
-    
+   
     //Dismiss keyboard when anywhere is tapped on screen
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
+        locationSearchBar.endEditing(true)
+        placeSearchBar.endEditing(true)
     }
     
     //Create annotations for mapView
@@ -50,6 +51,7 @@ extension SearchViewController: MKMapViewDelegate {
                     latitude: place.geocodes.main.latitude,
                     longitude: place.geocodes.main.longitude ),
                 title: place.name,
+                subtitle: place.location?.formattedAddress ?? "",
                 place: place)
             mapView.addAnnotation(annotation)
         }
@@ -60,20 +62,30 @@ extension SearchViewController: MKMapViewDelegate {
             self.mapView.setRegion(region, animated: true)
         }
     }
+    
     //Customize mapView MKMarkerAnnotation with burgerIcon
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: SearchViewConstants.burgerAnnotation)
+        //Set marker color
         annotationView.markerTintColor = UIColor(named: SearchViewConstants.primaryAppColor)
+        //Set marker image
         annotationView.glyphImage = UIImage(named: SearchViewConstants.burgerAnnotation)
+        //Configure callout
+        annotationView.canShowCallout = true
+        let button = UIButton(type: .infoLight)
+        button.tintColor = UIColor(named: SearchViewConstants.primaryAppColor)
+        annotationView.rightCalloutAccessoryView = button
+        
         return annotationView
     }
     
-    //Navigate to details view when annotation is tapped on map
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView){
+    //Navigate to details view when rightCalloutAccessoryView button is tapped on map
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl){
         guard let annotation = view.annotation as? PlaceAnnotation else { return }
-        let detailsVC = DetailsViewController()
-        detailsVC.place = annotation.place
-        navigationController?.pushViewController(detailsVC, animated: true)
+        if control == view.rightCalloutAccessoryView {
+            let detailsVC = DetailsViewController()
+            detailsVC.place = annotation.place
+            navigationController?.pushViewController(detailsVC, animated: true)
+        }
     }
-    
 }

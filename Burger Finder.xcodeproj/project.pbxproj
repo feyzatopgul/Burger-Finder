@@ -77,7 +77,6 @@
 		62CABE1429637BEA00DD0815 /* FavoritesViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE1329637BEA00DD0815 /* FavoritesViewConstants.swift */; };
 		62CABE1629639B4100DD0815 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE1529639B4100DD0815 /* PlaceAnnotation.swift */; };
 		62CABE1829639E2A00DD0815 /* DetailsViewController+NavigationTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE1729639E2A00DD0815 /* DetailsViewController+NavigationTitle.swift */; };
-		62CABE1A2963A62E00DD0815 /* GeocodesItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CABE192963A62E00DD0815 /* GeocodesItem+CoreDataProperties.swift */; };
 		62E1220B295A646000586B9A /* DetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E1220A295A646000586B9A /* DetailInfoView.swift */; };
 /* End PBXBuildFile section */
 
@@ -154,7 +153,6 @@
 		62CABE1329637BEA00DD0815 /* FavoritesViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewConstants.swift; sourceTree = "<group>"; };
 		62CABE1529639B4100DD0815 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
 		62CABE1729639E2A00DD0815 /* DetailsViewController+NavigationTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsViewController+NavigationTitle.swift"; sourceTree = "<group>"; };
-		62CABE192963A62E00DD0815 /* GeocodesItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeocodesItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		62E1220A295A646000586B9A /* DetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,7 +190,6 @@
 			children = (
 				62400629295DFD6000F536F3 /* PlaceDataModel.xcdatamodeld */,
 				6240062C295E14FB00F536F3 /* CoreDataManager.swift */,
-				62CABE192963A62E00DD0815 /* GeocodesItem+CoreDataProperties.swift */,
 				62400632295E188400F536F3 /* CoordinateItem+CoreDataProperties.swift */,
 				62400634295E1AD100F536F3 /* HoursItem+CoreDataProperties.swift */,
 				62400636295E1B1C00F536F3 /* LocationItem+CoreDataProperties.swift */,
@@ -460,7 +457,6 @@
 				62CABDF5295FB44B00DD0815 /* SearchViewController+MapListBarButton.swift in Sources */,
 				62CABE0429622E9F00DD0815 /* PhotoViewController+CloseButton.swift in Sources */,
 				62893C4C29580426009012A6 /* HomeViewController+WarningLabel.swift in Sources */,
-				62CABE1A2963A62E00DD0815 /* GeocodesItem+CoreDataProperties.swift in Sources */,
 				62893C31295782C3009012A6 /* HomeViewController+SearchButton.swift in Sources */,
 				62893C4229578698009012A6 /* LocationManager.swift in Sources */,
 				627C2C41295CE66A006513C3 /* FavoritesCell.swift in Sources */,

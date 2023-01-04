@@ -10,8 +10,7 @@ import UIKit
 
 extension HomeViewController {
     
-//MARK: - CollectionView Layouts
-    
+    //Configure placesCollectionView
     func configurePlacesCollectionView() {
         placesCollectionView.backgroundColor = .clear
         placesCollectionView.delegate = self
@@ -37,7 +36,7 @@ extension HomeViewController {
         placesCollectionView.register(PopularPlaceCell.self, forCellWithReuseIdentifier: PopularPlaceCell.identifier)
     }
 
-//MARK: - Data Source and Snapshot
+    
     //Create data source for collectionView
     func createDataSource() -> DataSource {
         let dataSource = DataSource(collectionView: placesCollectionView) {[weak self] collectionView, indexPath, place in

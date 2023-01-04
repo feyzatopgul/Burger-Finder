@@ -10,7 +10,6 @@ import UIKit
 
 class FavoritesCell: UICollectionViewCell {
     static let identifier = "FavoritesCell"
-    
     let nameLabel = UILabel()
     let locationLabel = UILabel()
     var ratingView = RatingView()
@@ -43,7 +42,7 @@ class FavoritesCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //burgerView configuration
+    //Configure burgerView
     func configurebackgroundView() {
     
         burgerView.image = UIImage(named: FavoritesViewConstants.burgerBackground )
@@ -52,6 +51,7 @@ class FavoritesCell: UICollectionViewCell {
         burgerView.layer.cornerRadius = 30
         burgerView.alpha = 0.1
         
+        //Adjust constraints
         burgerView.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             burgerView.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -62,10 +62,11 @@ class FavoritesCell: UICollectionViewCell {
         NSLayoutConstraint.activate(constraints)
     }
     
-    //likedView configuration
+    //Configure burgerIconView
     func configureburgerIconView() {
         burgerIconView.image = UIImage(named: FavoritesViewConstants.burgerIcon )
         
+        //Adjust constraints
         burgerIconView.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             burgerIconView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
@@ -75,12 +76,14 @@ class FavoritesCell: UICollectionViewCell {
     }
     
     
-    //nameLabel configuration
+    //Configure nameLabel
     func configureNameLabel() {
         nameLabel.numberOfLines = 3
         nameLabel.textAlignment = .left
         nameLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         nameLabel.textColor = UIColor(named: FavoritesViewConstants.textColor)
+        
+        //Adjust constraints
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
@@ -90,9 +93,9 @@ class FavoritesCell: UICollectionViewCell {
         NSLayoutConstraint.activate(constraints)
     }
     
-    //ratingView configuration
+    //Configure ratingView
     func configureRatingView() {
-       
+        //Adjust constraints
         ratingView.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             ratingView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
@@ -101,7 +104,7 @@ class FavoritesCell: UICollectionViewCell {
         NSLayoutConstraint.activate(constraints)
     }
     
-    //locationLabel configuration
+    //Configure locationLabel
     func configureLocationLabel() {
         locationLabel.numberOfLines = 3
         locationLabel.textAlignment = .left
@@ -109,6 +112,7 @@ class FavoritesCell: UICollectionViewCell {
         locationLabel.textColor = UIColor(named: FavoritesViewConstants.textColor)
         locationLabel.translatesAutoresizingMaskIntoConstraints = false
         
+        //Adjust constraints
         let constraints = [
             locationLabel.heightAnchor.constraint(equalToConstant: 30),
             locationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),

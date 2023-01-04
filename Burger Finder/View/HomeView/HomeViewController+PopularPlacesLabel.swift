@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 extension HomeViewController {
-    
+    //Configure popularPlacesLabel
     func configurePopularPlacesLabel() {
-        
         popularPlacesLabel.text = HomeViewConstants.popularPlacesLabel
         popularPlacesLabel.textColor = UIColor(named: HomeViewConstants.textColor)
         popularPlacesLabel.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         
+        //Adjust constraints
         popularPlacesLabel.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             popularPlacesLabel.leadingAnchor.constraint(equalTo: popularPlacesView.leadingAnchor, constant: 10),

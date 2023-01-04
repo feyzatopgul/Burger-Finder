@@ -12,8 +12,9 @@ extension DetailsViewController {
     
     //Configure detailInfoView
     func configureDetailInfoView(){
-        
         detailInfoView.place = place
+        
+        //Adjust constraints
         detailInfoView.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             detailInfoView.centerXAnchor.constraint(equalTo: detailsScrollView.centerXAnchor),

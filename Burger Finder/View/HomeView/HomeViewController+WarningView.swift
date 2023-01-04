@@ -9,15 +9,17 @@ import Foundation
 import UIKit
 
 extension HomeViewController {
-    
+    //Configure warningView
     func configureWarningView() {
         view.addSubview(warningView)
         warningView.addSubview(warningLabel)
         warningView.addSubview(refreshButton)
         warningView.addSubview(spinnerView)
         
+        //Set warningView hidden by default
         warningView.isHidden = true
-
+        
+        //Configure warningView
         warningView.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             warningView.centerXAnchor.constraint(equalTo: view.centerXAnchor),

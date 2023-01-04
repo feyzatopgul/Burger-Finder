@@ -48,6 +48,7 @@ class CoreDataManager:CoreDataManagerProtocol {
         
         coordinateItem.latitude = place.geocodes.main.latitude
         coordinateItem.longitude = place.geocodes.main.longitude
+        placeItem.coordinates = coordinateItem
         hoursItem.openNow = place.hours.openNow
         hoursItem.display = place.hours.display
         locationItem.formattedAddress = place.location?.formattedAddress
@@ -62,8 +63,6 @@ class CoreDataManager:CoreDataManagerProtocol {
 
         placeItem.location = locationItem
         placeItem.hours = hoursItem
-        placeItem.coordinates.latitude = place.geocodes.main.latitude
-        placeItem.coordinates.longitude = place.geocodes.main.longitude
         placeItem.price = Int32(place.price ?? 0)
         placeItem.website = place.website
         placeItem.phoneNumber = place.phoneNumber
@@ -119,11 +118,8 @@ class CoreDataManager:CoreDataManagerProtocol {
         var placeItems = [PlaceItem]()
         var places = [Place]()
         
-        let namePredicate = NSPredicate(format: "name BEGINSWITH %@", filter)
-        let countryPredicate = NSPredicate(format: "location.country BEGINSWITH %@", filter)
-        let localityPredicate = NSPredicate(format: "location.locality BEGINSWITH %@", filter)
-        let regionPredicate = NSPredicate(format: "location.region BEGINSWITH %@", filter)
-        let formattedAddressPredicate = NSPredicate(format: "location.formattedAddress BEGINSWITH %@", filter)
+        let namePredicate = NSPredicate(format: "name CONTAINS [c] %@", filter)
+        let localityPredicate = NSPredicate(format: "location.locality CONTAINS [c] %@", filter)
         
         let fetchRequest: NSFetchRequest<PlaceItem>
         fetchRequest = PlaceItem.fetchRequest()
@@ -131,10 +127,7 @@ class CoreDataManager:CoreDataManagerProtocol {
         fetchRequest.predicate = NSCompoundPredicate(
             orPredicateWithSubpredicates: [
                 namePredicate,
-                countryPredicate,
-                localityPredicate,
-                regionPredicate,
-                formattedAddressPredicate
+                localityPredicate
             ]
         )
         do {

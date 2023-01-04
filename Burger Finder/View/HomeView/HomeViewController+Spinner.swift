@@ -9,11 +9,13 @@ import Foundation
 import UIKit
 
 extension HomeViewController {
-    
+    //Configure spinnerView
     func configureSpinner() {
         spinnerView.isHidden = true
         spinnerView.style = .medium
         spinnerView.color = .tertiarySystemBackground
+        
+        //Adjust constraints
         spinnerView.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             spinnerView.centerXAnchor.constraint(equalTo: warningView.centerXAnchor),
@@ -24,12 +26,14 @@ extension HomeViewController {
         NSLayoutConstraint.activate(constraints)
     }
     
+    //Show spinnerView
     func showSpinner(){
         spinnerView.isHidden = false
         refreshButton.isHidden = true
         spinnerView.startAnimating()
     }
     
+    //Hide spinnerView
     func hideSpinner(){
         spinnerView.stopAnimating()
         refreshButton.isHidden = false

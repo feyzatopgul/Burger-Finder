@@ -10,7 +10,7 @@ import UIKit
 
 extension SearchViewController: UITableViewDelegate {
     
-    //Navigate to details view controller
+    //Navigate to DetailsViewController when placesTableView cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsVC = DetailsViewController()
         detailsVC.place = places[indexPath.row]

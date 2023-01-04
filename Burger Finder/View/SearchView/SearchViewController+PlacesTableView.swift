@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 extension SearchViewController {
-    
+    //Configure placesTableView
     func configurePlacesTableView() {
         view.addSubview(placesTableView)
-        
+        //set delegate
         placesTableView.delegate = self
         //Set row height
         placesTableView.rowHeight = 150
@@ -32,10 +32,9 @@ extension SearchViewController {
         
         //Register a cell
         placesTableView.register(PlaceCell.self, forCellReuseIdentifier: PlaceCell.identifier)
-        
     }
     
-    //Create data source for tableView
+    //Create data source for placesTableView
     func createDataSource() -> DataSource {
         let dataSource = DataSource(tableView: placesTableView) { [weak self] tableView, indexPath, place in
             guard let self = self,
@@ -60,14 +59,13 @@ extension SearchViewController {
         //Set price for priceView
         placeCell.priceView.price = place.price
         
-        //
+        //Set isOpenLabel
+        placeCell.isOpenLabel.font = .systemFont(ofSize: 16, weight: .medium)
         if place.hours.openNow {
             placeCell.isOpenLabel.textColor = UIColor(named: SearchViewConstants.primaryAppColor)
-            placeCell.isOpenLabel.font = .systemFont(ofSize: 16, weight: .medium)
             placeCell.isOpenLabel.text = SearchViewConstants.isOpenLabelOpen
         } else {
             placeCell.isOpenLabel.textColor = UIColor(named: SearchViewConstants.textColor)
-            placeCell.isOpenLabel.font = .systemFont(ofSize: 16, weight: .regular)
             placeCell.isOpenLabel.text = SearchViewConstants.isOpenLabelClosed
         }
 
@@ -94,7 +92,7 @@ extension SearchViewController {
         }
         
     }
-    //Apply snapshot for update tableView
+    //Apply snapshot for update placesTableView
     func applySnapshot() {
         var snapshot = Snapshot()
         snapshot.appendSections([.main])

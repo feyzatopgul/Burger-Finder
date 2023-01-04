@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 
 extension HomeViewController {
-    
+    //Configure warningLabel
     func configureWarningLabel() {
-        
         warningLabel.text = HomeViewConstants.warningLabel
         warningLabel.textColor = UIColor(named: HomeViewConstants.warningLabelColor)
         warningLabel.numberOfLines = 0
         warningLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         
+        //Adjust constraints
         warningLabel.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             warningLabel.leadingAnchor.constraint(equalTo: warningView.leadingAnchor, constant: 25),

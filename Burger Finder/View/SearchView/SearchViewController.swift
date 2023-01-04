@@ -54,7 +54,7 @@ class SearchViewController: UIViewController {
         applySnapshot()
             
     }
-
+    
     //Fetch place data when user searches something
     func getPlaces(search: String, location: String) {
         searchViewModel.fetchSearchedPlaces(search: search, location: location) {[weak self] result in
@@ -63,7 +63,7 @@ class SearchViewController: UIViewController {
             case .success(let returnedPlaces):
                 self.places = returnedPlaces
                 DispatchQueue.main.async {
-                    //Update tableView
+                    //Update placesTableView
                     self.applySnapshot()
                     //Update mapView
                     self.createAnnotations(places: returnedPlaces)

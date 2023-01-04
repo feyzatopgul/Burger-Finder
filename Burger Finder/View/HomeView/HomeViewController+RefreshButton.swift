@@ -10,9 +10,8 @@ import UIKit
 
 extension HomeViewController {
     
+    //Configure refreshButton
     func configureRefreshButton() {
-        
-        //Button configuration
         refreshButton.backgroundColor = .tertiarySystemBackground
         refreshButton.setTitle(HomeViewConstants.refreshButtonTitle, for: .normal)
         refreshButton.setTitleColor(UIColor(named: HomeViewConstants.primaryAppColor), for: .normal)
@@ -34,7 +33,7 @@ extension HomeViewController {
         
     }
     
-    //Refresh view
+    //Refresh view when refreshButton is tapped
     @objc func refreshWarningView() {
         showSpinner()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in

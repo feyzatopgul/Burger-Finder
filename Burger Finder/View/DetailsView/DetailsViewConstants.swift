@@ -18,4 +18,5 @@ class DetailsViewConstants {
     static let location = "location"
     static let clock = "clock"
     static let filledPhone = "phone.fill"
+    static let web = "network"
 }
