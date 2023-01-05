@@ -2,14 +2,12 @@
 //  PlaceCell.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/25/22.
+//  Created by Feyza Topgul on 12/25/22.
 //
 
 import UIKit
 
 class PlaceCell: UITableViewCell {
-    
-    static let identifier = "PlaceCell"
     
     var placeImage = UIImageView()
     var nameLabel = UILabel()

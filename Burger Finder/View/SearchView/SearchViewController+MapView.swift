@@ -2,7 +2,7 @@
 //  SearchViewController+MapView.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/31/22.
+//  Created by Feyza Topgul on 12/31/22.
 //
 
 import Foundation
@@ -56,7 +56,7 @@ extension SearchViewController: MKMapViewDelegate {
             mapView.addAnnotation(annotation)
         }
         //Zoom to map centered around the searched location to display searched results
-        searchViewModel.getCoordinate(location: locationText) {[weak self] coordinate in
+        searchViewModel.getCoordinate(location: searchViewModel.locationText) {[weak self] coordinate in
             guard let self = self else {return}
             let region =   MKCoordinateRegion(center: coordinate, latitudinalMeters: 10000, longitudinalMeters: 10000)
             self.mapView.setRegion(region, animated: true)
@@ -84,7 +84,7 @@ extension SearchViewController: MKMapViewDelegate {
         guard let annotation = view.annotation as? PlaceAnnotation else { return }
         if control == view.rightCalloutAccessoryView {
             let detailsVC = DetailsViewController()
-            detailsVC.place = annotation.place
+            detailsVC.detailsViewModel.place = annotation.place
             navigationController?.pushViewController(detailsVC, animated: true)
         }
     }

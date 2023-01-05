@@ -2,7 +2,7 @@
 //  DetailsViewController+PhotosCollectionView.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/27/22.
+//  Created by Feyza Topgul on 12/27/22.
 //
 
 import Foundation
@@ -41,7 +41,6 @@ extension DetailsViewController {
             guard let self = self,
                   let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as? PhotoCell else { return UICollectionViewCell() }
             self.populateCell(photoCell: photoCell, photo: placePhoto)
-            
             return photoCell
         }
         return dataSource
@@ -50,7 +49,7 @@ extension DetailsViewController {
     //Populate photoCell with data
     func populateCell(photoCell: PhotoCell, photo: Photo) {
         //Set imageView with a placeholder
-        photoCell.placeImageView.image = UIImage(named: DetailsViewConstants.burgerIcon)
+        photoCell.placeImageView.image = UIImage(named: DetailsViewConstants.placeholderBurger)
         //Set imageView with place photos
         detailsViewModel.fetchImage(prefix: photo.prefix,
                                     suffix: photo.suffix,
@@ -70,10 +69,9 @@ extension DetailsViewController {
     func applySnapshot() {
         var snapshot = Snapshot()
         snapshot.appendSections([.main])
-        snapshot.appendItems(photos)
+        snapshot.appendItems(detailsViewModel.placePhotos)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
-    
 }
 
 enum PhotosSection {

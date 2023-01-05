@@ -2,7 +2,7 @@
 //  PhotoViewController.swift
 //  Burger Finder
 //
-//  Created by fyz on 1/1/23.
+//  Created by Feyza Topgul on 1/1/23.
 //
 
 import Foundation
@@ -10,10 +10,9 @@ import UIKit
 
 class PhotoViewController: UIViewController {
     
-    var photo: Photo?
-    var photoView = UIImageView()
-    var closeButton = UIButton()
-    var photoViewModel = PhotoViewModel()
+    let photoViewModel = PhotoViewModel()
+    let photoView = UIImageView()
+    let closeButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()

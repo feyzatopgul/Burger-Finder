@@ -2,7 +2,7 @@
 //  DetailsViewController+DetailInfoView.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/27/22.
+//  Created by Feyza Topgul on 12/27/22.
 //
 
 import Foundation
@@ -12,7 +12,7 @@ extension DetailsViewController {
     
     //Configure detailInfoView
     func configureDetailInfoView(){
-        detailInfoView.place = place
+        detailInfoView.place = detailsViewModel.place
         
         //Adjust constraints
         detailInfoView.translatesAutoresizingMaskIntoConstraints = false

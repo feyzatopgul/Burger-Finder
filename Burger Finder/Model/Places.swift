@@ -8,25 +8,23 @@
 import Foundation
 
 struct Places: Codable, Hashable {
-    var results: [Place]
+    let results: [Place]
 }
 
 struct Place: Codable,Hashable {
-    var id: String
-    var distance: Int
-    var geocodes:Geocode
-    var hours: Hours
-    var location:Location?
-    var name: String
-    var rating: Double?
-    var phoneNumber: String?
-    var website: String?
-    var photos:[Photo]?
-    var price: Int?
+    let id: String
+    let geocodes:Geocode
+    let hours: Hours
+    let location:Location?
+    let name: String
+    let rating: Double?
+    let phoneNumber: String?
+    let website: String?
+    let photos:[Photo]?
+    let price: Int?
     
     enum CodingKeys: String, CodingKey {
         case id = "fsq_id"
-        case distance
         case geocodes
         case hours
         case location
@@ -40,17 +38,17 @@ struct Place: Codable,Hashable {
 }
 
 struct Geocode: Codable, Hashable {
-    var main: Coordinate
+    let main: Coordinate
 }
 
 struct Coordinate: Codable, Hashable {
-    var latitude: Double
-    var longitude: Double
+    let latitude: Double
+    let longitude: Double
 }
 
 struct Hours: Codable, Hashable {
-    var display: String?
-    var openNow: Bool
+    let display: String?
+    let openNow: Bool
     
     enum CodingKeys: String, CodingKey {
         case display
@@ -59,25 +57,19 @@ struct Hours: Codable, Hashable {
 }
 
 struct Location: Codable, Hashable {
-    var formattedAddress: String?
-    var locality: String?
-    var country: String?
-    var postcode: String?
-    var region: String?
+    let formattedAddress: String?
+    let locality: String?
     
     enum CodingKeys: String, CodingKey {
         case formattedAddress = "formatted_address"
         case locality
-        case country
-        case postcode
-        case region
     }
 }
 
 struct Photo: Codable, Hashable {
-    var id: String
-    var prefix:String
-    var suffix: String
-    var width: Int
-    var height: Int
+    let id: String
+    let prefix:String
+    let suffix: String
+    let width: Int
+    let height: Int
 }

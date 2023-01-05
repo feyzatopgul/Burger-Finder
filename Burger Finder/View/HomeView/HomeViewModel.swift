@@ -2,7 +2,7 @@
 //  HomeViewControllerViewModel.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/30/22.
+//  Created by Feyza Topgul on 12/30/22.
 //
 
 import Foundation
@@ -13,6 +13,7 @@ class HomeViewModel {
     private let networkManager: NetworkManagerProtocol
     private let locationManager: LocationManagerProtocol
     private let imageLoader: ImageLoaderProtocol
+    var popularPlaces = [Place]()
     
     init(networkManager: NetworkManagerProtocol = NetworkManager.shared,
          locationManager:LocationManagerProtocol = LocationManager.shared,
@@ -24,7 +25,7 @@ class HomeViewModel {
     }
     
     //Fetch popular places based on current location
-    func fetchPopularPlacesNearby(completion: @escaping (Result<[Place], Error>) -> Void) {
+    func fetchPopularPlacesNearby(completion: @escaping (Error?) -> Void) {
         
         locationManager.resolvedCurrentLocation { [weak self] returnedCoordinate in
             guard let self = self else { return }
@@ -35,10 +36,11 @@ class HomeViewModel {
             
             self.networkManager.executeRequest(request: request, forType: Places.self) { places, error in
                 if let error = error {
-                    completion(.failure(error))
+                    completion(error)
                 }
                 if let places = places {
-                    completion(.success(places.results))
+                    self.popularPlaces = places.results
+                    completion(nil)
                 }
             }
         }

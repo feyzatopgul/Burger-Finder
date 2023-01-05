@@ -2,7 +2,7 @@
 //  CoordinateItem+CoreDataProperties.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/29/22.
+//  Created by Feyza Topgul on 12/29/22.
 //
 
 import Foundation

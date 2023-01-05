@@ -2,7 +2,7 @@
 //  DetailsViewController+GetDirectionsButton.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/27/22.
+//  Created by Feyza Topgul on 12/27/22.
 //
 
 import Foundation
@@ -36,7 +36,7 @@ extension DetailsViewController {
 
     //Show directions on maps
     @objc func getDirections() {
-        guard let geoCoord = place?.geocodes.main else { return }
+        guard let geoCoord = detailsViewModel.place?.geocodes.main else { return }
         let coordinates = CLLocationCoordinate2DMake(geoCoord.latitude, geoCoord.longitude)
         let regionSpan =   MKCoordinateRegion(center: coordinates, latitudinalMeters: 1000, longitudinalMeters: 1000)
         let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)

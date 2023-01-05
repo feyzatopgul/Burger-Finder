@@ -2,7 +2,7 @@
 //  HomeViewConstants.swift
 //  Burger Finder
 //
-//  Created by fyz on 1/2/23.
+//  Created by Feyza Topgul on 1/2/23.
 //
 
 import Foundation
@@ -20,4 +20,5 @@ class HomeViewConstants {
     static let refreshButtonTitle = "Refresh"
     static let filledStar = "star.fill"
     static let star = "star"
+    static let popularPlaceCellIdentifier = "PopularPlaceCell"
 }

@@ -34,6 +34,7 @@
 		627C2C3F295CE275006513C3 /* FavoritesViewController+FavoritesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627C2C3E295CE275006513C3 /* FavoritesViewController+FavoritesCollectionView.swift */; };
 		627C2C41295CE66A006513C3 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627C2C40295CE66A006513C3 /* FavoritesCell.swift */; };
 		627C2C43295CE803006513C3 /* FavoritesViewController+CollectionViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627C2C42295CE803006513C3 /* FavoritesViewController+CollectionViewDelegates.swift */; };
+		627D7EC529673C3E002586EC /* IsSavedItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627D7EC429673C3E002586EC /* IsSavedItem+CoreDataProperties.swift */; };
 		62893C09295781A6009012A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C08295781A6009012A6 /* AppDelegate.swift */; };
 		62893C0B295781A6009012A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62893C0A295781A6009012A6 /* SceneDelegate.swift */; };
 		62893C12295781A7009012A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62893C11295781A7009012A6 /* Assets.xcassets */; };
@@ -108,6 +109,7 @@
 		627C2C3E295CE275006513C3 /* FavoritesViewController+FavoritesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesViewController+FavoritesCollectionView.swift"; sourceTree = "<group>"; };
 		627C2C40295CE66A006513C3 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		627C2C42295CE803006513C3 /* FavoritesViewController+CollectionViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesViewController+CollectionViewDelegates.swift"; sourceTree = "<group>"; };
+		627D7EC429673C3E002586EC /* IsSavedItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IsSavedItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		62893C05295781A6009012A6 /* Burger Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Burger Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62893C08295781A6009012A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62893C0A295781A6009012A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 		6274DA9C295A1B1C006ADFC4 /* DetailsView */ = {
 			isa = PBXGroup;
 			children = (
+				62CABDED295F916B00DD0815 /* DetailsViewModel.swift */,
 				62CABE0F296377FA00DD0815 /* DetailsViewConstants.swift */,
 				6274DA9E295A1B51006ADFC4 /* DetailsViewController.swift */,
 				62CABE1729639E2A00DD0815 /* DetailsViewController+NavigationTitle.swift */,
@@ -195,6 +198,7 @@
 				62400636295E1B1C00F536F3 /* LocationItem+CoreDataProperties.swift */,
 				62400638295E1B8100F536F3 /* PhotoItem+CoreDataProperties.swift */,
 				6240062E295E157B00F536F3 /* PlaceItem+CoreDataProperties.swift */,
+				627D7EC429673C3E002586EC /* IsSavedItem+CoreDataProperties.swift */,
 			);
 			path = Persistency;
 			sourceTree = "<group>";
@@ -222,7 +226,6 @@
 				62893C1D295781D0009012A6 /* Service Manager */,
 				627C2C44295DF613006513C3 /* Persistency */,
 				62893C3C29578354009012A6 /* Model */,
-				62893C2629578248009012A6 /* ViewModel */,
 				62893C2929578279009012A6 /* View */,
 				62893C11295781A7009012A6 /* Assets.xcassets */,
 				62893C13295781A7009012A6 /* LaunchScreen.storyboard */,
@@ -250,18 +253,6 @@
 			path = "Service Manager";
 			sourceTree = "<group>";
 		};
-		62893C2629578248009012A6 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				6240063D295F7C6300F536F3 /* HomeViewModel.swift */,
-				62CABDEB295F854E00DD0815 /* SearchViewModel.swift */,
-				62CABDED295F916B00DD0815 /* DetailsViewModel.swift */,
-				62CABDEF295F986700DD0815 /* FavoritesViewModel.swift */,
-				62CABE012962297B00DD0815 /* PhotoViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		62893C2929578279009012A6 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +278,7 @@
 		62893C2D295782B2009012A6 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				6240063D295F7C6300F536F3 /* HomeViewModel.swift */,
 				62CABE0B2963711E00DD0815 /* HomeViewConstants.swift */,
 				62893C2E295782BD009012A6 /* HomeViewController.swift */,
 				62893C30295782C3009012A6 /* HomeViewController+SearchButton.swift */,
@@ -308,6 +300,7 @@
 		62893C36295782DC009012A6 /* SearchView */ = {
 			isa = PBXGroup;
 			children = (
+				62CABDEB295F854E00DD0815 /* SearchViewModel.swift */,
 				62CABE0D2963745500DD0815 /* SearchViewConstants.swift */,
 				62893C37295782ED009012A6 /* SearchViewController.swift */,
 				62CABDF4295FB44B00DD0815 /* SearchViewController+MapListBarButton.swift */,
@@ -327,6 +320,7 @@
 		62893C39295782FD009012A6 /* FavoritesView */ = {
 			isa = PBXGroup;
 			children = (
+				62CABDEF295F986700DD0815 /* FavoritesViewModel.swift */,
 				62CABE1329637BEA00DD0815 /* FavoritesViewConstants.swift */,
 				62893C3A29578322009012A6 /* FavoritesViewController.swift */,
 				62CABE072962526400DD0815 /* FavoritesViewController+FavoritesSearchBar.swift */,
@@ -374,6 +368,7 @@
 		62CABDFC2962248A00DD0815 /* PhotoView */ = {
 			isa = PBXGroup;
 			children = (
+				62CABE012962297B00DD0815 /* PhotoViewModel.swift */,
 				62CABE1129637A0900DD0815 /* PhotoViewConstants.swift */,
 				62CABDFD296224C300DD0815 /* PhotoViewController.swift */,
 				62CABE0329622E9F00DD0815 /* PhotoViewController+CloseButton.swift */,
@@ -515,6 +510,7 @@
 				62893C442957B579009012A6 /* HomeViewController+PopularPlacesView.swift in Sources */,
 				62CABDF0295F986700DD0815 /* FavoritesViewModel.swift in Sources */,
 				62CABE0629622EE800DD0815 /* PhotoViewController+PhotoView.swift in Sources */,
+				627D7EC529673C3E002586EC /* IsSavedItem+CoreDataProperties.swift in Sources */,
 				627C2C3D295CDDDD006513C3 /* DetailsViewController+SaveBarButton.swift in Sources */,
 				62893C21295781FB009012A6 /* NetworkError.swift in Sources */,
 				62CABE1829639E2A00DD0815 /* DetailsViewController+NavigationTitle.swift in Sources */,

@@ -2,7 +2,7 @@
 //  PhotoCell.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/27/22.
+//  Created by Feyza Topgul on 12/27/22.
 //
 
 import Foundation

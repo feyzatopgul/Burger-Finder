@@ -2,7 +2,7 @@
 //  CoreDataManager.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/29/22.
+//  Created by Feyza Topgul on 12/29/22.
 //
 
 import Foundation
@@ -14,6 +14,8 @@ protocol CoreDataManagerProtocol {
     func filterPlaces(filter : String) -> [Place]
     func savePlace(place: Place)
     func deletePlace(place: Place)
+    func setSavedState(placeId: String, isSaved: Bool)
+    func getSavedState(placeId: String)-> Bool
     func deleteAllPlaces()
 }
 
@@ -53,12 +55,9 @@ class CoreDataManager:CoreDataManagerProtocol {
         hoursItem.display = place.hours.display
         locationItem.formattedAddress = place.location?.formattedAddress
         locationItem.locality = place.location?.locality
-        locationItem.postcode = place.location?.postcode
-        locationItem.region = place.location?.region
-        locationItem.country = place.location?.country
+
         
         placeItem.id = place.id
-        placeItem.distance = Int32(place.distance)
         placeItem.name = place.name
 
         placeItem.location = locationItem
@@ -113,6 +112,57 @@ class CoreDataManager:CoreDataManagerProtocol {
         }
     }
     
+    //Saves or updates isSaved state
+    func setSavedState(placeId: String, isSaved: Bool){
+        //Check if the state is saved before
+        var isSavedState = [IsSavedItem]()
+        let fetchRequest: NSFetchRequest<IsSavedItem>
+        fetchRequest = IsSavedItem.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", placeId)
+        do {
+            isSavedState = try context.fetch(fetchRequest)
+        }
+        catch(let error) {
+            print("Error filtering in CoreData: \(error)")
+        }
+        if isSavedState.isEmpty {
+            // If it is not saved, save the state
+            let isSavedItem = IsSavedItem(context: context)
+            isSavedItem.id = placeId
+            isSavedItem.isSaved = isSaved
+            
+        } else {
+            //If it is already saved update the state
+            isSavedState.first?.isSaved = isSaved
+        }
+        do {
+            try context.save()
+        } catch {
+            print("Error saving savedState to CoreData :\(error)")
+        }
+    }
+
+    //Fetches isSaved state
+    func getSavedState(placeId: String) -> Bool {
+        var isSavedState = [IsSavedItem]()
+        let fetchRequest: NSFetchRequest<IsSavedItem>
+        fetchRequest = IsSavedItem.fetchRequest()
+        //filters the result that matches with the place id
+        fetchRequest.predicate = NSPredicate(format: "id == %@", placeId)
+        do {
+            isSavedState = try context.fetch(fetchRequest)
+        }
+        catch(let error) {
+            print("Error filtering in CoreData: \(error)")
+        }
+        if let state = isSavedState.first {
+            return state.isSaved
+        } else {
+            return false
+        }
+    }
+
+    
     //Filter saved places according to search term
     func filterPlaces(filter : String) -> [Place] {
         var placeItems = [PlaceItem]()
@@ -156,10 +206,8 @@ class CoreDataManager:CoreDataManagerProtocol {
             )
             let location = Location(
                 formattedAddress: placeItem.location?.formattedAddress,
-                locality: placeItem.location?.locality,
-                country:placeItem.location?.country,
-                postcode: placeItem.location?.postcode,
-                region: placeItem.location?.region
+                locality: placeItem.location?.locality
+
             )
             var photos = [Photo]()
             placeItem.photos?.forEach({ photo in
@@ -173,7 +221,6 @@ class CoreDataManager:CoreDataManagerProtocol {
             
             let place = Place(
                 id: placeItem.id,
-                distance: Int(placeItem.distance),
                 geocodes: geocodoes,
                 hours: hours,
                 location: location,
@@ -188,4 +235,5 @@ class CoreDataManager:CoreDataManagerProtocol {
         }
         return places
     }
+    
 }

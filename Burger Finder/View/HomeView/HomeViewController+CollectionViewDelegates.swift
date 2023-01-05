@@ -2,7 +2,7 @@
 //  HomeViewController+CollectionViewDelegates.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/26/22.
+//  Created by Feyza Topgul on 12/26/22.
 //
 
 import Foundation
@@ -16,7 +16,7 @@ extension HomeViewController:UICollectionViewDelegateFlowLayout, UICollectionVie
     //Navigate to DetailsViewController when a placesCollectionView cell is tapped
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailsVC = DetailsViewController()
-        detailsVC.place = places[indexPath.row]
+        detailsVC.detailsViewModel.place = homeViewModel.popularPlaces[indexPath.row]
         navigationController?.pushViewController(detailsVC, animated: true)
     }
     

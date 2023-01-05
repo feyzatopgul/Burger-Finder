@@ -2,29 +2,27 @@
 //  DetailsViewController.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/26/22.
+//  Created by Feyza Topgul on 12/26/22.
 //
 
 import UIKit
 
 class DetailsViewController: UIViewController {
-    
-    var place: Place?
-    var photos = [Photo]()
-    var detailsViewModel = DetailsViewModel()
+
+    let detailsViewModel = DetailsViewModel()
     
     let detailsScrollView = UIScrollView()
     let photosCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     var detailInfoView = DetailInfoView()
     var getDirectionsButton = UIButton()
     var saveBarButton = UIBarButtonItem()
-    var saveButtonTapped: Bool = false
     
     typealias DataSource = UICollectionViewDiffableDataSource<PhotosSection,Photo>
     typealias Snapshot = NSDiffableDataSourceSnapshot<PhotosSection, Photo>
     lazy var dataSource = createDataSource()
     
     override func viewDidLoad() {
+
         super.viewDidLoad()
         view.backgroundColor = .tertiarySystemBackground
         view.addSubview(detailsScrollView)
@@ -55,9 +53,9 @@ class DetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //Check if the place is saved or not with the boolean saved in UserDefaults
-        if let place = place {
-            saveButtonTapped = detailsViewModel.getSavedState(placeId: place.id)
+        //Check if the place is saved or not in CoreData
+        if let place = detailsViewModel.place {
+            detailsViewModel.isSaved = detailsViewModel.getSavedState(placeId: place.id)
         }
         //Set button image based on savedState
         setButtonImage()
@@ -71,16 +69,12 @@ class DetailsViewController: UIViewController {
     
     //Fetch photos of the place if there is any
     func getPhotos() {
-        guard let place = place else { return }
+        guard let place = detailsViewModel.place  else { return }
         guard let photos = place.photos else {return}
         if !photos.isEmpty {
-            detailsViewModel.getPhotos(placeId: place.id) {[weak self] result in
-                guard let self = self else { return }
-                switch result {
-                case .failure(let error):
-                    print("Error while fetching photos: \(error)")
-                case .success(let returnedPhotos):
-                    self.photos = returnedPhotos
+            detailsViewModel.getPhotos(placeId: place.id) { error in
+                if let error = error {
+                    print("Error in getting photos: \(error)")
                 }
             }
         }

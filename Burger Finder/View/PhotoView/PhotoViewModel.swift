@@ -2,7 +2,7 @@
 //  PhotoViewModel.swift
 //  Burger Finder
 //
-//  Created by fyz on 1/1/23.
+//  Created by Feyza Topgul on 1/1/23.
 //
 
 import Foundation
@@ -10,6 +10,7 @@ import Foundation
 class PhotoViewModel {
     
     private let imageLoader: ImageLoaderProtocol
+    var photo: Photo?
     
     init(imageLoader: ImageLoaderProtocol = ImageLoader.shared) {
         self.imageLoader = imageLoader

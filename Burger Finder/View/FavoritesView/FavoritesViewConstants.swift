@@ -2,7 +2,7 @@
 //  FavoritesViewConstants.swift
 //  Burger Finder
 //
-//  Created by fyz on 1/2/23.
+//  Created by Feyza Topgul on 1/2/23.
 //
 
 import Foundation
@@ -13,5 +13,6 @@ class FavoritesViewConstants {
     static let burgerBackground = "burgerBackground"
     static let burgerIcon = "burgerIcon"
     static let textColor = "textColor"
+    static let favoritesCellIdentifier = "FavoritesCell"
 }
 

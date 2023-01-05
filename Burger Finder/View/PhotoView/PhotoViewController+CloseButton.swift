@@ -2,7 +2,7 @@
 //  PhotoViewController+CloseButton.swift
 //  Burger Finder
 //
-//  Created by fyz on 1/1/23.
+//  Created by Feyza Topgul on 1/1/23.
 //
 
 import Foundation

@@ -1,5 +1,5 @@
 //
-//  NearbyPlaceCell.swift
+//  PopularPlaceCell.swift
 //  Burger Finder
 //
 //  Created by Feyza Topgul on 12/23/22.
@@ -9,7 +9,6 @@ import UIKit
 
 class PopularPlaceCell: UICollectionViewCell {
     
-    static let identifier = "PopularPlaceCell"
     var backView = UIView()
     var imageView = UIImageView()
     var nameLabel = UILabel()

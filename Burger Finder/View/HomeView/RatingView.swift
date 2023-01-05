@@ -2,7 +2,7 @@
 //  RatingView.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/26/22.
+//  Created by Feyza Topgul on 12/26/22.
 //
 
 import Foundation
@@ -34,7 +34,8 @@ class RatingView: UIStackView {
             if i < filled / 2 {
                 imageViews[i].image = filledStar
             } else {
-                imageViews[i].image = nonFilledStar            }
+                imageViews[i].image = nonFilledStar
+            }
         }
         return imageViews
     }

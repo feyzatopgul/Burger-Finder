@@ -2,7 +2,7 @@
 //  DetailsViewController+SaveBarButton.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/28/22.
+//  Created by Feyza Topgul on 12/28/22.
 //
 
 import Foundation
@@ -15,7 +15,7 @@ extension DetailsViewController {
         let heart = UIImage(systemName: DetailsViewConstants.heart, withConfiguration: configuration)!
         let heartFilled = UIImage(systemName: DetailsViewConstants.filledHeart, withConfiguration: configuration)!
         
-        let buttonImage = saveButtonTapped ? heartFilled : heart
+        let buttonImage = detailsViewModel.isSaved ? heartFilled : heart
         if let button = self.saveBarButton.customView as? UIButton {
             button.setImage(buttonImage, for: .normal)
         }
@@ -48,19 +48,21 @@ extension DetailsViewController {
     
     //Action for saveBarButton tapped
     @objc func saveTapped() {
-        saveButtonTapped.toggle()
-        //Save button state to userdefaults
-        if let place = place {
-            detailsViewModel.setSavedState(placeId: place.id, isSaved: saveButtonTapped)
-        }
+        detailsViewModel.isSaved.toggle()
         
+        //Save button sate to CoreData
+        if let place = detailsViewModel.place {
+            detailsViewModel.setSavedState(placeId: place.id, isSaved: detailsViewModel.isSaved)
+        }
+
         //Animate button when it is tapped
         if let button = saveBarButton.customView {
             animateSaveButton(button)
         }
+        
         //Save or delete place
-        if let place = place {
-            if saveButtonTapped {
+        if let place = detailsViewModel.place  {
+            if detailsViewModel.isSaved {
                 // place is saved if saveButtonTapped is true
                 detailsViewModel.savePlace(place: place)
             } else {
@@ -68,5 +70,6 @@ extension DetailsViewController {
                 detailsViewModel.deletePlace(place: place)
             }
         }
+        
     }
 }

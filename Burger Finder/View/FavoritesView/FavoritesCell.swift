@@ -2,14 +2,14 @@
 //  FavoritesCell.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/28/22.
+//  Created by Feyza Topgul on 12/28/22.
 //
 
 import Foundation
 import UIKit
 
 class FavoritesCell: UICollectionViewCell {
-    static let identifier = "FavoritesCell"
+   
     let nameLabel = UILabel()
     let locationLabel = UILabel()
     var ratingView = RatingView()

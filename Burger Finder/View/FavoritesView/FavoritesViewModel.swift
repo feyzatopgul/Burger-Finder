@@ -2,7 +2,7 @@
 //  FavoritesViewModel.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/30/22.
+//  Created by Feyza Topgul on 12/30/22.
 //
 
 import Foundation
@@ -10,18 +10,19 @@ import Foundation
 class FavoritesViewModel {
     
     private let coreDataManager: CoreDataManagerProtocol
+    var favoritePlaces = [Place]()
     
     init(coreDataManager: CoreDataManagerProtocol = CoreDataManager.shared) {
         self.coreDataManager = coreDataManager
     }
     
     //Fetch all saved places from CoreData
-    func getSavedPlaces() -> [Place] {
-        return coreDataManager.fetchPlaces()
+    func getSavedPlaces() {
+        favoritePlaces = coreDataManager.fetchPlaces()
     }
     
     //Fetch filtered places from CoreData
-    func getFilteredPlaces(searchTerm: String) -> [Place] {
-        return coreDataManager.filterPlaces(filter: searchTerm)
+    func getFilteredPlaces(searchTerm: String) {
+        favoritePlaces = coreDataManager.filterPlaces(filter: searchTerm)
     }
 }

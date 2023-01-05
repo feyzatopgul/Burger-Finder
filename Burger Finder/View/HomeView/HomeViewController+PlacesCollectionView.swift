@@ -1,5 +1,5 @@
 //
-//  HomeViewController+NearbyPlacesView.swift
+//  HomeViewController+PlacesCollectionView.swift
 //  Burger Finder
 //
 //  Created by Feyza Topgul on 12/23/22.
@@ -25,15 +25,14 @@ extension HomeViewController {
         placesCollectionView.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             placesCollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            //placesCollectionView.topAnchor.constraint(equalTo: popularPlacesLabel.bottomAnchor),
             placesCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height / 2),
             placesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -view.frame.height / 9),
-            placesCollectionView.widthAnchor.constraint(equalToConstant: view.frame.width)
+            placesCollectionView.widthAnchor.constraint(equalToConstant: view.frame.width - 10)
         ]
         NSLayoutConstraint.activate(constraints)
         
         //Register a cell
-        placesCollectionView.register(PopularPlaceCell.self, forCellWithReuseIdentifier: PopularPlaceCell.identifier)
+        placesCollectionView.register(PopularPlaceCell.self, forCellWithReuseIdentifier: HomeViewConstants.popularPlaceCellIdentifier)
     }
 
     
@@ -41,7 +40,9 @@ extension HomeViewController {
     func createDataSource() -> DataSource {
         let dataSource = DataSource(collectionView: placesCollectionView) {[weak self] collectionView, indexPath, place in
             guard let self = self,
-                  let popularPlaceCell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularPlaceCell.identifier, for: indexPath) as? PopularPlaceCell else { return UICollectionViewCell() }
+                  let popularPlaceCell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: HomeViewConstants.popularPlaceCellIdentifier,
+                    for: indexPath) as? PopularPlaceCell else { return UICollectionViewCell() }
             
             self.populateCell(popularPlaceCell: popularPlaceCell, place: place)
            
@@ -84,7 +85,7 @@ extension HomeViewController {
     func applySnapshot() {
         var snapshot = Snapshot()
         snapshot.appendSections([.main])
-        snapshot.appendItems(places)
+        snapshot.appendItems(homeViewModel.popularPlaces)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 }

@@ -2,7 +2,7 @@
 //  SearchViewConstants.swift
 //  Burger Finder
 //
-//  Created by fyz on 1/2/23.
+//  Created by Feyza Topgul on 1/2/23.
 //
 
 import Foundation
@@ -17,10 +17,11 @@ class SearchViewConstants {
     static let textColor = "textColor"
     static let isOpenLabelOpen = "Open"
     static let isOpenLabelClosed = "Closed"
-    static let burgerIcon = "burgerIcon"
+    static let placeholderBurger = "placeholderBurger"
     static let imageSize = "600x600"
     static let filledPrice = "dollarsign.circle.fill"
     static let nonFilledPrice = "dollarsign.circle"
     static let priceColor = "priceColor"
     static let burgerAnnotation = "burgerAnnotation"
+    static let placeCellIdentifier = "PlaceCell"
 }

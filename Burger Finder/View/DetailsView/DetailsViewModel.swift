@@ -2,7 +2,7 @@
 //  DetailsViewModel.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/30/22.
+//  Created by Feyza Topgul on 12/30/22.
 //
 
 import Foundation
@@ -13,7 +13,9 @@ class DetailsViewModel {
     private let coreDataManager: CoreDataManagerProtocol
     private let networkManager: NetworkManagerProtocol
     private let userDefaults = UserDefaults.standard
-    var photos = [Photo]()
+    var placePhotos = [Photo]()
+    var place: Place?
+    var isSaved: Bool = false
     
     init(imageLoader: ImageLoaderProtocol = ImageLoader.shared,
          coreDataManager: CoreDataManagerProtocol = CoreDataManager.shared,
@@ -23,16 +25,17 @@ class DetailsViewModel {
         self.networkManager = networkManager
     }
     
-    //Save isSaved boolean as true in userdefaults if the place is saved, save it as false if the place is unsaved, use place id as key
-    func setSavedState(placeId: String, isSaved: Bool) {
-        userDefaults.set(isSaved, forKey: placeId)
-    }
+    //Save isSaved boolean as true in CoreData if the place is saved, save it as false if the place is unsaved
+        func setSavedState(placeId: String, isSaved: Bool) {
+            coreDataManager.setSavedState(placeId: placeId, isSaved: isSaved)
+        }
+        
+        //Check if the place is saved or not from CoreData
+        func getSavedState(placeId: String) -> Bool {
+            let state = coreDataManager.getSavedState(placeId: placeId)
+            return state
+        }
     
-    //Check if the place is saved or not by reading boolean value for place id key from userdefaults
-    func getSavedState(placeId: String) -> Bool {
-        let state = userDefaults.bool(forKey: placeId)
-        return state
-    }
     //Save place to CoreData
     func savePlace(place: Place) {
         coreDataManager.savePlace(place: place)
@@ -43,17 +46,18 @@ class DetailsViewModel {
     }
     
     //Make a network call for fetching photos of a place based on placeId
-    func getPhotos(placeId: String, completion: @escaping (Result<[Photo], Error>) -> Void) {
-        print("FETCH PHOTOS")
+    func getPhotos(placeId: String, completion: @escaping (Error?) -> Void) {
         let urlString = NetworkConstants.createUrlStringForPhotos(placeId: placeId)
         guard let request = networkManager.createRequest(for: urlString) else { return }
         
-        networkManager.executeRequest(request: request, forType: [Photo].self) { photos, error in
+        networkManager.executeRequest(request: request, forType: [Photo].self) {[weak self] photos, error in
+            guard let self = self else { return }
             if let error = error {
-                completion(.failure(error))
+                completion(error)
             }
             if let photos = photos {
-                completion(.success(photos))
+                self.placePhotos = photos
+                completion(nil)
             }
         }
     }
@@ -72,3 +76,4 @@ class DetailsViewModel {
     }
     
 }
+

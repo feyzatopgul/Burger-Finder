@@ -2,7 +2,7 @@
 //  FavoritesViewController+CollectionViewDelegates.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/28/22.
+//  Created by Feyza Topgul on 12/28/22.
 //
 
 import Foundation
@@ -21,7 +21,7 @@ extension FavoritesViewController:UICollectionViewDelegateFlowLayout, UICollecti
     //Navigate to DetailsViewController
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailsVC = DetailsViewController()
-        detailsVC.place = favoritePlaces[indexPath.row]
+        detailsVC.detailsViewModel.place = favoritesViewModel.favoritePlaces[indexPath.row]
         navigationController?.pushViewController(detailsVC, animated: true)
     }
 }

@@ -2,7 +2,7 @@
 //  FavoritesViewController+FavoritesCollectionView.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/28/22.
+//  Created by Feyza Topgul on 12/28/22.
 //
 
 import Foundation
@@ -36,13 +36,15 @@ extension FavoritesViewController {
         favoritesCollectionView.keyboardDismissMode = .onDrag
         
         //Register a cell
-        favoritesCollectionView.register(FavoritesCell.self, forCellWithReuseIdentifier: FavoritesCell.identifier)
+        favoritesCollectionView.register(FavoritesCell.self, forCellWithReuseIdentifier: FavoritesViewConstants.favoritesCellIdentifier)
     }
     
     //Create data source for favoritesCollectionView
     func createDataSource() -> DataSource {
         let dataSource = DataSource(collectionView: favoritesCollectionView) { collectionView, indexPath, place in
-            guard let favoritesCell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoritesCell.identifier, for: indexPath) as? FavoritesCell else { return UICollectionViewCell()}
+            guard let favoritesCell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: FavoritesViewConstants.favoritesCellIdentifier,
+                for: indexPath) as? FavoritesCell else { return UICollectionViewCell()}
             
             favoritesCell.nameLabel.text = place.name
             favoritesCell.locationLabel.text = place.location?.locality
@@ -56,7 +58,7 @@ extension FavoritesViewController {
     func applySnapshot() {
         var snapshot = Snapshot()
         snapshot.appendSections([.main])
-        snapshot.appendItems(favoritePlaces)
+        snapshot.appendItems(favoritesViewModel.favoritePlaces)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     

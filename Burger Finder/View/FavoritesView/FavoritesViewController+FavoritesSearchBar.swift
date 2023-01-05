@@ -2,7 +2,7 @@
 //  FavoritesViewController+SearchBar.swift
 //  Burger Finder
 //
-//  Created by fyz on 1/1/23.
+//  Created by Feyza Topgul on 1/1/23.
 //
 
 import Foundation
@@ -29,10 +29,10 @@ extension FavoritesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if !searchText.isEmpty {
             //Filter saved places from CoreData if searchBar text is not empty
-            favoritePlaces = favoritesViewModel.getFilteredPlaces(searchTerm: searchText)
+            favoritesViewModel.getFilteredPlaces(searchTerm: searchText)
         } else {
             //Get all saved places if searchBar text is empty
-            favoritePlaces = favoritesViewModel.getSavedPlaces()
+            favoritesViewModel.getSavedPlaces()
         }
         applySnapshot()
         

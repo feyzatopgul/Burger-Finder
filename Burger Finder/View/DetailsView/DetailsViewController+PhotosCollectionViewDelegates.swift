@@ -2,7 +2,7 @@
 //  DetailsViewController+PhotosCollectionViewDelegates.swift
 //  Burger Finder
 //
-//  Created by fyz on 1/1/23.
+//  Created by Feyza Topgul on 1/1/23.
 //
 
 import Foundation
@@ -18,7 +18,7 @@ extension DetailsViewController: UICollectionViewDelegateFlowLayout, UICollectio
     //Navigate to PhotoViewController when a photosCollectionView cell is tapped
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let photoVC = PhotoViewController()
-        photoVC.photo = photos[indexPath.row]
+        photoVC.photoViewModel.photo = detailsViewModel.placePhotos[indexPath.row]
         photoVC.modalPresentationStyle = .fullScreen
         photoVC.modalTransitionStyle = .crossDissolve
         self.present(photoVC, animated: true)

@@ -1,5 +1,5 @@
 //
-//  HomeViewController+SearchField.swift
+//  HomeViewController+SearchButton.swift
 //  Burger Finder
 //
 //  Created by Feyza Topgul on 12/23/22.

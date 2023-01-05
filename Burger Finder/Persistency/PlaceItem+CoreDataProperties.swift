@@ -2,7 +2,7 @@
 //  PlaceItem+CoreDataProperties.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/29/22.
+//  Created by Feyza Topgul on 12/29/22.
 //
 
 import Foundation
@@ -19,7 +19,6 @@ extension PlaceItem {
     }
 
     @NSManaged public var id: String
-    @NSManaged public var distance: Int32
     @NSManaged public var hours: HoursItem
     @NSManaged public var coordinates: CoordinateItem
     @NSManaged public var location: LocationItem?

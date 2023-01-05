@@ -2,7 +2,7 @@
 //  SearchViewController+MapButton.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/30/22.
+//  Created by Feyza Topgul on 12/30/22.
 //
 
 import Foundation
@@ -14,7 +14,7 @@ extension SearchViewController {
     func setButtonImage() {
         let map = UIImage(named: SearchViewConstants.mapIcon)
         let list = UIImage(named: SearchViewConstants.listIcon)
-        let buttonImage = mapViewHidden ? map : list
+        let buttonImage = searchViewModel.mapViewHidden ? map : list
         if let button = self.mapListBarButton.customView as? UIButton {
             button.setImage(buttonImage, for: .normal)
         }
@@ -46,12 +46,12 @@ extension SearchViewController {
     }
     
     @objc func showMapView() {
-        mapViewHidden.toggle()
+        searchViewModel.mapViewHidden.toggle()
         //Animate button when tapped
         if let button = mapListBarButton.customView {
             animateMapButton(button)
         }
-        if mapViewHidden {
+        if searchViewModel.mapViewHidden {
             //Flip views while transition
             UIView.transition(with: placesTableView, duration: 0.5, options: [.transitionFlipFromLeft]) { [weak self] in
                 guard let self = self else {return}

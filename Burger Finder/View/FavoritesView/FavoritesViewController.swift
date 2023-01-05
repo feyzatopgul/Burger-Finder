@@ -9,8 +9,7 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
     
-    var favoritePlaces = [Place]()
-    var favoritesViewModel = FavoritesViewModel()
+    let favoritesViewModel = FavoritesViewModel()
     
     let favoritesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     typealias DataSource = UICollectionViewDiffableDataSource<FavoritesSection,Place>
@@ -47,17 +46,9 @@ class FavoritesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         favoritesSearchBar.text = ""
-        //Is it OK to put it on viewWillAppear
-        favoritePlaces = favoritesViewModel.getSavedPlaces()
+        favoritesViewModel.getSavedPlaces()
         applySnapshot()
     }
-   
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        favoritePlaces = favoritesViewModel.getSavedPlaces()
-//        applySnapshot()
-    }
-
 }
 
 

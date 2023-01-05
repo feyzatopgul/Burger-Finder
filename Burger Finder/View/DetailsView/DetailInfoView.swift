@@ -2,7 +2,7 @@
 //  InfoView.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/26/22.
+//  Created by Feyza Topgul on 12/26/22.
 //
 
 import Foundation
@@ -14,6 +14,7 @@ class DetailInfoView: UIStackView {
             createDetailInfoView()
         }
     }
+    
     var addressStack = UIStackView()
     var hoursStack = UIStackView()
     var websiteStack = UIStackView()
@@ -47,12 +48,12 @@ class DetailInfoView: UIStackView {
         priceView.price = place?.price
         
         configureLabelStack(stack: addressStack,
-                           text: place?.location?.formattedAddress,
+                            text: place?.location?.formattedAddress,
                            imageName: DetailsViewConstants.location,
                            textColor: .systemGray,
                            imageColor: .systemGray)
         configureLabelStack(stack: hoursStack,
-                           text: place?.hours.display,
+                            text: place?.hours.display,
                            imageName: DetailsViewConstants.clock, textColor: .systemGray,
                            imageColor: .systemGray)
         configureButtonStack(stack: websiteStack,

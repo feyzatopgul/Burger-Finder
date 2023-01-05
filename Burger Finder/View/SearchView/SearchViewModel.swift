@@ -2,7 +2,7 @@
 //  SearchViewModel.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/30/22.
+//  Created by Feyza Topgul on 12/30/22.
 //
 
 import Foundation
@@ -14,6 +14,11 @@ class SearchViewModel {
     private let imageLoader: ImageLoaderProtocol
     private let locationManager: LocationManagerProtocol
     
+    var searchedPlaces = [Place]()
+    var placeText = ""
+    var locationText = ""
+    var mapViewHidden = true
+    
     init(networkManager: NetworkManagerProtocol = NetworkManager.shared,
          imageLoader: ImageLoaderProtocol = ImageLoader.shared,
          locationManager: LocationManagerProtocol = LocationManager.shared) {
@@ -22,7 +27,7 @@ class SearchViewModel {
         self.locationManager = locationManager
     }
     
-    func fetchSearchedPlaces(search: String, location: String, completion: @escaping (Result<[Place], Error>) -> Void) {
+    func fetchSearchedPlaces(search: String, location: String, completion: @escaping (Error?) -> Void) {
         if !location.isEmpty {
             //If there is a location that is searched it fetches the places based on that location
             locationManager.findLocation(query: location) { [weak self] returnedCoordinate in
@@ -34,10 +39,11 @@ class SearchViewModel {
                     
                     self.networkManager.executeRequest(request: request, forType: Places.self) { places, error in
                         if let error = error {
-                            completion(.failure(error))
+                            completion(error)
                         }
                         if let places = places {
-                            completion(.success(places.results))
+                            self.searchedPlaces = places.results
+                            completion(nil)
                         }
                     }
                 }
@@ -51,10 +57,11 @@ class SearchViewModel {
                 guard let request = self.networkManager.createRequest(for: urlString) else { return }
                 self.networkManager.executeRequest(request: request, forType: Places.self) { places, error in
                     if let error = error {
-                        completion(.failure(error))
+                        completion(error)
                     }
                     if let places = places {
-                        completion(.success(places.results))
+                        self.searchedPlaces = places.results
+                        completion(nil)
                     }
                 }
                 
@@ -94,3 +101,5 @@ class SearchViewModel {
     }
     
 }
+
+

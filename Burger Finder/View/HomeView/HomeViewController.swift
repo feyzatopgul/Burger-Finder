@@ -9,8 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    var homeViewModel = HomeViewModel()
-    var places = [Place]()
+    let homeViewModel = HomeViewModel()
     
     let searchButton = UIButton(configuration: .plain(), primaryAction: nil)
     
@@ -86,16 +85,14 @@ class HomeViewController: UIViewController {
     
     //Get default popular places according to the current location
     func getPlaces() {
-        homeViewModel.fetchPopularPlacesNearby { [weak self] result in
+        homeViewModel.fetchPopularPlacesNearby { [weak self] error in
             guard let self = self else { return }
-            switch result {
-            case .success(let returnedPlaces):
-                self.places = returnedPlaces
+            if let error = error {
+                print("Error in getting popular places: \(error)")
+            } else {
                 DispatchQueue.main.async {
                     self.applySnapshot()
                 }
-            case .failure(let error):
-                print(error)
             }
         }
     }

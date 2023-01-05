@@ -2,7 +2,7 @@
 //  SearchViewController+SearchBarDelegate.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/25/22.
+//  Created by Feyza Topgul on 12/25/22.
 //
 
 import Foundation
@@ -14,21 +14,20 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar == placeSearchBar {
             if let text = placeSearchBar.text {
-                placeText = text
+                searchViewModel.placeText = text
             }
         }
         if searchBar == locationSearchBar {
             if let text = locationSearchBar.text {
-                locationText = text
+                searchViewModel.locationText = text
             }
         }
         // ???
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2 ) { [weak self] in
-//            guard let self = self else { return }
-//            self.getPlaces(search: self.placeText, location: self.locationText)
-//            self.createAnnotations(places: self.places)
-//        }
-        getPlaces(search: placeText, location: locationText)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+            guard let self = self else { return }
+            self.getPlaces(search: self.searchViewModel.placeText, location: self.searchViewModel.locationText)
+        }
+        //getPlaces(search: placeText, location: locationText)
     }
     
     //Reset search bar text when cancel button is clicked to update the tableview

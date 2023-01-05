@@ -2,7 +2,7 @@
 //  SearchViewController+PlacesTableView.swift
 //  Burger Finder
 //
-//  Created by fyz on 12/25/22.
+//  Created by Feyza Topgul on 12/25/22.
 //
 
 import Foundation
@@ -31,14 +31,14 @@ extension SearchViewController {
         placesTableView.keyboardDismissMode = .onDrag
         
         //Register a cell
-        placesTableView.register(PlaceCell.self, forCellReuseIdentifier: PlaceCell.identifier)
+        placesTableView.register(PlaceCell.self, forCellReuseIdentifier: SearchViewConstants.placeCellIdentifier)
     }
     
     //Create data source for placesTableView
     func createDataSource() -> DataSource {
         let dataSource = DataSource(tableView: placesTableView) { [weak self] tableView, indexPath, place in
             guard let self = self,
-                  let placeCell = tableView.dequeueReusableCell(withIdentifier: PlaceCell.identifier, for: indexPath) as? PlaceCell else {
+                  let placeCell = tableView.dequeueReusableCell(withIdentifier: SearchViewConstants.placeCellIdentifier, for: indexPath) as? PlaceCell else {
                       return UITableViewCell()
                   }
             self.populateCell(placeCell: placeCell, place: place)
@@ -70,7 +70,7 @@ extension SearchViewController {
         }
 
         //Set imageView with a placeholder
-        placeCell.placeImage.image = UIImage(named: SearchViewConstants.burgerIcon)
+        placeCell.placeImage.image = UIImage(named: SearchViewConstants.placeholderBurger)
     
         //Set imageView with the first photo if available
         if let photos = place.photos {
@@ -96,7 +96,7 @@ extension SearchViewController {
     func applySnapshot() {
         var snapshot = Snapshot()
         snapshot.appendSections([.main])
-        snapshot.appendItems(places)
+        snapshot.appendItems(searchViewModel.searchedPlaces)
         dataSource.apply(snapshot, animatingDifferences: false)
     }
 }

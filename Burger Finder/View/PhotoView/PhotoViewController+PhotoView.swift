@@ -2,7 +2,7 @@
 //  PhotoViewController+PhotoView.swift
 //  Burger Finder
 //
-//  Created by fyz on 1/1/23.
+//  Created by Feyza Topgul on 1/1/23.
 //
 
 import Foundation
@@ -17,7 +17,7 @@ extension PhotoViewController {
         photoView.contentMode = .scaleAspectFill
         photoView.clipsToBounds = true
         
-        guard let photo = photo else { return }
+        guard let photo = photoViewModel.photo else { return }
         photoViewModel.fetchImage(prefix: photo.prefix,
                                   suffix: photo.suffix,
                                   size: PhotoViewConstants.imageSize) { [weak self] result in

@@ -10,14 +10,10 @@ import MapKit
 
 class SearchViewController: UIViewController {
     
-    var searchViewModel = SearchViewModel()
-    var places = [Place]()
-    
+    let searchViewModel = SearchViewModel()
     let placeSearchBar = UISearchBar()
     let locationSearchBar = UISearchBar()
-    var placeText = ""
-    var locationText = ""
-    
+
     let placesTableView = UITableView()
     typealias DataSource = UITableViewDiffableDataSource<PlacesSection, Place>
     typealias Snapshot = NSDiffableDataSourceSnapshot<PlacesSection, Place>
@@ -25,7 +21,6 @@ class SearchViewController: UIViewController {
     
     let mapView = MKMapView()
     var mapListBarButton = UIBarButtonItem()
-    var mapViewHidden = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,24 +47,21 @@ class SearchViewController: UIViewController {
         
         //Update placesTableView
         applySnapshot()
-            
     }
     
     //Fetch place data when user searches something
     func getPlaces(search: String, location: String) {
-        searchViewModel.fetchSearchedPlaces(search: search, location: location) {[weak self] result in
+        searchViewModel.fetchSearchedPlaces(search: search, location: location) {[weak self] error in
             guard let self = self else { return }
-            switch result {
-            case .success(let returnedPlaces):
-                self.places = returnedPlaces
+            if let error = error {
+                print("Error in getting searched places: \(error) ")
+            } else {
                 DispatchQueue.main.async {
                     //Update placesTableView
                     self.applySnapshot()
                     //Update mapView
-                    self.createAnnotations(places: returnedPlaces)
+                    self.createAnnotations(places: self.searchViewModel.searchedPlaces)
                 }
-            case .failure(let error):
-                print(error)
             }
         }
     }

@@ -10,12 +10,13 @@
         <attribute name="openNow" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlaceItem" inverseName="hours" inverseEntity="PlaceItem"/>
     </entity>
+    <entity name="IsSavedItem" representedClassName="IsSavedItem" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="isSaved" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
     <entity name="LocationItem" representedClassName="LocationItem" syncable="YES">
-        <attribute name="country" optional="YES" attributeType="String"/>
         <attribute name="formattedAddress" optional="YES" attributeType="String"/>
         <attribute name="locality" optional="YES" attributeType="String"/>
-        <attribute name="postcode" optional="YES" attributeType="String"/>
-        <attribute name="region" optional="YES" attributeType="String"/>
         <relationship name="place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlaceItem" inverseName="location" inverseEntity="PlaceItem"/>
     </entity>
     <entity name="PhotoItem" representedClassName="PhotoItem" syncable="YES">
@@ -32,7 +33,6 @@
         </uniquenessConstraints>
     </entity>
     <entity name="PlaceItem" representedClassName="PlaceItem" syncable="YES">
-        <attribute name="distance" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String"/>

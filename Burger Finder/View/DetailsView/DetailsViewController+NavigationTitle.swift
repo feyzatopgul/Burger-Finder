@@ -2,7 +2,7 @@
 //  DetailsViewController+NavigationTitle.swift
 //  Burger Finder
 //
-//  Created by fyz on 1/2/23.
+//  Created by Feyza Topgul on 1/2/23.
 //
 
 import Foundation
@@ -18,7 +18,7 @@ extension DetailsViewController {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
         titleLabel.textColor = UIColor(named: "textColor")
         titleLabel.textAlignment = .center
-        titleLabel.text = place?.name
+        titleLabel.text = detailsViewModel.place?.name
         navigationItem.titleView = titleLabel
     }
 }
