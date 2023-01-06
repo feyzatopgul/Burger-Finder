@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 
 class HomeViewModel {
-    
+  
     private let networkManager: NetworkManagerProtocol
     private let locationManager: LocationManagerProtocol
     private let imageLoader: ImageLoaderProtocol

@@ -21,7 +21,7 @@ class NetworkManager:NetworkManagerProtocol {
         guard let url = URL(string: url) else {
             return nil
         }
-        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 60.0)
         request.httpMethod = NetworkConstants.httpMethod
         request.allHTTPHeaderFields = NetworkConstants.headers
         return request

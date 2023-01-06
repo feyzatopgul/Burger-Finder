@@ -22,12 +22,16 @@ extension SearchViewController: UISearchBarDelegate {
                 searchViewModel.locationText = text
             }
         }
-        // ???
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
-            guard let self = self else { return }
-            self.getPlaces(search: self.searchViewModel.placeText, location: self.searchViewModel.locationText)
+        
+        //Wait for the user to type some text to prevent making too much network calls
+        if !searchViewModel.placeText.isEmpty || !searchViewModel.locationText.isEmpty {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+                guard let self = self else { return }
+                self.getPlaces(search: self.searchViewModel.placeText, location: self.searchViewModel.locationText)
+            }
+        } else {
+            getPlaces(search: self.searchViewModel.placeText, location: self.searchViewModel.locationText)
         }
-        //getPlaces(search: placeText, location: locationText)
     }
     
     //Reset search bar text when cancel button is clicked to update the tableview

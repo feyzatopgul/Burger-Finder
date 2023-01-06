@@ -43,16 +43,21 @@ class DetailsViewController: UIViewController {
         //Configure getDirectionsButton
         configureGetDirectionsButton()
         
+        //Show loadingView before data is fetched from network
+        configureAndShowLoadingView()
+        
         //Configure photosCollectionView
         configurePhotosCollectionView()
-        
-        getPhotos()
-        applySnapshot()
-        
+//        
+//        //Hide loadingView if network is not connected
+//        if !NetworkReachability.shared.isConnectedToNetwork() {
+//            hideLoadingView()
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         //Check if the place is saved or not in CoreData
         if let place = detailsViewModel.place {
             detailsViewModel.isSaved = detailsViewModel.getSavedState(placeId: place.id)
@@ -63,7 +68,9 @@ class DetailsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        //getPhotos from network
         getPhotos()
+        //update photosCollectionView
         applySnapshot()
     }
     
@@ -72,11 +79,19 @@ class DetailsViewController: UIViewController {
         guard let place = detailsViewModel.place  else { return }
         guard let photos = place.photos else {return}
         if !photos.isEmpty {
-            detailsViewModel.getPhotos(placeId: place.id) { error in
+            detailsViewModel.getPhotos(placeId: place.id) {[weak self] error in
+                guard let self = self else { return }
                 if let error = error {
                     print("Error in getting photos: \(error)")
+                } else {
+                    DispatchQueue.main.async {
+                        self.hideLoadingView()
+                        self.applySnapshot()
+                    }
                 }
             }
+        } else {
+            self.hideLoadingView()
         }
     }
 }

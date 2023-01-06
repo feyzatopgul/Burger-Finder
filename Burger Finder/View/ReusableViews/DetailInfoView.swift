@@ -117,7 +117,7 @@ class DetailInfoView: UIStackView {
         }
     }
     
-    //Open website in Safari
+    //Open website in WebVuew
     @objc func openWebsite(){
         guard let website = place?.website else { return }
         guard let webUrl = URL(string: website) else { return }

@@ -13,7 +13,7 @@ class SearchViewController: UIViewController {
     let searchViewModel = SearchViewModel()
     let placeSearchBar = UISearchBar()
     let locationSearchBar = UISearchBar()
-
+    
     let placesTableView = UITableView()
     typealias DataSource = UITableViewDiffableDataSource<PlacesSection, Place>
     typealias Snapshot = NSDiffableDataSourceSnapshot<PlacesSection, Place>
@@ -42,6 +42,14 @@ class SearchViewController: UIViewController {
         //Configure mapView
         configureMapView()
         
+        //Show loadingView before data is fetched from network
+        configureAndShowLoadingView()
+        
+//        //Hide loadingView if network is not connected
+//        if !NetworkReachability.shared.isConnectedToNetwork() {
+//            hideLoadingView()
+//        }
+        
         //Fetch places data
         getPlaces(search: "", location: "")
         
@@ -57,6 +65,8 @@ class SearchViewController: UIViewController {
                 print("Error in getting searched places: \(error) ")
             } else {
                 DispatchQueue.main.async {
+                    //Hide loadingView
+                    self.hideLoadingView()
                     //Update placesTableView
                     self.applySnapshot()
                     //Update mapView

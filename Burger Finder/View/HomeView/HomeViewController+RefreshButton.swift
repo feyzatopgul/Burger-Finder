@@ -2,8 +2,10 @@
 //  HomeViewController+RefreshButton.swift
 //  Burger Finder
 //
-//  Created by Feyza Topgul on 12/24/22.
+//  Created by fyz on 1/6/23.
 //
+
+import Foundation
 
 import Foundation
 import UIKit
@@ -17,15 +19,16 @@ extension HomeViewController {
         refreshButton.setTitleColor(UIColor(named: HomeViewConstants.primaryAppColor), for: .normal)
         refreshButton.tintColor = .tertiarySystemBackground
         refreshButton.layer.cornerRadius = 10
+        refreshButton.isHidden = true
         
         //Add target
-        refreshButton.addTarget(self, action: #selector(refreshWarningView), for: .touchUpInside)
+        refreshButton.addTarget(self, action: #selector(refreshPopularPlacesView), for: .touchUpInside)
         
         //Adjust constraints
         refreshButton.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
-            refreshButton.centerXAnchor.constraint(equalTo: warningView.centerXAnchor),
-            refreshButton.topAnchor.constraint(equalTo: warningLabel.bottomAnchor, constant: 30),
+            refreshButton.centerXAnchor.constraint(equalTo: placesCollectionView.centerXAnchor),
+            refreshButton.topAnchor.constraint(equalTo: placesCollectionView.bottomAnchor, constant: 30),
             refreshButton.widthAnchor.constraint(equalToConstant: 100),
             refreshButton.heightAnchor.constraint(equalToConstant: 40)
         ]
@@ -34,12 +37,17 @@ extension HomeViewController {
     }
     
     //Refresh view when refreshButton is tapped
-    @objc func refreshWarningView() {
+    @objc func refreshPopularPlacesView() {
         showSpinner()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
             guard let self = self else { return }
             self.hideSpinner()
-            self.checkLocationEnabled()
+            if NetworkReachability.shared.isConnectedToNetwork(){
+                self.refreshButton.isHidden = true
+                self.checkLocationEnabled()
+            }
         }
+        
     }
 }
+

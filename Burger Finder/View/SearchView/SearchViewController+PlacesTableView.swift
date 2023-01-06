@@ -16,7 +16,7 @@ extension SearchViewController {
         placesTableView.delegate = self
         //Set row height
         placesTableView.rowHeight = 150
-      
+
         //Adjust constraints
         placesTableView.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [

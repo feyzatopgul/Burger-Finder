@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import Network
 
 class HomeViewController: UIViewController {
+    var networkPathMonitor: NWPathMonitor?
     
     let homeViewModel = HomeViewModel()
     
@@ -19,6 +21,7 @@ class HomeViewController: UIViewController {
     
     let warningView = GradientView(colors: [UIColor.white.cgColor, UIColor.clear.cgColor])
     let warningLabel = UILabel()
+    let settingsButton = UIButton()
     let refreshButton = UIButton()
     let spinnerView = UIActivityIndicatorView()
     
@@ -44,14 +47,26 @@ class HomeViewController: UIViewController {
         configurePlacesCollectionView()
         configurePopularPlacesLabel()
         
+        //Show loadingView before data is fetched from network
+        configureAndShowLoadingView()
+        
         //Configure warningView
         configureWarningView()
         configureWarningLabel()
+        configureSettingsButton()
+        
+        //Configure refreshButton and spinnerView for checking network status
         configureRefreshButton()
         configureSpinner()
         
         LocationManager.shared.locationDelegate = self
-    
+
+//        //Hide loadingView and show alert if network is not connected
+//        if !NetworkReachability.shared.isConnectedToNetwork() {
+//            hideLoadingView()
+//            showNetworkAlert()
+//            refreshButton.isHidden = false
+//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -85,12 +100,14 @@ class HomeViewController: UIViewController {
     
     //Get default popular places according to the current location
     func getPlaces() {
+
         homeViewModel.fetchPopularPlacesNearby { [weak self] error in
             guard let self = self else { return }
             if let error = error {
                 print("Error in getting popular places: \(error)")
             } else {
                 DispatchQueue.main.async {
+                    self.hideLoadingView()
                     self.applySnapshot()
                 }
             }
@@ -103,3 +120,5 @@ extension HomeViewController: LocationUpdateDelegate {
         checkLocationEnabled() 
     }
 }
+
+

@@ -38,15 +38,27 @@ struct Place: Codable,Hashable {
 }
 
 struct Geocode: Codable, Hashable {
+    let id = UUID()
     let main: Coordinate
+    
+    enum CodingKeys: String, CodingKey {
+        case main
+    }
 }
 
 struct Coordinate: Codable, Hashable {
+    let id = UUID()
     let latitude: Double
     let longitude: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case latitude
+        case longitude
+    }
 }
 
 struct Hours: Codable, Hashable {
+    let id = UUID()
     let display: String?
     let openNow: Bool
     
@@ -57,6 +69,7 @@ struct Hours: Codable, Hashable {
 }
 
 struct Location: Codable, Hashable {
+    let id = UUID()
     let formattedAddress: String?
     let locality: String?
     

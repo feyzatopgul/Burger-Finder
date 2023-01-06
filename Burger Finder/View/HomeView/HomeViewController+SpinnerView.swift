@@ -1,8 +1,8 @@
 //
-//  HomeViewController+Spinner.swift
+//  HomeViewController+SpinnerView.swift
 //  Burger Finder
 //
-//  Created by Feyza Topgul on 12/24/22.
+//  Created by fyz on 1/6/23.
 //
 
 import Foundation
@@ -11,6 +11,7 @@ import UIKit
 extension HomeViewController {
     //Configure spinnerView
     func configureSpinner() {
+        
         spinnerView.isHidden = true
         spinnerView.style = .medium
         spinnerView.color = .tertiarySystemBackground
@@ -18,8 +19,8 @@ extension HomeViewController {
         //Adjust constraints
         spinnerView.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
-            spinnerView.centerXAnchor.constraint(equalTo: warningView.centerXAnchor),
-            spinnerView.topAnchor.constraint(equalTo: warningLabel.bottomAnchor, constant: 30),
+            spinnerView.centerXAnchor.constraint(equalTo: placesCollectionView.centerXAnchor),
+            spinnerView.topAnchor.constraint(equalTo: placesCollectionView.bottomAnchor, constant: 30),
             spinnerView.widthAnchor.constraint(equalToConstant: 100),
             spinnerView.heightAnchor.constraint(equalToConstant: 40)
         ]
@@ -39,6 +40,5 @@ extension HomeViewController {
         refreshButton.isHidden = false
         spinnerView.isHidden = true
     }
-    
-   
 }
+

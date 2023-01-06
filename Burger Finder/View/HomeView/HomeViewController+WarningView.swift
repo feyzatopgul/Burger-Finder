@@ -13,8 +13,7 @@ extension HomeViewController {
     func configureWarningView() {
         view.addSubview(warningView)
         warningView.addSubview(warningLabel)
-        warningView.addSubview(refreshButton)
-        warningView.addSubview(spinnerView)
+        warningView.addSubview(settingsButton)
         
         //Set warningView hidden by default
         warningView.isHidden = true

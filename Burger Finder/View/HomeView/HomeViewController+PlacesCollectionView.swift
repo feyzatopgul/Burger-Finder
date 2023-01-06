@@ -12,6 +12,9 @@ extension HomeViewController {
     
     //Configure placesCollectionView
     func configurePlacesCollectionView() {
+        placesCollectionView.addSubview(refreshButton)
+        placesCollectionView.addSubview(spinnerView)
+        
         placesCollectionView.backgroundColor = .clear
         placesCollectionView.delegate = self
         
