@@ -8,8 +8,11 @@
 import SystemConfiguration
 import Foundation
 
+protocol NetworkReachabilityProtocol{
+    func isConnectedToNetwork() -> Bool
+}
 
-class NetworkReachability {
+class NetworkReachability: NetworkReachabilityProtocol {
     
     static let shared = NetworkReachability()
     

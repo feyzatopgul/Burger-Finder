@@ -12,6 +12,10 @@ extension SearchViewController {
     //Configure placesTableView
     func configurePlacesTableView() {
         view.addSubview(placesTableView)
+        placesTableView.addSubview(networkWarningLabel)
+        placesTableView.addSubview(refreshButton)
+        placesTableView.addSubview(spinnerView)
+        
         //set delegate
         placesTableView.delegate = self
         //Set row height
@@ -71,7 +75,7 @@ extension SearchViewController {
 
         //Set imageView with a placeholder
         placeCell.placeImage.image = UIImage(named: SearchViewConstants.placeholderBurger)
-    
+        
         //Set imageView with the first photo if available
         if let photos = place.photos {
             if !photos.isEmpty {
@@ -88,15 +92,19 @@ extension SearchViewController {
                         }
                     }
                 }
+            } else {
+                //Set imageView with a placeholder
+                //placeCell.placeImage.image = UIImage(named: SearchViewConstants.placeholderBurger)
             }
         }
-        
     }
+    
     //Apply snapshot for update placesTableView
     func applySnapshot() {
         var snapshot = Snapshot()
         snapshot.appendSections([.main])
         snapshot.appendItems(searchViewModel.searchedPlaces)
+        dataSource.defaultRowAnimation = .fade
         dataSource.apply(snapshot, animatingDifferences: false)
     }
 }

@@ -13,6 +13,7 @@ class SearchViewModel {
     private let networkManager: NetworkManagerProtocol
     private let imageLoader: ImageLoaderProtocol
     private let locationManager: LocationManagerProtocol
+    private let networkReachability: NetworkReachabilityProtocol
     
     var searchedPlaces = [Place]()
     var placeText = ""
@@ -21,10 +22,12 @@ class SearchViewModel {
     
     init(networkManager: NetworkManagerProtocol = NetworkManager.shared,
          imageLoader: ImageLoaderProtocol = ImageLoader.shared,
-         locationManager: LocationManagerProtocol = LocationManager.shared) {
+         locationManager: LocationManagerProtocol = LocationManager.shared,
+         networkReachability: NetworkReachabilityProtocol = NetworkReachability.shared) {
         self.networkManager = networkManager
         self.imageLoader = imageLoader
         self.locationManager = locationManager
+        self.networkReachability = networkReachability
     }
     
     func fetchSearchedPlaces(search: String, location: String, completion: @escaping (Error?) -> Void) {
@@ -66,6 +69,24 @@ class SearchViewModel {
                 }
                 
             }
+        }
+    }
+    
+    //Check if location is enabled or not
+    func isLocationEnabled(completion: @escaping ((Bool) -> Void)){
+        if locationManager.isLocationEnabled {
+            completion(true)
+        } else {
+            completion(false)
+        }
+    }
+    
+    //Check if network is connected or not
+    func isNetworkConnected(completion: @escaping ((Bool) -> Void)) {
+        if networkReachability.isConnectedToNetwork(){
+            completion(true)
+        } else {
+            completion(false)
         }
     }
     

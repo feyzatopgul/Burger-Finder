@@ -42,8 +42,10 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
             locationManager.requestWhenInUseAuthorization()
         case .restricted:
             print("Location is restricted")
+            isLocationEnabled = false
         case .denied:
             print("Denied")
+            isLocationEnabled = false
         case .authorizedAlways, .authorizedWhenInUse:
             isLocationEnabled = true
             print("Authorized")

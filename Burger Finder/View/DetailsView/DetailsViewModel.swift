@@ -12,17 +12,20 @@ class DetailsViewModel {
     private let imageLoader: ImageLoaderProtocol
     private let coreDataManager: CoreDataManagerProtocol
     private let networkManager: NetworkManagerProtocol
-    private let userDefaults = UserDefaults.standard
+    private let networkReachability: NetworkReachabilityProtocol
+    
     var placePhotos = [Photo]()
     var place: Place?
     var isSaved: Bool = false
     
     init(imageLoader: ImageLoaderProtocol = ImageLoader.shared,
          coreDataManager: CoreDataManagerProtocol = CoreDataManager.shared,
-         networkManager: NetworkManagerProtocol = NetworkManager.shared) {
+         networkManager: NetworkManagerProtocol = NetworkManager.shared,
+         networkReachability: NetworkReachabilityProtocol = NetworkReachability.shared) {
         self.imageLoader = imageLoader
         self.coreDataManager = coreDataManager
         self.networkManager = networkManager
+        self.networkReachability = networkReachability
     }
     
     //Save isSaved boolean as true in CoreData if the place is saved, save it as false if the place is unsaved
@@ -75,5 +78,13 @@ class DetailsViewModel {
         }
     }
     
+    //Check if network is connected or not
+    func isNetworkConnected(completion: @escaping ((Bool) -> Void)) {
+        if networkReachability.isConnectedToNetwork(){
+            completion(true)
+        } else {
+            completion(false)
+        }
+    }
 }
 

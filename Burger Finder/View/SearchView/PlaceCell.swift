@@ -9,11 +9,11 @@ import UIKit
 
 class PlaceCell: UITableViewCell {
     
-    var placeImage = UIImageView()
-    var nameLabel = UILabel()
-    var ratingLabel = UILabel()
-    var priceView = PriceView()
-    var isOpenLabel = UILabel()
+    let placeImage = UIImageView()
+    let nameLabel = UILabel()
+    let ratingLabel = UILabel()
+    let priceView = PriceView()
+    let isOpenLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

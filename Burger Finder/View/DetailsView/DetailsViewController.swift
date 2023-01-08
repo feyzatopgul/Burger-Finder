@@ -48,11 +48,15 @@ class DetailsViewController: UIViewController {
         
         //Configure photosCollectionView
         configurePhotosCollectionView()
-//        
-//        //Hide loadingView if network is not connected
-//        if !NetworkReachability.shared.isConnectedToNetwork() {
-//            hideLoadingView()
-//        }
+        
+        //Hide loadingView if network is not connected
+        detailsViewModel.isNetworkConnected { [weak self] isConnected in
+            guard let self = self else {return}
+            if !isConnected {
+                self.hideLoadingView()
+            }
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

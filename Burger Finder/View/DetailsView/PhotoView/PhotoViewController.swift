@@ -24,6 +24,8 @@ class PhotoViewController: UIViewController {
         
         //ConfigurePhotoView
         configurePhotoView()
+        
+        transitioningDelegate = self
     }
     
 }

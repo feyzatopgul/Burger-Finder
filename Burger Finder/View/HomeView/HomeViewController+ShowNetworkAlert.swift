@@ -13,8 +13,8 @@ extension HomeViewController {
     //Show alert if network is not connected
     func showNetworkAlert() {
         //Create alertView
-        let alert = UIAlertController(title: "No internet",
-                                      message: "Please check your network connection",
+        let alert = UIAlertController(title: "No internet connection",
+                                      message: "Please connect and retry",
                                       preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default)
         alert.addAction(action)

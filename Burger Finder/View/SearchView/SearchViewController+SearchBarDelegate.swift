@@ -22,15 +22,21 @@ extension SearchViewController: UISearchBarDelegate {
                 searchViewModel.locationText = text
             }
         }
-        
-        //Wait for the user to type some text to prevent making too much network calls
-        if !searchViewModel.placeText.isEmpty || !searchViewModel.locationText.isEmpty {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+        //If search bar texts are empty immediately get places from API, else wait for user types some text in order to prevent making too much requests
+        if searchViewModel.placeText.isEmpty && searchViewModel.locationText.isEmpty {
+            getPlaces(search: "", location: "")
+        } else {
+            //Cancel currently pending items
+            pendingRequestWorkItem?.cancel()
+
+            // Replace previous workitem with a new one
+            let requestWorkItem = DispatchWorkItem { [weak self] in
                 guard let self = self else { return }
                 self.getPlaces(search: self.searchViewModel.placeText, location: self.searchViewModel.locationText)
             }
-        } else {
-            getPlaces(search: self.searchViewModel.placeText, location: self.searchViewModel.locationText)
+            pendingRequestWorkItem = requestWorkItem
+            // Execute request in 0.5 seconds
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: requestWorkItem)
         }
     }
     

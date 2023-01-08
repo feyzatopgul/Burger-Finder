@@ -61,12 +61,15 @@ class HomeViewController: UIViewController {
         
         LocationManager.shared.locationDelegate = self
 
-//        //Hide loadingView and show alert if network is not connected
-//        if !NetworkReachability.shared.isConnectedToNetwork() {
-//            hideLoadingView()
-//            showNetworkAlert()
-//            refreshButton.isHidden = false
-//        }
+        //Hide loadingView and show alert if network is not connected
+        homeViewModel.isNetworkConnected{ [weak self] isConnected in
+            guard let self = self else { return }
+            if !isConnected {
+                self.hideLoadingView()
+                self.showNetworkAlert()
+                self.refreshButton.isHidden = false
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -81,9 +84,11 @@ class HomeViewController: UIViewController {
                 self.popularPlacesView.isHidden = false
                 self.warningView.isHidden = true
 
-                //Get places list and update collection view
-                self.getPlaces()
-                self.applySnapshot()
+                //Get places list and update collection view if there is network connection
+                if NetworkReachability.shared.isConnectedToNetwork() {
+                    self.getPlaces()
+                    self.applySnapshot()
+                }
             } else {
                 self.popularPlacesView.isHidden = true
                 self.warningView.isHidden = false
@@ -107,6 +112,7 @@ class HomeViewController: UIViewController {
                 print("Error in getting popular places: \(error)")
             } else {
                 DispatchQueue.main.async {
+                    self.refreshButton.isHidden = true
                     self.hideLoadingView()
                     self.applySnapshot()
                 }

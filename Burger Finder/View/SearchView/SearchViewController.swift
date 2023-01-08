@@ -22,6 +22,12 @@ class SearchViewController: UIViewController {
     let mapView = MKMapView()
     var mapListBarButton = UIBarButtonItem()
     
+    let networkWarningLabel = UILabel()
+    let refreshButton = UIButton()
+    let spinnerView = UIActivityIndicatorView()
+    
+    var pendingRequestWorkItem: DispatchWorkItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -45,13 +51,30 @@ class SearchViewController: UIViewController {
         //Show loadingView before data is fetched from network
         configureAndShowLoadingView()
         
-//        //Hide loadingView if network is not connected
-//        if !NetworkReachability.shared.isConnectedToNetwork() {
-//            hideLoadingView()
-//        }
+        //Configure refreshButton, spinnerView and networkWarningLabel for checking network status
+        configureNetworkWarningLabel()
+        configureRefreshButton()
+        configureSpinner()
         
-        //Fetch places data
-        getPlaces(search: "", location: "")
+        //Hide loadingView if locations is not enabled
+        searchViewModel.isLocationEnabled { [weak self] isEnabled in
+            guard let self = self else {return}
+            if !isEnabled{
+                self.hideLoadingView()
+            }
+        }
+        
+        //Hide loadingView and show alert if network is not connected
+        searchViewModel.isNetworkConnected { [weak self] isConnected in
+            guard let self = self else {return}
+            if !isConnected {
+                self.hideLoadingView()
+                self.refreshButton.isHidden = false
+                self.networkWarningLabel.isHidden = false
+            } else {
+                self.getPlaces(search: "", location: "")
+            }
+        }
         
         //Update placesTableView
         applySnapshot()
@@ -75,9 +98,10 @@ class SearchViewController: UIViewController {
             }
         }
     }
-    //Deselect selected annotations when after view appears
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
+        //Deselect selected annotations when after view appears
         let selectedAnnotations = mapView.selectedAnnotations
         for annotation in selectedAnnotations {
             mapView.deselectAnnotation(annotation, animated: true)

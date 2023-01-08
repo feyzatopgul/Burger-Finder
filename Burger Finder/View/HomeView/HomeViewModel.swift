@@ -13,14 +13,17 @@ class HomeViewModel {
     private let networkManager: NetworkManagerProtocol
     private let locationManager: LocationManagerProtocol
     private let imageLoader: ImageLoaderProtocol
+    private let networkReachability: NetworkReachabilityProtocol
     var popularPlaces = [Place]()
     
     init(networkManager: NetworkManagerProtocol = NetworkManager.shared,
          locationManager:LocationManagerProtocol = LocationManager.shared,
-         imageLoader: ImageLoaderProtocol = ImageLoader.shared) {
+         imageLoader: ImageLoaderProtocol = ImageLoader.shared,
+         networkReachability: NetworkReachabilityProtocol = NetworkReachability.shared) {
         self.networkManager = networkManager
         self.locationManager = locationManager
         self.imageLoader = imageLoader
+        self.networkReachability = networkReachability
         locationManager.checkLocationService()
     }
     
@@ -49,6 +52,15 @@ class HomeViewModel {
     //Check if location is enabled or not
     func isLocationEnabled(completion: @escaping ((Bool) -> Void)){
         if locationManager.isLocationEnabled {
+            completion(true)
+        } else {
+            completion(false)
+        }
+    }
+    
+    //Check if network is connected or not
+    func isNetworkConnected(completion: @escaping ((Bool) -> Void)) {
+        if networkReachability.isConnectedToNetwork(){
             completion(true)
         } else {
             completion(false)
