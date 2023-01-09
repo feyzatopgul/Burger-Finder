@@ -14,6 +14,7 @@ extension HomeViewController {
     func configurePlacesCollectionView() {
         placesCollectionView.addSubview(refreshButton)
         placesCollectionView.addSubview(spinnerView)
+        placesCollectionView.addSubview(networkWarningLabel)
         
         placesCollectionView.backgroundColor = .clear
         placesCollectionView.delegate = self

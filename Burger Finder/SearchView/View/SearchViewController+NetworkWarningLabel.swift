@@ -14,7 +14,7 @@ extension SearchViewController {
         
         networkWarningLabel.isHidden = true
         networkWarningLabel.numberOfLines = 0
-        networkWarningLabel.text = "You are not connected to the internet. Please connect and retry"
+        networkWarningLabel.text = SearchViewConstants.networkWarningLabel
         networkWarningLabel.textColor = UIColor(named: SearchViewConstants.textColor)
         
         //Adjust constraints

@@ -25,7 +25,7 @@ extension HomeViewController {
         settingsButton.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             settingsButton.centerXAnchor.constraint(equalTo: warningView.centerXAnchor),
-            settingsButton.topAnchor.constraint(equalTo: warningLabel.bottomAnchor, constant: 30),
+            settingsButton.topAnchor.constraint(equalTo: locationWarningLabel.bottomAnchor, constant: 30),
             settingsButton.widthAnchor.constraint(equalToConstant: 150),
             settingsButton.heightAnchor.constraint(equalToConstant: 40)
         ]

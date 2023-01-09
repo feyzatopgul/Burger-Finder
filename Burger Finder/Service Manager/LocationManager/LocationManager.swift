@@ -27,8 +27,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
     private var locationCompletion: ((CLLocation) -> Void)?
     var isLocationEnabled = false
     
-    //delegate for updating HomeViewController when location authorization changes
-    weak var locationDelegate: LocationUpdateDelegate? = nil
+    //delegate pattern for updating views when location authorization changes
+    var locationListeners: [LocationUpdateDelegate] = []
     
     func checkLocationService() {
         locationManager.delegate = self
@@ -41,14 +41,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         case .restricted:
-            print("Location is restricted")
             isLocationEnabled = false
         case .denied:
-            print("Denied")
             isLocationEnabled = false
         case .authorizedAlways, .authorizedWhenInUse:
             isLocationEnabled = true
-            print("Authorized")
         @unknown default:
             break
         }
@@ -56,7 +53,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationAuthorization()
-        locationDelegate?.didLocationUpdated()
+        //Call didLocationUpdated method for listeners
+        locationListeners.forEach { $0.didLocationUpdated() }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -89,6 +87,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
             }
         }
     }
+    
     //Find a valid location with a given string query
     func findLocation(query: String, completion: @escaping (CLLocationCoordinate2D?)->Void) {
         let geoCoder = CLGeocoder()
@@ -103,4 +102,16 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
         }
     }
     
+    //Add listener to delegate pattern
+    func addListener(locationListener: LocationUpdateDelegate) {
+        locationListeners.append(locationListener)
+    }
+    
+    //Remove listener from delegate pattern
+    func removeListener(locationListener: LocationUpdateDelegate) {
+        if let index = locationListeners.firstIndex(where: { $0 === locationListener }) {
+            locationListeners.remove(at: index)
+        }
+    }
 }
+

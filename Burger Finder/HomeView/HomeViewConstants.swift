@@ -14,7 +14,7 @@ class HomeViewConstants {
     static let imageSize = "150x200"
     static let textColor = "textColor"
     static let popularPlacesLabel = "Popular burger places around you..."
-    static let warningLabel = "Ooops! We can't find you.\n\nIf you allow Location permissions, we can show you nearby burger places."
+    static let locationWarningLabel = "Ooops! We can't find you.\n\nIf you allow Location permissions, we can show you nearby burger places."
     static let warningLabelColor = "warningLabelColor"
     static let primaryAppColor = "primaryAppColor"
     static let settingsButtonTitle = "Go to Settings"
@@ -22,4 +22,7 @@ class HomeViewConstants {
     static let star = "star"
     static let popularPlaceCellIdentifier = "PopularPlaceCell"
     static let refreshButtonTitle = "Refresh"
+    static let networkWarningLabel = "You are not connected to the internet. Please connect and retry"
+    static let alertTitle = "No internet connection"
+    static let alertMessage = "Make sure Wi-Fi or mobile data is turned on"
 }

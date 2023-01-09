@@ -20,10 +20,11 @@ class HomeViewController: UIViewController {
     let popularPlacesLabel = UILabel()
     
     let warningView = GradientView(colors: [UIColor.white.cgColor, UIColor.clear.cgColor])
-    let warningLabel = UILabel()
+    let locationWarningLabel = UILabel()
     let settingsButton = UIButton()
     let refreshButton = UIButton()
     let spinnerView = UIActivityIndicatorView()
+    let networkWarningLabel = UILabel()
     
     typealias DataSource = UICollectionViewDiffableDataSource<PopularPlacesSection,Place>
     typealias Snapshot = NSDiffableDataSourceSnapshot<PopularPlacesSection, Place>
@@ -52,14 +53,16 @@ class HomeViewController: UIViewController {
         
         //Configure warningView
         configureWarningView()
-        configureWarningLabel()
+        configureLocationWarningLabel()
         configureSettingsButton()
         
         //Configure refreshButton and spinnerView for checking network status
         configureRefreshButton()
         configureSpinner()
+        configureNetworkWarningLabel()
         
-        LocationManager.shared.locationDelegate = self
+        //Add view controller as listener to LocationManagerDelegate
+        LocationManager.shared.addListener(locationListener: self)
 
         //Hide loadingView and show alert if network is not connected
         homeViewModel.isNetworkConnected{ [weak self] isConnected in
@@ -67,7 +70,9 @@ class HomeViewController: UIViewController {
             if !isConnected {
                 self.hideLoadingView()
                 self.showNetworkAlert()
+                self.popularPlacesLabel.isHidden = true
                 self.refreshButton.isHidden = false
+                self.networkWarningLabel.isHidden = false
             }
         }
     }
@@ -119,8 +124,13 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    deinit {
+        //Remove view controller from listeners when it is deinitialized
+        LocationManager.shared.removeListener(locationListener: self)
+    }
 }
 
+//Implement LocationUpdateDelegate protocol to get location updates
 extension HomeViewController: LocationUpdateDelegate {
     func didLocationUpdated(){
         checkLocationEnabled() 

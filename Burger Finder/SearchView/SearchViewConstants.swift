@@ -24,4 +24,5 @@ class SearchViewConstants {
     static let priceColor = "priceColor"
     static let burgerAnnotation = "burgerAnnotation"
     static let placeCellIdentifier = "PlaceCell"
+    static let networkWarningLabel = "You are not connected to the internet. Please connect and retry"
 }

@@ -19,8 +19,8 @@ extension HomeViewController {
         //Adjust constraints
         spinnerView.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
-            spinnerView.centerXAnchor.constraint(equalTo: placesCollectionView.centerXAnchor),
-            spinnerView.topAnchor.constraint(equalTo: placesCollectionView.bottomAnchor, constant: 30),
+            spinnerView.centerXAnchor.constraint(equalTo: popularPlacesView.centerXAnchor),
+            spinnerView.topAnchor.constraint(equalTo: networkWarningLabel.bottomAnchor, constant: 30),
             spinnerView.widthAnchor.constraint(equalToConstant: 100),
             spinnerView.heightAnchor.constraint(equalToConstant: 40)
         ]
@@ -41,4 +41,3 @@ extension HomeViewController {
         spinnerView.isHidden = true
     }
 }
-
