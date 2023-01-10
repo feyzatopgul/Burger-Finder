@@ -75,9 +75,6 @@ class SearchViewController: UIViewController {
                 self.getPlaces(search: "", location: "")
             }
         }
-        
-        //Update placesTableView
-        applySnapshot()
     }
     
     //Fetch place data when user searches something
@@ -100,11 +97,15 @@ class SearchViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         //Deselect selected annotations when after view appears
         let selectedAnnotations = mapView.selectedAnnotations
         for annotation in selectedAnnotations {
             mapView.deselectAnnotation(annotation, animated: true)
         }
+    }
+    deinit {
+        //Remove all annotations when view controller denitializes
+        let allAnotations = mapView.annotations
+        mapView.removeAnnotations(allAnotations)
     }
 }

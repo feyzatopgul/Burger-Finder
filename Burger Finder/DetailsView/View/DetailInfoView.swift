@@ -107,7 +107,7 @@ class DetailInfoView: UIStackView {
         button.addTarget(self, action: selector, for: .touchUpInside)
     }
     
-    //Call number when phoneButton is tapped
+    //Call number when phoneStack button is tapped
     @objc func callNumber() {
         guard let phoneNumber = place?.phoneNumber else { return }
         let validPhoneNumber = phoneNumber.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
@@ -117,7 +117,7 @@ class DetailInfoView: UIStackView {
         }
     }
     
-    //Open website in WebVuew
+    //Open website when websiteStack button is tapped
     @objc func openWebsite(){
         guard let website = place?.website else { return }
         guard let webUrl = URL(string: website) else { return }

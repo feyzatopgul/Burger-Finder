@@ -49,7 +49,7 @@ class HomeViewModel {
         }
     }
     
-    //Check if location is enabled or not
+    //Check if the location is enabled or not
     func isLocationEnabled(completion: @escaping ((Bool) -> Void)){
         if locationManager.isLocationEnabled {
             completion(true)
@@ -58,7 +58,7 @@ class HomeViewModel {
         }
     }
     
-    //Check if network is connected or not
+    //Check if the network is connected or not
     func isNetworkConnected(completion: @escaping ((Bool) -> Void)) {
         if networkReachability.isConnectedToNetwork(){
             completion(true)

@@ -2,7 +2,7 @@
 //  HomeViewController+NetworkWarningLabel.swift
 //  Burger Finder
 //
-//  Created by fyz on 1/9/23.
+//  Created by Feyza Topgul on 1/9/23.
 //
 
 import Foundation

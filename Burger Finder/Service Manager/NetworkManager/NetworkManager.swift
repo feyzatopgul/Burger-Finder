@@ -17,6 +17,7 @@ class NetworkManager:NetworkManagerProtocol {
     static var shared = NetworkManager()
     private init() { }
     
+    //Creates URLRequest for a given url string
     func createRequest(for url: String) -> URLRequest? {
         guard let url = URL(string: url) else {
             return nil
@@ -27,6 +28,7 @@ class NetworkManager:NetworkManagerProtocol {
         return request
     }
     
+    //Performs network call with a given request and decode the returned JSON into a type 
     func executeRequest<T:Codable>(request: URLRequest, forType: T.Type, completion: @escaping (T?, Error?) -> Void) {
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in

@@ -2,7 +2,7 @@
 //  DetailsViewController+LoadingView.swift
 //  Burger Finder
 //
-//  Created by fyz on 1/5/23.
+//  Created by Feyza Topgul on 1/5/23.
 //
 
 import Foundation

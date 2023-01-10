@@ -85,6 +85,7 @@ class CoreDataManager:CoreDataManagerProtocol {
             print("Error saving places to CoreData :\(error)")
         }
     }
+    
     //Delete selected place
     func deletePlace(place: Place) {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "PlaceItem")
@@ -97,7 +98,6 @@ class CoreDataManager:CoreDataManagerProtocol {
         } catch let error as NSError {
             print("Error deleting the place :\(error)")
         }
-        
     }
     
     //Deletes all places in CoreData
@@ -163,7 +163,7 @@ class CoreDataManager:CoreDataManagerProtocol {
     }
 
     
-    //Filter saved places according to search term
+    //Filter saved places based on the search term
     func filterPlaces(filter : String) -> [Place] {
         var placeItems = [PlaceItem]()
         var places = [Place]()

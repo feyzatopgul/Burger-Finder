@@ -27,7 +27,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
     private var locationCompletion: ((CLLocation) -> Void)?
     var isLocationEnabled = false
     
-    //delegate pattern for updating views when location authorization changes
+    //multicast delegate pattern for updating views when location authorization changes
     var locationListeners: [LocationUpdateDelegate] = []
     
     func checkLocationService() {
@@ -36,6 +36,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
         checkLocationAuthorization()
     }
     
+    //Checks location authorization status and performs required actions
     func checkLocationAuthorization() {
         switch locationManager.authorizationStatus {
         case .notDetermined:
@@ -51,12 +52,14 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
         }
     }
     
+    //Called when location authorization status is changed
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationAuthorization()
         //Call didLocationUpdated method for listeners
         locationListeners.forEach { $0.didLocationUpdated() }
     }
     
+    //Called when locationManager cannot retrieve the location
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         locationManager.stopUpdatingLocation()
     }
@@ -66,13 +69,14 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
         self.locationCompletion = completion
         locationManager.startUpdatingLocation()
     }
+    //Called when new location data is available
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
         locationCompletion?(location)
         locationManager.stopUpdatingLocation()
     }
     
-    //Get current location as locality and administrativeArea in a string
+    //Get current location as coordinate
     func resolvedCurrentLocation(completion: @escaping ((CLLocationCoordinate2D?) -> Void)){
         let geocoder = CLGeocoder()
         getCurrentLocation { location in
@@ -88,7 +92,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, LocationManagerProto
         }
     }
     
-    //Find a valid location with a given string query
+    //Find a valid location as a coordinate with a given string query
     func findLocation(query: String, completion: @escaping (CLLocationCoordinate2D?)->Void) {
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(query) { placemarks, error in

@@ -2,7 +2,7 @@
 //  HomeViewController+RefreshButton.swift
 //  Burger Finder
 //
-//  Created by fyz on 1/6/23.
+//  Created by Feyza Topgul on 1/6/23.
 //
 
 import Foundation
@@ -45,7 +45,7 @@ extension HomeViewController {
                 self.refreshButton.isHidden = true
                 self.networkWarningLabel.isHidden = true
                 self.configureAndShowLoadingView()
-                self.checkLocationEnabled()
+                self.checkLocationNetworkEnabled()
             }
         }
     }

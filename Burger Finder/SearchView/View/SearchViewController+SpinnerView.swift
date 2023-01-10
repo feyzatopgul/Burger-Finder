@@ -2,7 +2,7 @@
 //  SearchViewController+SpinnerView.swift
 //  Burger Finder
 //
-//  Created by fyz on 1/7/23.
+//  Created by Feyza Topgul on 1/7/23.
 //
 
 import Foundation

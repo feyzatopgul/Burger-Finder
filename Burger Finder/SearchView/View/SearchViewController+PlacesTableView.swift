@@ -92,9 +92,6 @@ extension SearchViewController {
                         }
                     }
                 }
-            } else {
-                //Set imageView with a placeholder
-                //placeCell.placeImage.image = UIImage(named: SearchViewConstants.placeholderBurger)
             }
         }
     }

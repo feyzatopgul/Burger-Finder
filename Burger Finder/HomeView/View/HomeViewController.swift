@@ -9,7 +9,6 @@ import UIKit
 import Network
 
 class HomeViewController: UIViewController {
-    var networkPathMonitor: NWPathMonitor?
     
     let homeViewModel = HomeViewModel()
     
@@ -32,7 +31,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //Set navigation back button display mode
         navigationItem.backButtonDisplayMode = .minimal
         
         //Set up background
@@ -51,7 +50,7 @@ class HomeViewController: UIViewController {
         //Show loadingView before data is fetched from network
         configureAndShowLoadingView()
         
-        //Configure warningView
+        //Configure warningView for checking location authorization status
         configureWarningView()
         configureLocationWarningLabel()
         configureSettingsButton()
@@ -64,7 +63,7 @@ class HomeViewController: UIViewController {
         //Add view controller as listener to LocationManagerDelegate
         LocationManager.shared.addListener(locationListener: self)
 
-        //Hide loadingView and show alert if network is not connected
+        //Hide loadingView and show alert if the network is not connected
         homeViewModel.isNetworkConnected{ [weak self] isConnected in
             guard let self = self else { return }
             if !isConnected {
@@ -79,10 +78,11 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        checkLocationEnabled()
+        checkLocationNetworkEnabled()
     }
 
-    func checkLocationEnabled() {
+    //If the location is enabled and network is connected fetch places, if the location is not enabled show warningView
+    func checkLocationNetworkEnabled() {
         homeViewModel.isLocationEnabled { [weak self] isEnabled in
             guard let self = self else { return }
             if isEnabled {
@@ -108,9 +108,8 @@ class HomeViewController: UIViewController {
     }
     
     
-    //Get default popular places according to the current location
+    //Get default popular places based on the current location
     func getPlaces() {
-
         homeViewModel.fetchPopularPlacesNearby { [weak self] error in
             guard let self = self else { return }
             if let error = error {
@@ -118,6 +117,8 @@ class HomeViewController: UIViewController {
             } else {
                 DispatchQueue.main.async {
                     self.refreshButton.isHidden = true
+                    self.networkWarningLabel.isHidden = true
+                    self.popularPlacesLabel.isHidden = false
                     self.hideLoadingView()
                     self.applySnapshot()
                 }
@@ -133,7 +134,7 @@ class HomeViewController: UIViewController {
 //Implement LocationUpdateDelegate protocol to get location updates
 extension HomeViewController: LocationUpdateDelegate {
     func didLocationUpdated(){
-        checkLocationEnabled() 
+        checkLocationNetworkEnabled() 
     }
 }
 

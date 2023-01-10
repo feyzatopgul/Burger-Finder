@@ -56,7 +56,6 @@ class DetailsViewController: UIViewController {
                 self.hideLoadingView()
             }
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

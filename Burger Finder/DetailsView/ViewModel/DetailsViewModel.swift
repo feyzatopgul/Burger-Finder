@@ -29,21 +29,22 @@ class DetailsViewModel {
     }
     
     //Save isSaved boolean as true in CoreData if the place is saved, save it as false if the place is unsaved
-        func setSavedState(placeId: String, isSaved: Bool) {
-            coreDataManager.setSavedState(placeId: placeId, isSaved: isSaved)
-        }
-        
-        //Check if the place is saved or not from CoreData
-        func getSavedState(placeId: String) -> Bool {
-            let state = coreDataManager.getSavedState(placeId: placeId)
-            return state
-        }
+    func setSavedState(placeId: String, isSaved: Bool) {
+        coreDataManager.setSavedState(placeId: placeId, isSaved: isSaved)
+    }
     
-    //Save place to CoreData
+    //Check if the place is saved or not from CoreData
+    func getSavedState(placeId: String) -> Bool {
+        let state = coreDataManager.getSavedState(placeId: placeId)
+        return state
+    }
+    
+    //Save a place to CoreData
     func savePlace(place: Place) {
         coreDataManager.savePlace(place: place)
     }
-    //Delete place from CoreData
+    
+    //Delete a place from CoreData
     func deletePlace(place: Place){
         coreDataManager.deletePlace(place: place)
     }

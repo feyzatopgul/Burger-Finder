@@ -10,7 +10,7 @@ import UIKit
 
 extension PhotoViewController {
     
-    //Configire photoView
+    //Configure photoView
     func configurePhotoView() {
         view.addSubview(photoView)
         photoView.layer.cornerRadius = 20

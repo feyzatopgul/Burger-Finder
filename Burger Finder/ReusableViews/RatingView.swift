@@ -23,7 +23,7 @@ class RatingView: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //Create rating images based on rating property of place
+    //Create rating images based on rating property of a place
     func createRatingImages(filled: Int) -> [UIImageView] {
         var imageViews:[UIImageView] = []
         let filledStar = UIImage(systemName: HomeViewConstants.filledStar)

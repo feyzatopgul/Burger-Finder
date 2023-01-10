@@ -2,7 +2,7 @@
 //  AnimatedTransitionManager.swift
 //  Burger Finder
 //
-//  Created by fyz on 1/6/23.
+//  Created by Feyza Topgul on 1/6/23.
 //
 
 import Foundation
@@ -21,7 +21,7 @@ class AnimationManager : NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        //Setc the view controller that’s visible at the end of a completed transition.
+        //Set the view controller that’s visible at the end of a completed transition.
         guard let toVC = transitionContext.viewController(forKey: .to) else {
             transitionContext.completeTransition(false)
             return }

@@ -193,12 +193,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		621681C0296B37690002B86C /* NetworkMonitor */ = {
+		621681C0296B37690002B86C /* NetworkReachability */ = {
 			isa = PBXGroup;
 			children = (
 				627D7ECA29676CCB002586EC /* NetworkReachability.swift */,
 			);
-			path = NetworkMonitor;
+			path = NetworkReachability;
 			sourceTree = "<group>";
 		};
 		621681C1296BCB2B0002B86C /* ViewModel */ = {
@@ -409,7 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				62893C3F29578653009012A6 /* NetworkManager */,
-				621681C0296B37690002B86C /* NetworkMonitor */,
+				621681C0296B37690002B86C /* NetworkReachability */,
 				62893C5129581A87009012A6 /* ImageLoader */,
 				62893C402957867D009012A6 /* LocationManager */,
 			);

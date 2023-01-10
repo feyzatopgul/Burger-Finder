@@ -2,7 +2,7 @@
 //  HomeViewController+SpinnerView.swift
 //  Burger Finder
 //
-//  Created by fyz on 1/6/23.
+//  Created by Feyza Topgul on 1/6/23.
 //
 
 import Foundation
