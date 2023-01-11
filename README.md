@@ -47,7 +47,7 @@ Dependency injection is performed to create loosely coupled objects.
 
 - **NetworkReachability:** Provides network connection status.
 
-### Models&APIs
+### Models & APIs
 
 Models are created as immutable structs. They conform to ```Codable``` protocol that provides methods for encoding custom types into ```JSON``` data, or convert ```JSON``` data into a custom type. Models also conform to ```Hashable``` protocol which is a requirement for diffable data source used in ```tableView``` and ```collectionViews```. The diffable data source uses the hash values for all identifiers to determine what's changed.
 
@@ -106,6 +106,7 @@ Two different API endpoints are used.
 2. Navigate to ```ServiceManager/NetworkManager/NetworkConstants``` file and replace ```YOUR_KEY!``` with your FourSquare ```API_KEY```
 3. Select an iOS simulator/iOS device(preferably iPhone)
 4. If you are using a simulator, please provide a location from ```Features > Location```
+5. If there is no scheme selected, please navigate to ```Manage Schemes``` and add Burger Finder scheme manually.
 5. Build and run. 
 
 ## Future Development Goals
