@@ -106,7 +106,6 @@ Two different API endpoints are used.
 2. Navigate to ```ServiceManager/NetworkManager/NetworkConstants``` file and replace ```YOUR_KEY!``` with your FourSquare ```API_KEY```
 3. Select an iOS simulator/iOS device(preferably iPhone)
 4. If you are using a simulator, please provide a location from ```Features > Location```
-5. If there is no scheme selected, please navigate to ```Manage Schemes``` and add Burger Finder scheme manually.
 5. Build and run. 
 
 ## Future Development Goals
