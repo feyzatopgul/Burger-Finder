@@ -111,7 +111,7 @@ Two different API endpoints are used.
 
 ## Future Development Goals
 
-- Pagination can be performed to fetch more data
+- Pagination can be added to fetch and display more places
 - Autocomplete for location search can be added in SearchView
 - Login/Logout and cloud integration can be added for multi device usage 
 
