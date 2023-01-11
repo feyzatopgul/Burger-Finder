@@ -59,9 +59,9 @@ Two different API endpoints are used.
 
 ### HomeView
 <p align="center">
-<img src= "https://media.giphy.com/media/QI9cAyHSC7NBQxswRY/giphy.gif" width="250"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-<img src= "https://i.imgur.com/MKfQ3Nm.png" width="250"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
-<img src= "https://i.imgur.com/P2NeH0F.png" width="250"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <br />
+<img src= "https://media.giphy.com/media/QI9cAyHSC7NBQxswRY/giphy.gif" width="250"> &nbsp&nbsp&nbsp&nbsp&nbsp
+<img src= "https://i.imgur.com/MKfQ3Nm.png" width="250"> &nbsp&nbsp&nbsp&nbsp&nbsp
+<img src= "https://i.imgur.com/P2NeH0F.png" width="250"> &nbsp&nbsp&nbsp&nbsp&nbsp <br />
 
 ```HomeViewController``` displays maximum 10 popular burger places around if the location service is enabled. ```HomeViewModel``` gets the current location coordinates from ```LocationManager``` and performs a network call to FourSquare ```Place Search``` API endpoint via ```NetworkManager```. ```HomeViewModel``` downloads the first image of the place (if any) via ```ImageLoader```. Popular burger places are shown in a ```collectionView```. In ```HomeViewController``` there is a button that performs navigation to the ```SearchViewController```. If the location is not enabled, a warning view is displayed to ask users to enable the location. It shows an alert when the device is not connected to the internet, displays a message and a button to refresh the view. 
 <p align="center">
