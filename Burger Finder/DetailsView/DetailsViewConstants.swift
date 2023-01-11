@@ -19,4 +19,6 @@ class DetailsViewConstants {
     static let clock = "clock"
     static let filledPhone = "phone.fill"
     static let web = "network"
+    static let networkErrorAlertTitle = "Network error occured"
+    static let networkErrorAlertMessage = "Please try again later"
 }

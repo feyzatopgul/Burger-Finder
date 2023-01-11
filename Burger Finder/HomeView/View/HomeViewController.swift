@@ -113,6 +113,10 @@ class HomeViewController: UIViewController {
         homeViewModel.fetchPopularPlacesNearby { [weak self] error in
             guard let self = self else { return }
             if let error = error {
+                DispatchQueue.main.async {
+                    self.hideLoadingView()
+                    self.showErrorAlert()
+                }
                 print("Error in getting popular places: \(error)")
             } else {
                 DispatchQueue.main.async {

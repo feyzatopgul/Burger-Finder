@@ -25,4 +25,6 @@ class SearchViewConstants {
     static let burgerAnnotation = "burgerAnnotation"
     static let placeCellIdentifier = "PlaceCell"
     static let networkWarningLabel = "You are not connected to the internet. Please connect and retry"
+    static let networkErrorAlertTitle = "Network error occured"
+    static let networkErrorAlertMessage = "Please try again later"
 }

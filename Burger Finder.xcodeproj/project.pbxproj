@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		621681CE296C6AC10002B86C /* HomeViewController+NetworkWarningLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621681CD296C6AC10002B86C /* HomeViewController+NetworkWarningLabel.swift */; };
+		621681D1296E2D350002B86C /* SearchViewController+NetworkErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621681D0296E2D350002B86C /* SearchViewController+NetworkErrorAlert.swift */; };
+		621681D3296E2DA50002B86C /* DetailsViewController+NetworkErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621681D2296E2DA50002B86C /* DetailsViewController+NetworkErrorAlert.swift */; };
 		622082422967A2580046D9FD /* HomeViewController+ShowNetworkAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622082412967A2580046D9FD /* HomeViewController+ShowNetworkAlert.swift */; };
 		622082492968A4580046D9FD /* HomeViewController+RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622082482968A4580046D9FD /* HomeViewController+RefreshButton.swift */; };
 		6220824B2968A60A0046D9FD /* HomeViewController+SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220824A2968A60A0046D9FD /* HomeViewController+SpinnerView.swift */; };
@@ -95,6 +97,8 @@
 
 /* Begin PBXFileReference section */
 		621681CD296C6AC10002B86C /* HomeViewController+NetworkWarningLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+NetworkWarningLabel.swift"; sourceTree = "<group>"; };
+		621681D0296E2D350002B86C /* SearchViewController+NetworkErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+NetworkErrorAlert.swift"; sourceTree = "<group>"; };
+		621681D2296E2DA50002B86C /* DetailsViewController+NetworkErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsViewController+NetworkErrorAlert.swift"; sourceTree = "<group>"; };
 		622082412967A2580046D9FD /* HomeViewController+ShowNetworkAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+ShowNetworkAlert.swift"; sourceTree = "<group>"; };
 		622082482968A4580046D9FD /* HomeViewController+RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+RefreshButton.swift"; sourceTree = "<group>"; };
 		6220824A2968A60A0046D9FD /* HomeViewController+SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+SpinnerView.swift"; sourceTree = "<group>"; };
@@ -213,11 +217,11 @@
 			isa = PBXGroup;
 			children = (
 				62893C2E295782BD009012A6 /* HomeViewController.swift */,
-				627D7EC8296768EB002586EC /* HomeViewController+LoadingView.swift */,
 				62893C30295782C3009012A6 /* HomeViewController+SearchButton.swift */,
 				62893C32295782C9009012A6 /* HomeViewController+PlacesCollectionView.swift */,
 				6274DAA8295A5D6B006ADFC4 /* HomeViewController+CollectionViewDelegates.swift */,
 				62893C34295782D0009012A6 /* PopularPlaceCell.swift */,
+				627D7EC8296768EB002586EC /* HomeViewController+LoadingView.swift */,
 				62893C432957B579009012A6 /* HomeViewController+PopularPlacesView.swift */,
 				62893C472957C657009012A6 /* HomeViewController+PopularPlacesLabel.swift */,
 				622082412967A2580046D9FD /* HomeViewController+ShowNetworkAlert.swift */,
@@ -243,10 +247,6 @@
 			isa = PBXGroup;
 			children = (
 				62893C37295782ED009012A6 /* SearchViewController.swift */,
-				629C284A2969D77100984280 /* SearchViewController+RefreshButton.swift */,
-				629C284C2969D80800984280 /* SearchViewController+SpinnerView.swift */,
-				629C284E2969D85800984280 /* SearchViewController+NetworkWarningLabel.swift */,
-				627D7EC629675E0D002586EC /* SearchViewController+LoadingView.swift */,
 				62CABDF4295FB44B00DD0815 /* SearchViewController+MapListBarButton.swift */,
 				62CABDF82960C81B00DD0815 /* SearchViewController+MapView.swift */,
 				6274DA8F29590EB0006ADFC4 /* SearchViewController+PlaceSearchBar.swift */,
@@ -255,6 +255,11 @@
 				6274DA93295923F5006ADFC4 /* SearchViewController+PlacesTableView.swift */,
 				6274DA9A295A1AD2006ADFC4 /* SearchViewController+PlacesTableViewDelegate.swift */,
 				6274DA962959260A006ADFC4 /* PlaceCell.swift */,
+				627D7EC629675E0D002586EC /* SearchViewController+LoadingView.swift */,
+				629C284E2969D85800984280 /* SearchViewController+NetworkWarningLabel.swift */,
+				629C284C2969D80800984280 /* SearchViewController+SpinnerView.swift */,
+				629C284A2969D77100984280 /* SearchViewController+RefreshButton.swift */,
+				621681D0296E2D350002B86C /* SearchViewController+NetworkErrorAlert.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 				62CABDFF2962251B00DD0815 /* DetailsViewController+PhotosCollectionViewDelegates.swift */,
 				627C2C31295BA37D006513C3 /* PhotoCell.swift */,
 				62E1220A295A646000586B9A /* DetailInfoView.swift */,
+				621681D2296E2DA50002B86C /* DetailsViewController+NetworkErrorAlert.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -590,6 +596,7 @@
 				6274DA9229590F36006ADFC4 /* SearchViewController+LocationSearchBar.swift in Sources */,
 				62CABE0E2963745500DD0815 /* SearchViewConstants.swift in Sources */,
 				629C284D2969D80800984280 /* SearchViewController+SpinnerView.swift in Sources */,
+				621681D1296E2D350002B86C /* SearchViewController+NetworkErrorAlert.swift in Sources */,
 				62400635295E1AD100F536F3 /* HoursItem+CoreDataProperties.swift in Sources */,
 				62400639295E1B8100F536F3 /* PhotoItem+CoreDataProperties.swift in Sources */,
 				62CABE10296377FA00DD0815 /* DetailsViewConstants.swift in Sources */,
@@ -610,6 +617,7 @@
 				62893C1F295781EE009012A6 /* NetworkManager.swift in Sources */,
 				62400637295E1B1C00F536F3 /* LocationItem+CoreDataProperties.swift in Sources */,
 				627C2C38295BE2F8006513C3 /* DetailsViewController+GetDirectionsButton.swift in Sources */,
+				621681D3296E2DA50002B86C /* DetailsViewController+NetworkErrorAlert.swift in Sources */,
 				62CABDF92960C81B00DD0815 /* SearchViewController+MapView.swift in Sources */,
 				621681CE296C6AC10002B86C /* HomeViewController+NetworkWarningLabel.swift in Sources */,
 				6240063E295F7C6300F536F3 /* HomeViewModel.swift in Sources */,

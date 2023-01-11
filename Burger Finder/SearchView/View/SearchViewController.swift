@@ -82,6 +82,10 @@ class SearchViewController: UIViewController {
         searchViewModel.fetchSearchedPlaces(search: search, location: location) {[weak self] error in
             guard let self = self else { return }
             if let error = error {
+                DispatchQueue.main.async {
+                    self.hideLoadingView()
+                    self.showErrorAlert()
+                }
                 print("Error in getting searched places: \(error) ")
             } else {
                 DispatchQueue.main.async {

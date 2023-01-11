@@ -23,6 +23,8 @@ class HomeViewConstants {
     static let popularPlaceCellIdentifier = "PopularPlaceCell"
     static let refreshButtonTitle = "Refresh"
     static let networkWarningLabel = "You are not connected to the internet. Please connect and retry"
-    static let alertTitle = "No internet connection"
-    static let alertMessage = "Make sure Wi-Fi or mobile data is turned on"
+    static let noNetworkAlertTitle = "No internet connection"
+    static let noNetworkAlertAlertMessage = "Make sure Wi-Fi or mobile data is turned on"
+    static let networkErrorAlertTitle = "Network error occured"
+    static let networkErrorAlertMessage = "Please try again later"
 }

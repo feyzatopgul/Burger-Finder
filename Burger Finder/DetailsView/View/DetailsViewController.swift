@@ -85,6 +85,10 @@ class DetailsViewController: UIViewController {
             detailsViewModel.getPhotos(placeId: place.id) {[weak self] error in
                 guard let self = self else { return }
                 if let error = error {
+                    DispatchQueue.main.async {
+                        self.showErrorAlert()
+                        self.hideLoadingView()
+                    }
                     print("Error in getting photos: \(error)")
                 } else {
                     DispatchQueue.main.async {
