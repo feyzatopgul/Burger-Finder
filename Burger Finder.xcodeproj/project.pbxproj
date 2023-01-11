@@ -99,6 +99,7 @@
 		621681CD296C6AC10002B86C /* HomeViewController+NetworkWarningLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+NetworkWarningLabel.swift"; sourceTree = "<group>"; };
 		621681D0296E2D350002B86C /* SearchViewController+NetworkErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+NetworkErrorAlert.swift"; sourceTree = "<group>"; };
 		621681D2296E2DA50002B86C /* DetailsViewController+NetworkErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsViewController+NetworkErrorAlert.swift"; sourceTree = "<group>"; };
+		621681D4296E33FF0002B86C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		622082412967A2580046D9FD /* HomeViewController+ShowNetworkAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+ShowNetworkAlert.swift"; sourceTree = "<group>"; };
 		622082482968A4580046D9FD /* HomeViewController+RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+RefreshButton.swift"; sourceTree = "<group>"; };
 		6220824A2968A60A0046D9FD /* HomeViewController+SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+SpinnerView.swift"; sourceTree = "<group>"; };
@@ -368,6 +369,7 @@
 		62893BFC295781A6009012A6 = {
 			isa = PBXGroup;
 			children = (
+				621681D4296E33FF0002B86C /* README.md */,
 				62893C07295781A6009012A6 /* Burger Finder */,
 				62893C06295781A6009012A6 /* Products */,
 			);
